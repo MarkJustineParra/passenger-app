@@ -1,0 +1,25 @@
+/* QR Modal styling */
+.qr-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.qr-modal h2 {
+  margin-bottom: 2rem;
+}
+
+
+ion-fab-button {
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --background: #2575fc;
+  color: white;
+}

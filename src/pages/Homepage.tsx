@@ -8,9 +8,7 @@ const Homepage: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
         <IonFab slot="fixed" vertical="top" horizontal="end">
-          <IonFabButton size='small'>
-            <IonIcon icon={notifications}></IonIcon>
-          </IonFabButton>
+          
         </IonFab>
         <ExploreContainer name="Tab 1 page" />
       </IonContent>

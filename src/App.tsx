@@ -1,21 +1,23 @@
-import { Redirect, Route } from "react-router-dom";
+import { useState, useEffect, createContext } from "react";
 import {
   IonApp,
-  IonIcon,
-  IonRouterOutlet,
+  IonTabs,
   IonTabBar,
   IonTabButton,
-  IonTabs,
+  IonIcon,
+  IonRouterOutlet,
   IonModal,
   IonButton,
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import { Route, Redirect } from "react-router-dom";
 import { scanOutline, homeSharp, personSharp } from "ionicons/icons";
-import { useState } from "react";
 
-import Tab1 from "./pages/Homepage";
-import Tab3 from "./pages/Profilepage";
+import Homepage from "./pages/Homepage";
+import Profilepage from "./pages/Profilepage";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -23,61 +25,100 @@ import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 import "@ionic/react/css/palettes/dark.system.css";
 import "./theme/variables.css";
-import Homepage from "./pages/Homepage";
-import Profilepage from "./pages/Profilepage";
 
 setupIonicReact();
 
+// Create context for login state
+export const AuthContext = createContext({
+  isLoggedIn: false,
+  setIsLoggedIn: (val: boolean) => {},
+});
+
 const App: React.FC = () => {
   const [showQR, setShowQR] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Load login state from localStorage
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+  }, []);
 
   return (
-    <IonApp>
-      <IonReactRouter>
-        <IonTabs>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <IonApp>
+        <IonReactRouter>
           <IonRouterOutlet>
-            <Route exact path="/homepage" component={Homepage} />
-            <Route exact path="/profilepage" component={Profilepage} />
-            <Route exact path="/">
-              <Redirect to="/homepage" />
-            </Route>
+
+            {/* Login Page */}
+            <Route
+              exact
+              path="/"
+              render={(props) =>
+                isLoggedIn ? (
+                  <Redirect to="/tabs/homepage" />
+                ) : (
+                  <LoginPage {...props} />
+                )
+              }
+            />
+
+            {/* SignUp Page */}
+            <Route
+              exact
+              path="/signup"
+              render={(props) =>
+                isLoggedIn ? (
+                  <Redirect to="/tabs/homepage" />
+                ) : (
+                  <SignUpPage {...props} />
+                )
+              }
+            />
+
+            {/* Tabs (Protected) */}
+            <Route
+              path="/tabs"
+              render={() =>
+                isLoggedIn ? (
+                  <IonTabs>
+                    <IonRouterOutlet>
+                      <Route exact path="/tabs/homepage" component={Homepage} />
+                      <Route exact path="/tabs/profilepage" component={Profilepage} />
+                      <Redirect exact from="/tabs" to="/tabs/homepage" />
+                    </IonRouterOutlet>
+
+                    <IonTabBar slot="bottom">
+                      <IonTabButton tab="homepage" href="/tabs/homepage">
+                        <IonIcon icon={homeSharp} />
+                      </IonTabButton>
+
+                      <IonTabButton tab="qr" onClick={() => setShowQR(true)}>
+                        <IonIcon icon={scanOutline} />
+                      </IonTabButton>
+
+                      <IonTabButton tab="profilepage" href="/tabs/profilepage">
+                        <IonIcon icon={personSharp} />
+                      </IonTabButton>
+                    </IonTabBar>
+                  </IonTabs>
+                ) : (
+                  <Redirect to="/" />
+                )
+              }
+            />
           </IonRouterOutlet>
 
-          <IonTabBar slot="bottom" className="custom-tab-bar">
-            <IonTabButton tab="homepage" href="/homepage">
-              <IonIcon icon={homeSharp} size="large" />
-            </IonTabButton>
-
-            {/* CENTER QR BUTTON */}
-            <IonTabButton
-              tab="qr"
-              className="qr-tab"
-              onClick={() => setShowQR(true)}
-            >
-              <div className="qr-hit-area">
-                <div className="qr-tab-button pulse">
-                  <IonIcon icon={scanOutline} />
-                </div>
-              </div>
-            </IonTabButton>
-
-            <IonTabButton tab="profilepage" href="/profilepage">
-              <IonIcon icon={personSharp} className="custom-tab-bar" />
-            </IonTabButton>
-          </IonTabBar>
-        </IonTabs>
-
-        {/* QR Modal */}
-        <IonModal isOpen={showQR} onDidDismiss={() => setShowQR(false)}>
-          <div className="qr-modal">
-            <h2>Scan QR Code</h2>
-            <IonButton onClick={() => setShowQR(false)} color="medium">
-              Close
-            </IonButton>
-          </div>
-        </IonModal>
-      </IonReactRouter>
-    </IonApp>
+          {/* QR Modal */}
+          <IonModal isOpen={showQR} onDidDismiss={() => setShowQR(false)}>
+            <div style={{ padding: 20 }}>
+              <h2>Scan QR Code</h2>
+              <IonButton onClick={() => setShowQR(false)}>Close</IonButton>
+            </div>
+          </IonModal>
+        </IonReactRouter>
+      </IonApp>
+    </AuthContext.Provider>
   );
 };
 

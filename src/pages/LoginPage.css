@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  height: 200px;
+}
+
+.login-header img {
+  width: 250px;
+  max-width: 90%;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.login-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-title {
+  font-size: 2rem; 
+  font-weight: 800;
+  color: #000;
+  margin: 0;
+  margin-left: 6px;
+}
+
+.login-subtitle {
+  font-size: 0.9375rem; 
+  color: #777;
+  margin: 2px 0 0 5px;
+}
+
+
+.login-form {
+  width: 100%;
+  max-width: 350px; 
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 160px;
+  margin-left: 39px;
+}
+
+.signup-item {
+  position: relative;
+  border: 2px solid #555;
+  border-radius: 12px;   
+  padding: 14px 15px;
+  display: flex;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  height: 60px;           
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+  background: #fff;
+}
+
+.signup-item:focus-within {
+  border-color: #003f9e;
+  box-shadow: 0px 4px 8px rgba(0,63,158,0.2);
+}
+
+.signup-item ion-icon {
+  font-size: 1.6rem;
+  color: #555;
+}
+
+.signup-item ion-input {
+  flex: 1;
+  margin-left: 12px;
+  font-size: 1rem;
+  text-align: left;        
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.password-box .toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+  z-index: 10;
+  margin-top: 0px;
+}
+
+.forgot-password {
+  text-align: right;
+  font-size: 0.75rem;
+  color: #003f9e;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.login-button {
+  --background: #003f9e;
+  --color: #fff;
+  --border-radius: 12px;    
+  font-weight: 600;
+  height: 45px;   
+  min-height: 55px;          
+  font-size: 0.95rem;
+  margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  
+  
+}
+
+.login-error {
+  font-size: 0.75rem;
+  color: #ff3b30;
+  text-align: center;
+  margin-top: -5px;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.75rem;
+  color: #444;
+}
+
+.signup-link {
+  color: #003f9e;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .login-logo { width: 180px; }
+  .login-title { font-size: 1.5rem; }
+  .login-subtitle { font-size: 0.85rem; }
+  .signup-item { height: 45px; }
+  .login-button { height: 40px; font-size: 0.9rem; }
+}
