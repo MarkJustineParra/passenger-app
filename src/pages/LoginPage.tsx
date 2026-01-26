@@ -40,7 +40,6 @@ const LoginPage: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="login-content" scrollY={false}>
-        {/* Logo centered */}
         <div className="login-header">
           <img src="./logo1.png" alt="Logo" className="login-logo" />
           <div className="login-texts">
@@ -49,9 +48,7 @@ const LoginPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Form */}
         <div className="login-form">
-          {/* Mobile Number */}
           <IonItem className="signup-item">
             <IonIcon slot="start" icon={callOutline} />
             <IonInput
@@ -61,7 +58,6 @@ const LoginPage: React.FC = () => {
             />
           </IonItem>
 
-          {/* Password */}
           <IonItem className="signup-item password-box">
             <IonIcon slot="start" icon={lockClosed} />
             <IonInput

@@ -29,7 +29,6 @@ import "../styles/SettingsPage.css";
 const SettingsPage: React.FC = () => {
   return (
     <IonPage>
-      {/* HEADER like screenshot */}
       <IonHeader className="settings-header">
         <IonToolbar className="settings-toolbar">
           <IonButtons slot="start">
@@ -40,9 +39,7 @@ const SettingsPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      {/* CONTENT */}
       <IonContent fullscreen scrollY={false} className="edit-profile-content">
-        {/* PROFILE HEADER */}
         <div className="profile-header">
           
             <IonAvatar className="profile-avatar">
@@ -55,16 +52,13 @@ const SettingsPage: React.FC = () => {
           <p className="profile-phone">09123456789</p>
         </div>
 
-        {/* SETTINGS LIST */}
         <IonList className="settings-list" lines="full">
-          {/* Dark Mode: toggle, no chevron */}
           <IonItem className="settings-item" detail={false}>
             <IonIcon icon={moonOutline} slot="start" className="settings-icon" />
             <IonLabel className="settings-label">Dark Mode</IonLabel>
             <IonToggle slot="end" />
           </IonItem>
 
-          {/* With chevrons */}
           <IonItem button className="settings-item" detail={true}>
             <IonIcon
               icon={notificationsOutline}

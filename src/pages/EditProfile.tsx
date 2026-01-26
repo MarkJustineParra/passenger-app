@@ -28,22 +28,17 @@ const EditProfile: React.FC = () => {
 
   return (
     <IonPage>
-      {/* HEADER */}
       <IonHeader className="edit-profile-header">
         <IonToolbar>
           <IonButtons slot="start">
-            {/* remove Back text */}
             <IonBackButton text="" defaultHref="/tabs/profilepage" />
           </IonButtons>
 
-          {/* left aligned title */}
           <IonTitle className="edit-profile-title">Edit Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      {/* CONTENT */}
       <IonContent fullscreen scrollY={false} className="edit-profile-content">
-        {/* Avatar */}
         <div className="edit-avatar-wrapper">
           <IonAvatar className="edit-avatar">
             <img
@@ -54,7 +49,6 @@ const EditProfile: React.FC = () => {
           <IonIcon icon={cameraOutline} className="camera-icon" />
         </div>
 
-        {/* Form */}
         <div className="edit-form">
           <IonItem lines="none" className="edit-input">
             <IonInput
@@ -95,8 +89,7 @@ const EditProfile: React.FC = () => {
             />
           </IonItem>
         </div>
-
-        {/* Buttons */}
+        
         <IonGrid className="edit-actions">
           <IonRow>
             <IonCol>

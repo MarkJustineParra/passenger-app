@@ -17,7 +17,7 @@ import { useIonRouter } from '@ionic/react';
 import '../styles/SignUpPage.css';
 
 const SignUpPage: React.FC = () => {
-  const ionRouter = useIonRouter(); // <-- Use Ionic router
+  const ionRouter = useIonRouter(); 
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -32,7 +32,6 @@ const SignUpPage: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
-  // Generate a suggested username
   const generateUsername = (name: string) => {
     if (!name.trim()) {
       setSuggestedUsername('');
@@ -69,7 +68,7 @@ const SignUpPage: React.FC = () => {
 
   const handleAlertDismiss = () => {
     setShowAlert(false);
-    ionRouter.push('/'); // <-- Navigate using Ionic router
+    ionRouter.push('/'); 
   };
 
   const openTerms = () => window.open('/terms', '_blank');
@@ -89,7 +88,6 @@ const SignUpPage: React.FC = () => {
               <p className="signup-subtitle">Fill out the form to create your account</p>
 
               <form className="signup-form">
-                {/* Full Name */}
                 <IonItem lines="none" className="signup-item">
                   <IonIcon icon={person} slot="start" />
                   <IonInput
@@ -101,15 +99,13 @@ const SignUpPage: React.FC = () => {
                     }}
                   />
                 </IonItem>
-
-                {/* Username suggestion */}
+   
                 {suggestedUsername && (
                   <IonText color="medium" className="username-suggestion">
                     Username suggestion: <strong>@{suggestedUsername}</strong>
                   </IonText>
                 )}
 
-                {/* Mobile Number */}
                 <IonItem lines="none" className="signup-item">
                   <IonIcon icon={callOutline} slot="start" />
                   <IonInput
@@ -120,7 +116,6 @@ const SignUpPage: React.FC = () => {
                   />
                 </IonItem>
 
-                {/* Email */}
                 <IonItem lines="none" className="signup-item">
                   <IonIcon icon={mail} slot="start" />
                   <IonInput
@@ -131,7 +126,6 @@ const SignUpPage: React.FC = () => {
                   />
                 </IonItem>
 
-                {/* Address */}
                 <IonItem lines="none" className="signup-item">
                   <IonIcon icon={home} slot="start" />
                   <IonInput
@@ -141,7 +135,6 @@ const SignUpPage: React.FC = () => {
                   />
                 </IonItem>
 
-                {/* Password */}
                 <IonItem lines="none" className="signup-item password-box">
                   <IonIcon icon={lockClosed} slot="start" />
                   <IonInput
@@ -158,7 +151,6 @@ const SignUpPage: React.FC = () => {
                   />
                 </IonItem>
 
-                {/* Confirm Password */}
                 <IonItem lines="none" className="signup-item password-box">
                   <IonIcon icon={lockClosed} slot="start" />
                   <IonInput
@@ -175,7 +167,6 @@ const SignUpPage: React.FC = () => {
                   />
                 </IonItem>
 
-                {/* Terms */}
                 <div className="terms-checkbox">
                   <input
                     type="checkbox"
@@ -190,10 +181,8 @@ const SignUpPage: React.FC = () => {
                   </label>
                 </div>
 
-                {/* Error */}
                 {error && <IonText color="danger" className="signup-error">{error}</IonText>}
 
-                {/* Sign Up Button */}
                 <IonButton expand="block" className="signup-button" onClick={handleSignUp}>
                   Sign Up
                 </IonButton>

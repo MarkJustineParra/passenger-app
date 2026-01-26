@@ -1,0 +1,73 @@
+.tabbar-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.main-tabbar {
+  height: 70px;
+  --background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-bottom: env(safe-area-inset-bottom);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: auto;
+}
+
+.main-tabbar::before {
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 52px;
+  background: #fff;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 -6px 10px rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+.main-tabbar ion-tab-button {
+  --color: #111;
+  --color-selected: #003f9e;
+  z-index: 2;
+}
+
+.tab-spacer {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.qr-button {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  background: #003f9e;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  pointer-events: auto;
+}
+
+.qr-button ion-icon {
+  font-size: 28px;
+  color: #fff;
+}
+
+.qr-button:active {
+  transform: translateX(-50%) scale(0.95);
+}

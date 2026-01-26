@@ -42,14 +42,12 @@ const Profilepage: React.FC = () => {
 
   return (
     <IonPage>
-      {/* HEADER */}
       <IonHeader className="ion-no-border">
         <IonToolbar>
           <IonTitle className="edit-profile-title">My Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      {/* CONTENT */}
       <IonContent fullscreen scrollY={false} className="edit-profile-content">
         {/* Profile Header */}
         <div className="profile-header">
@@ -63,7 +61,6 @@ const Profilepage: React.FC = () => {
           <p className="profile-number">09123456789</p>
         </div>
 
-        {/* Profile List */}
         <IonList inset className="profile-list">
           <IonItem button onClick={() => ionRouter.push("/edit-profile")}>
             <IonIcon icon={personOutline} slot="start" />
@@ -107,7 +104,6 @@ const Profilepage: React.FC = () => {
           </IonItem>
         </IonList>
 
-        {/* Logout Modal */}
         <IonModal
           isOpen={showLogoutModal}
           onDidDismiss={() => setShowLogoutModal(false)}

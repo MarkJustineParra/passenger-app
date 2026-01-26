@@ -1,44 +1,37 @@
-
-
-/* ===== HEADER ===== */
 .edit-profile-header {
   transform: translateY(30px); 
 }
   
-.edit-profile-title {
-  text-align: left;
-  padding-left: 12px; 
+.edit-profile-title { 
+  
+  margin-left: 0px;
   font-family: "Poppins", sans-serif;
   font-weight: 600; 
   font-size: 20px; 
 }
-
 
 ion-toolbar ion-title {
   position: relative;
   transform: none;
 }
 
-/* ===== CONTENT ===== */
 .edit-profile-content {
   --padding-top: 30px; 
   overflow: hidden;
   
 }
-
-/* ===== AVATAR ===== */
 .edit-avatar-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   margin: 40px 0 32px;
+
 }
 
 .edit-avatar {
   width: 120px;
   height: 120px;
   border: 4px solid #1e6fff;
-
 }
 
 .camera-icon {
@@ -52,7 +45,6 @@ ion-toolbar ion-title {
   font-size: 16px;
 }
 
-/* ===== FORM ===== */
 .edit-form {
   display: flex;
   flex-direction: column;
@@ -75,7 +67,6 @@ ion-toolbar ion-title {
   padding: 12px 0;
 }
 
-/* ===== PASSWORD ===== */
 .password-input {
   position: relative;
 }
@@ -86,7 +77,6 @@ ion-toolbar ion-title {
   cursor: pointer;
 }
 
-/* ===== BUTTONS ===== */
 .edit-actions {
   margin-top: 28px;
   padding: 0 30px;
@@ -95,13 +85,13 @@ ion-toolbar ion-title {
 .cancel-btn {
   --background: #d9d9d9;
   --color: #000;
-  border-radius: 12px;
+  border-radius: 15px;
   height: 57px;
   font-size: 16px;
 }
 
 .save-btn {
-  border-radius: 12px;
+  border-radius: 15px;
   height: 57px;
   font-size: 16px;
 }
