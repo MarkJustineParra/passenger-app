@@ -2,8 +2,8 @@
  transform: translateY(30px); 
  
 }
-.edit-profile-title {
-  margin-left: 150px;
+.edit-profile {
+  margin-left: 0px;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 20px;
@@ -73,19 +73,82 @@ ion-toolbar ion-title {
   margin-top: 8px;
 }
 
-.logout-modal {
-  padding: 24px;
+/* === Better Logout Modal === */
+.logout-modal-sheet {
+  --width: 340px;
+  --max-width: 90vw;   
+  --height: auto;
+  --border-radius: 20px;
+  --backdrop-opacity: 0.35;
+}
+
+.logout-sheet {
+  padding: 18px 20px 22px;
   text-align: center;
 }
 
-.logout-modal h2 {
-  margin-bottom: 8px;
+.logout-handle {
+  width: 48px;
+  height: 5px;
+  border-radius: 999px;
+  background: #d9d9d9;
+  margin: 6px auto 16px;
+}
+
+.logout-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: rgba(231, 76, 60, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.logout-icon {
+  font-size: 30px;
+  color: #e74c3c;
+}
+
+.logout-title {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #000;
+}
+
+.logout-sub {
+  display: block;
+  margin-top: 8px;
+  color: #666;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 .logout-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 24px;
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.logout-cancel,
+.logout-confirm {
+  border-radius: 15px;
+  height: 54px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.logout-cancel {
+  --border-color: #cfcfcf;
+  --color: #000;
+}
+
+.logout-confirm {
+  --box-shadow: none;
 }
 
 .profile-card,

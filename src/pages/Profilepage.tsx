@@ -44,7 +44,7 @@ const Profilepage: React.FC = () => {
     <IonPage>
       <IonHeader className="ion-no-border">
         <IonToolbar>
-          <IonTitle className="edit-profile-title">My Profile</IonTitle>
+          <IonTitle className="edit-profile">My Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -74,11 +74,12 @@ const Profilepage: React.FC = () => {
             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-          <IonItem button>
-            <IonIcon icon={lockClosedOutline} slot="start" />
-            <IonLabel>Change Password</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" />
+          <IonItem button onClick={() => ionRouter.push("/change-password")}>
+             <IonIcon icon={lockClosedOutline} slot="start" />
+             <IonLabel>Change Password</IonLabel>
+             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
+
 
           <IonItem button onClick={() => ionRouter.push("/settings")}>
             <IonIcon icon={settingsOutline} slot="start" />
@@ -86,17 +87,18 @@ const Profilepage: React.FC = () => {
             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-          <IonItem button>
+         <IonItem button onClick={() => ionRouter.push("/wallet")}>
             <IonIcon icon={walletOutline} slot="start" />
             <IonLabel>Wallet</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
-          </IonItem>
+         </IonItem>
 
-          <IonItem button>
+         <IonItem button onClick={() => ionRouter.push("/transaction")}>
             <IonIcon icon={timeOutline} slot="start" />
             <IonLabel>Transaction History</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
-          </IonItem>
+         </IonItem>
+
 
           <IonItem button onClick={() => setShowLogoutModal(true)}>
             <IonIcon icon={logOutOutline} slot="start" color="danger" />
@@ -105,26 +107,40 @@ const Profilepage: React.FC = () => {
         </IonList>
 
         <IonModal
-          isOpen={showLogoutModal}
-          onDidDismiss={() => setShowLogoutModal(false)}
-        >
-          <div className="logout-modal">
-            <h2>Confirm Logout</h2>
-            <IonText>Are you sure you want to log out?</IonText>
+            isOpen={showLogoutModal}
+            onDidDismiss={() => setShowLogoutModal(false)}
+            className="logout-modal-sheet"
+          >
+            <div className="logout-sheet">
+              <div className="logout-handle" />
 
-            <div className="logout-actions">
-              <IonButton
-                fill="outline"
-                onClick={() => setShowLogoutModal(false)}
-              >
-                Cancel
-              </IonButton>
-              <IonButton color="danger" onClick={confirmLogout}>
-                Yes
-              </IonButton>
+              <h2 className="logout-title">Log out?</h2>
+              <IonText className="logout-sub">
+                You’ll need to log in again to access your account.
+              </IonText>
+
+              <div className="logout-actions">
+                <IonButton
+                  expand="block"
+                  fill="outline"
+                  className="logout-cancel"
+                  onClick={() => setShowLogoutModal(false)}
+                 >
+                  Cancel
+                </IonButton>
+
+                <IonButton
+                  expand="block"
+                  color="danger"
+                  className="logout-confirm"
+                  onClick={confirmLogout}
+                >
+                  Yes, Log Out
+               </IonButton>
             </div>
-          </div>
+           </div>
         </IonModal>
+
       </IonContent>
     </IonPage>
   );

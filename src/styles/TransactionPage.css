@@ -1,0 +1,143 @@
+.tx-header {
+  transform: translateY(30px);
+}
+
+.tx-title {
+  margin-left: 0px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+ion-toolbar ion-title {
+  position: relative;
+  transform: none;
+}
+
+.tx-content {
+  --padding-top: 30px;
+   overflow: hidden;
+}
+
+.tx-search-wrap {
+  padding: 0 30px;
+  margin-top: 18px;
+}
+
+.tx-search {
+  --border-radius: 14px;
+  --padding-start: 12px;
+  border: 1px solid #cfcfcf;
+  border-radius: 14px;
+  height: 60px;
+  font-size: 16px;
+}
+
+.tx-search ion-input {
+  margin-top: 8px;
+  padding: 12px 0;
+}
+
+.tx-search-icon {
+  font-size: 20px;
+  color: #666;
+  margin-right: 6px;
+}
+
+.tx-list {
+  margin-top: 18px;
+}
+
+.tx-item {
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  margin: 10px 16px;
+  padding: 8px 10px;
+}
+
+.tx-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  background: #f2f2f2;
+  color: #333;
+}
+
+.tx-icon.credit {
+  background: rgba(46, 204, 113, 0.16);
+  color: #2ecc71;
+}
+
+.tx-icon.debit {
+  background: rgba(231, 76, 60, 0.16);
+  color: #e74c3c;
+}
+
+.tx-label h2 {
+  margin: 0;
+}
+
+.tx-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.tx-name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.tx-amount {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.tx-amount.credit {
+  color: #2ecc71;
+}
+
+.tx-amount.debit {
+  color: #e74c3c;
+}
+
+.tx-sub {
+  margin: 4px 0 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.tx-date {
+  margin: 2px 0 0;
+  color: #999;
+  font-size: 12px;
+}
+
+.tx-chip {
+  height: 26px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.tx-chip.credit {
+  background: rgba(46, 204, 113, 0.12);
+  color: #2ecc71;
+}
+
+.tx-chip.debit {
+  background: rgba(231, 76, 60, 0.12);
+  color: #e74c3c;
+}
+
+.tx-empty {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}

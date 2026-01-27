@@ -8,11 +8,9 @@ import {
 } from "@ionic/react";
 import { lockClosed, chevronUpOutline, notifications } from "ionicons/icons";
 import { useEffect } from "react";
-
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-
 import "../styles/Homepage.css";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;

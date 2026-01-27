@@ -1,5 +1,94 @@
-.nearby-sheet::part(content) {
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  
+.nearby-sheet {
+  --background: #ffffff;
+  --border-radius: 20px;
+}
+
+.nearby-content {
+  --padding-top: 12px;
+  --padding-bottom: 18px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+.nearby-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px 6px;
+}
+
+.nearby-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #000;
+}
+
+.nearby-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b2b66;
+  font-size: 22px;
+}
+
+.nearby-list {
+  margin-top: 6px;
+}
+
+.nearby-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 4px;
+}
+
+.nearby-row + .nearby-row {
+  border-top: 1px solid #f0f0f0;
+}
+
+.nearby-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nearby-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0b2b66;
+  font-size: 20px;
+}
+
+.nearby-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.nearby-busname {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+
+.nearby-route {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.nearby-eta {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
 }
