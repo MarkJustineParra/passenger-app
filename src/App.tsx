@@ -15,7 +15,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useLocation } from "react-router-dom";
 import {
   scanOutline,
   homeSharp,
@@ -34,8 +34,11 @@ import SettingsPage from "./pages/SettingsPage";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import WalletPage from "./pages/WalletPage";
-import TransactionPage from "./pages/TransactionPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
+import DiscountPage from "./pages/DiscountPage";
+
+import MobileSignupPage from "./pages/MobileSignupPage";
+import VerifyOtpPage from "./pages/VerifyOtpPage";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -55,6 +58,49 @@ export const AuthContext = createContext({
 });
 
 const openNearbyEvent = () => window.dispatchEvent(new Event("open-nearby"));
+
+/** ✅ Tabs wrapper so we can use useLocation() inside router */
+const TabsLayout: React.FC<{
+  isLoggedIn: boolean;
+  setOpenQRSheet: (v: boolean) => void;
+}> = ({ isLoggedIn, setOpenQRSheet }) => {
+  const location = useLocation();
+
+  // ✅ HIDE bottom tab bar + QR button on Profile tab only
+  const hideBottomBar = location.pathname === "/tabs/profilepage";
+
+  if (!isLoggedIn) return <Redirect to="/" />;
+
+  return (
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route exact path="/tabs/homepage" component={Homepage} />
+        <Route exact path="/tabs/profilepage" component={Profilepage} />
+        <Redirect exact from="/tabs" to="/tabs/homepage" />
+      </IonRouterOutlet>
+
+      {!hideBottomBar && (
+        <div className="tabbar-wrapper">
+          <IonTabBar slot="bottom" className="main-tabbar">
+            <IonTabButton tab="home" href="/tabs/homepage">
+              <IonIcon icon={homeSharp} />
+            </IonTabButton>
+
+            <IonTabButton className="tab-spacer" />
+
+            <IonTabButton tab="profile" href="/tabs/profilepage">
+              <IonIcon icon={personSharp} />
+            </IonTabButton>
+          </IonTabBar>
+
+          <button className="qr-button" onClick={() => setOpenQRSheet(true)}>
+            <IonIcon icon={scanOutline} />
+          </button>
+        </div>
+      )}
+    </IonTabs>
+  );
+};
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -91,7 +137,6 @@ const App: React.FC = () => {
 
     if (result.barcodes.length > 0) {
       const value = result.barcodes[0].rawValue;
-      console.log("QR scanned:", value);
 
       stopQrScan();
       setOpenQRSheet(false);
@@ -117,13 +162,35 @@ const App: React.FC = () => {
                 isLoggedIn ? <Redirect to="/tabs/homepage" /> : <LoginPage />
               }
             />
+
+            {/* ✅ SIGNUP FLOW */}
             <Route
               exact
               path="/signup"
               render={() =>
+                isLoggedIn ? (
+                  <Redirect to="/tabs/homepage" />
+                ) : (
+                  <MobileSignupPage />
+                )
+              }
+            />
+            <Route
+              exact
+              path="/signup/verify"
+              render={() =>
+                isLoggedIn ? <Redirect to="/tabs/homepage" /> : <VerifyOtpPage />
+              }
+            />
+            <Route
+              exact
+              path="/signup/details"
+              render={() =>
                 isLoggedIn ? <Redirect to="/tabs/homepage" /> : <SignUpPage />
               }
             />
+
+            {/* ✅ OTHER PAGES */}
             <Route
               exact
               path="/edit-profile"
@@ -132,9 +199,7 @@ const App: React.FC = () => {
             <Route
               exact
               path="/settings"
-              render={() =>
-                isLoggedIn ? <SettingsPage /> : <Redirect to="/" />
-              }
+              render={() => (isLoggedIn ? <SettingsPage /> : <Redirect to="/" />)}
             />
             <Route
               exact
@@ -143,10 +208,8 @@ const App: React.FC = () => {
             />
             <Route
               exact
-              path="/transaction"
-              render={() =>
-                isLoggedIn ? <TransactionPage /> : <Redirect to="/" />
-              }
+              path="/discount"
+              render={() => (isLoggedIn ? <DiscountPage /> : <Redirect to="/" />)}
             />
             <Route
               exact
@@ -156,45 +219,19 @@ const App: React.FC = () => {
               }
             />
 
+            {/* ✅ TABS */}
             <Route
               path="/tabs"
-              render={() =>
-                isLoggedIn ? (
-                  <IonTabs>
-                    <IonRouterOutlet>
-                      <Route exact path="/tabs/homepage" component={Homepage} />
-                      <Route exact path="/tabs/profilepage" component={Profilepage} />
-                      <Redirect exact from="/tabs" to="/tabs/homepage" />
-                    </IonRouterOutlet>
-
-                    <div className="tabbar-wrapper">
-                      <IonTabBar slot="bottom" className="main-tabbar">
-                        <IonTabButton tab="home" href="/tabs/homepage">
-                          <IonIcon icon={homeSharp} />
-                        </IonTabButton>
-
-                        <IonTabButton className="tab-spacer" />
-
-                        <IonTabButton tab="profile" href="/tabs/profilepage">
-                          <IonIcon icon={personSharp} />
-                        </IonTabButton>
-                      </IonTabBar>
-
-                      <button
-                        className="qr-button"
-                        onClick={() => setOpenQRSheet(true)}
-                      >
-                        <IonIcon icon={scanOutline} />
-                      </button>
-                    </div>
-                  </IonTabs>
-                ) : (
-                  <Redirect to="/" />
-                )
-              }
+              render={() => (
+                <TabsLayout
+                  isLoggedIn={isLoggedIn}
+                  setOpenQRSheet={setOpenQRSheet}
+                />
+              )}
             />
           </IonRouterOutlet>
-          
+
+          {/* ✅ QR MODAL */}
           <IonModal
             isOpen={openQRSheet}
             onDidDismiss={() => {
@@ -242,6 +279,7 @@ const App: React.FC = () => {
             </IonContent>
           </IonModal>
 
+          {/* ✅ NEARBY MODAL */}
           <IonModal
             isOpen={openNearbySheet}
             onDidDismiss={() => setOpenNearbySheet(false)}

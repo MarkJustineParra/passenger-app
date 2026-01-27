@@ -9,70 +9,99 @@ import {
   IonItem,
   IonGrid,
   IonRow,
-  IonCol
-} from '@ionic/react';
-import { person, mail, callOutline, home, lockClosed, eye, eyeOff } from 'ionicons/icons';
-import { useState } from 'react';
-import { useIonRouter } from '@ionic/react';
-import '../styles/SignUpPage.css';
+  IonCol,
+} from "@ionic/react";
+import {
+  person,
+  mail,
+  callOutline,
+  home,
+  lockClosed,
+  eye,
+  eyeOff,
+} from "ionicons/icons";
+import { useEffect, useState, useContext } from "react";
+import { useIonRouter } from "@ionic/react";
+import { useHistory } from "react-router-dom";
+import { AuthContext } from "../App"; // ✅ ADD THIS
+import "../styles/SignUpPage.css";
+
+
 
 const SignUpPage: React.FC = () => {
-  const ionRouter = useIonRouter(); 
+  const ionRouter = useIonRouter();
+  const history = useHistory();
 
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [mobileNumber, setMobileNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [suggestedUsername, setSuggestedUsername] = useState('');
+  const { setIsLoggedIn } = useContext(AuthContext);
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [suggestedUsername, setSuggestedUsername] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
+  useEffect(() => {
+    const storedMobile = localStorage.getItem("verifiedMobile") ?? "";
+
+    if (storedMobile) {
+      setMobileNumber(storedMobile);
+      localStorage.removeItem("pendingMobile");
+    } else {
+      ionRouter.push("/signup", "back");
+    }
+  }, [ionRouter]);
+
   const generateUsername = (name: string) => {
     if (!name.trim()) {
-      setSuggestedUsername('');
+      setSuggestedUsername("");
       return;
     }
     const parts = name.toLowerCase().trim().split(/\s+/);
     const firstName = parts[0];
-    const lastInitial = parts.length > 1 ? parts[parts.length - 1][0] : '';
+    const lastInitial = parts.length > 1 ? parts[parts.length - 1][0] : "";
     const random = Math.floor(10 + Math.random() * 90);
     setSuggestedUsername(`${firstName}${lastInitial}${random}`);
   };
 
   const handleSignUp = () => {
     if (!fullName || !email || !mobileNumber || !address || !password || !confirmPassword) {
-      setError('All fields are required.');
+      setError("All fields are required.");
       return;
     }
-    if (!email.endsWith('@gmail.com')) {
-      setError('Email must end with @gmail.com');
+    if (!email.endsWith("@gmail.com")) {
+      setError("Email must end with @gmail.com");
       return;
     }
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError("Passwords do not match.");
       return;
     }
     if (!agreed) {
-      setError('You must agree to the Terms of Service & Privacy Policy.');
+      setError("You must agree to the Terms of Service & Privacy Policy.");
       return;
     }
 
-    setError('');
+    setError("");
     setShowAlert(true);
   };
 
   const handleAlertDismiss = () => {
-    setShowAlert(false);
-    ionRouter.push('/'); 
-  };
+  setShowAlert(false);
+  localStorage.removeItem("verifiedMobile");
+  localStorage.removeItem("pendingMobile");
+  localStorage.setItem("isLoggedIn", "false");
+  setIsLoggedIn(false);
+  history.push("/");
+};
 
-  const openTerms = () => window.open('/terms', '_blank');
-  const openPrivacy = () => window.open('/privacy', '_blank');
+  const openTerms = () => window.open("/terms", "_blank");
 
   return (
     <IonPage>
@@ -81,7 +110,7 @@ const SignUpPage: React.FC = () => {
           <IonRow className="ion-justify-content-center">
             <IonCol sizeXs="12" sizeSm="8" sizeMd="6">
               <div className="signup-logo">
-                <img src="/logo1.png" alt="Logo" />
+                <img src="/logo4.png" alt="Logo" />
               </div>
 
               <h2 className="signup-title">Create Account</h2>
@@ -94,12 +123,13 @@ const SignUpPage: React.FC = () => {
                     placeholder="Full Name"
                     value={fullName}
                     onIonChange={(e) => {
-                      setFullName(e.detail.value!);
-                      generateUsername(e.detail.value!);
+                      const v = e.detail.value ?? "";
+                      setFullName(v);
+                      generateUsername(v);
                     }}
                   />
                 </IonItem>
-   
+
                 {suggestedUsername && (
                   <IonText color="medium" className="username-suggestion">
                     Username suggestion: <strong>@{suggestedUsername}</strong>
@@ -112,7 +142,7 @@ const SignUpPage: React.FC = () => {
                     placeholder="Mobile Number"
                     type="tel"
                     value={mobileNumber}
-                    onIonChange={(e) => setMobileNumber(e.detail.value!)}
+                    readonly
                   />
                 </IonItem>
 
@@ -122,7 +152,7 @@ const SignUpPage: React.FC = () => {
                     placeholder="Email"
                     type="email"
                     value={email}
-                    onIonChange={(e) => setEmail(e.detail.value!)}
+                    onIonChange={(e) => setEmail(e.detail.value ?? "")}
                   />
                 </IonItem>
 
@@ -131,7 +161,7 @@ const SignUpPage: React.FC = () => {
                   <IonInput
                     placeholder="Address"
                     value={address}
-                    onIonChange={(e) => setAddress(e.detail.value!)}
+                    onIonChange={(e) => setAddress(e.detail.value ?? "")}
                   />
                 </IonItem>
 
@@ -139,15 +169,15 @@ const SignUpPage: React.FC = () => {
                   <IonIcon icon={lockClosed} slot="start" />
                   <IonInput
                     placeholder="Password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     value={password}
-                    onIonChange={(e) => setPassword(e.detail.value!)}
+                    onIonChange={(e) => setPassword(e.detail.value ?? "")}
                   />
                   <IonIcon
                     icon={showPassword ? eyeOff : eye}
                     slot="end"
                     onClick={() => setShowPassword(!showPassword)}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: "pointer" }}
                   />
                 </IonItem>
 
@@ -155,15 +185,15 @@ const SignUpPage: React.FC = () => {
                   <IonIcon icon={lockClosed} slot="start" />
                   <IonInput
                     placeholder="Confirm Password"
-                    type={showConfirmPassword ? 'text' : 'password'}
+                    type={showConfirmPassword ? "text" : "password"}
                     value={confirmPassword}
-                    onIonChange={(e) => setConfirmPassword(e.detail.value!)}
+                    onIonChange={(e) => setConfirmPassword(e.detail.value ?? "")}
                   />
                   <IonIcon
                     icon={showConfirmPassword ? eyeOff : eye}
                     slot="end"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: "pointer" }}
                   />
                 </IonItem>
 
@@ -181,26 +211,28 @@ const SignUpPage: React.FC = () => {
                   </label>
                 </div>
 
-                {error && <IonText color="danger" className="signup-error">{error}</IonText>}
+                {error && (
+                  <IonText color="danger" className="signup-error">
+                    {error}
+                  </IonText>
+                )}
 
-                <IonButton expand="block" className="signup-button" onClick={handleSignUp}>
+                <IonButton
+                   expand="block"
+                   disabled={showAlert}
+                   onClick={handleSignUp}
+                  >
                   Sign Up
                 </IonButton>
-              </form>
 
-              <div className="signin-text">
-                Already have an account?
-                <span className="signin-link" onClick={() => ionRouter.push('/')}>
-                  {' '}SIGN IN
-                </span>
-              </div>
+              </form>
 
               <IonAlert
                 isOpen={showAlert}
                 onDidDismiss={handleAlertDismiss}
                 header="Success!"
                 message="Registered Successfully!"
-                buttons={['OK']}
+                buttons={["OK"]}
               />
             </IonCol>
           </IonRow>

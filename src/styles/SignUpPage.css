@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-
 .signup-content {
   display: flex;
   flex-direction: column;
@@ -101,8 +100,6 @@
 
 }
 
-
-
 .signup-item ion-input {
   right: 39px;
   width: 100%;
@@ -114,8 +111,6 @@
   text-align: left; 
 }
 
-
-/* Terms */
 .terms-checkbox {
   font-size: 0.65rem; 
   text-align: left;
@@ -128,8 +123,6 @@
   cursor: pointer;
   margin-left: 10px;
 }
-
-
 
 .username-suggestion {
   font-size: 0.8125rem;

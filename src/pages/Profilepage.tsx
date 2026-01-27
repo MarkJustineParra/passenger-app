@@ -13,16 +13,17 @@ import {
   IonModal,
   IonText,
   IonButton,
+  IonButtons,
+  IonBackButton,
 } from "@ionic/react";
 import {
   personOutline,
-  notificationsOutline,
   lockClosedOutline,
   settingsOutline,
   walletOutline,
-  timeOutline,
   logOutOutline,
   chevronForwardOutline,
+  pricetagOutline,
 } from "ionicons/icons";
 import { useIonRouter } from "@ionic/react";
 import { AuthContext } from "../App";
@@ -42,14 +43,17 @@ const Profilepage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader className="ion-no-border">
+      <IonHeader className="profile-header-bar">
         <IonToolbar>
-          <IonTitle className="edit-profile">My Profile</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton text="" defaultHref="/tabs/homepage" />
+          </IonButtons>
+
+          <IonTitle className="profile-title">My Profile</IonTitle>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollY={false} className="edit-profile-content">
-        {/* Profile Header */}
+      <IonContent fullscreen scrollY={false} className="profile-content">
         <div className="profile-header">
           <IonAvatar className="profile-avatar">
             <img
@@ -62,85 +66,76 @@ const Profilepage: React.FC = () => {
         </div>
 
         <IonList inset className="profile-list">
-          <IonItem button onClick={() => ionRouter.push("/edit-profile")}>
+          <IonItem lines="none" button onClick={() => ionRouter.push("/edit-profile")}>
             <IonIcon icon={personOutline} slot="start" />
             <IonLabel>Edit Profile</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-          <IonItem button>
-            <IonIcon icon={notificationsOutline} slot="start" />
-            <IonLabel>Notifications</IonLabel>
+          <IonItem lines="none" button onClick={() => ionRouter.push("/discount")}>
+            <IonIcon icon={pricetagOutline} slot="start" />
+            <IonLabel>Discount</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-          <IonItem button onClick={() => ionRouter.push("/change-password")}>
-             <IonIcon icon={lockClosedOutline} slot="start" />
-             <IonLabel>Change Password</IonLabel>
-             <IonIcon icon={chevronForwardOutline} slot="end" />
+          <IonItem lines="none" button onClick={() => ionRouter.push("/change-password")}>
+            <IonIcon icon={lockClosedOutline} slot="start" />
+            <IonLabel>Change Password</IonLabel>
+            <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-
-          <IonItem button onClick={() => ionRouter.push("/settings")}>
+          <IonItem lines="none" button onClick={() => ionRouter.push("/settings")}>
             <IonIcon icon={settingsOutline} slot="start" />
             <IonLabel>Settings</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
           </IonItem>
 
-         <IonItem button onClick={() => ionRouter.push("/wallet")}>
+          <IonItem lines="none" button onClick={() => ionRouter.push("/wallet")}>
             <IonIcon icon={walletOutline} slot="start" />
             <IonLabel>Wallet</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" />
-         </IonItem>
+          </IonItem>
 
-         <IonItem button onClick={() => ionRouter.push("/transaction")}>
-            <IonIcon icon={timeOutline} slot="start" />
-            <IonLabel>Transaction History</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" />
-         </IonItem>
-
-
-          <IonItem button onClick={() => setShowLogoutModal(true)}>
+          <IonItem lines="none" button onClick={() => setShowLogoutModal(true)}>
             <IonIcon icon={logOutOutline} slot="start" color="danger" />
             <IonLabel color="danger">Log Out</IonLabel>
           </IonItem>
         </IonList>
 
         <IonModal
-            isOpen={showLogoutModal}
-            onDidDismiss={() => setShowLogoutModal(false)}
-            className="logout-modal-sheet"
-          >
-            <div className="logout-sheet">
-              <div className="logout-handle" />
+          isOpen={showLogoutModal}
+          onDidDismiss={() => setShowLogoutModal(false)}
+          className="logout-modal-sheet"
+        >
+          <div className="logout-sheet">
+            <div className="logout-handle" />
 
-              <h2 className="logout-title">Log out?</h2>
-              <IonText className="logout-sub">
-                You’ll need to log in again to access your account.
-              </IonText>
+            <h2 className="logout-title">Log out?</h2>
+            <IonText className="logout-sub">
+              You’ll need to log in again to access your account.
+            </IonText>
 
-              <div className="logout-actions">
-                <IonButton
-                  expand="block"
-                  fill="outline"
-                  className="logout-cancel"
-                  onClick={() => setShowLogoutModal(false)}
-                 >
-                  Cancel
-                </IonButton>
+            <div className="logout-actions">
+              <IonButton
+                expand="block"
+                fill="outline"
+                className="logout-cancel"
+                onClick={() => setShowLogoutModal(false)}
+              >
+                Cancel
+              </IonButton>
 
-                <IonButton
-                  expand="block"
-                  color="danger"
-                  className="logout-confirm"
-                  onClick={confirmLogout}
-                >
-                  Yes, Log Out
-               </IonButton>
+              <IonButton
+                expand="block"
+                color="danger"
+                className="logout-confirm"
+                onClick={confirmLogout}
+              >
+                Yes, Log Out
+              </IonButton>
             </div>
-           </div>
+          </div>
         </IonModal>
-
       </IonContent>
     </IonPage>
   );

@@ -1,18 +1,24 @@
-.ion-no-border{
- transform: translateY(30px); 
- 
+.profile-header-bar {
+  transform: translateY(30px);
 }
-.edit-profile {
-  margin-left: 0px;
+
+.profile-title {
+  margin-left: 4px;
+  text-align: left;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: 20px;
+  padding-left: 6px;
 }
-
 
 ion-toolbar ion-title {
   position: relative;
   transform: none;
+}
+
+.profile-content {
+  --padding-top: 30px;
+  overflow: hidden;
 }
 
 .profile-header {
@@ -21,7 +27,6 @@ ion-toolbar ion-title {
   align-items: center;
   padding: 28px 0 20px;
   background: #ffffff;
-  
 }
 
 .profile-avatar {
@@ -36,6 +41,7 @@ ion-toolbar ion-title {
 }
 
 .profile-name {
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   margin: 0;
@@ -43,6 +49,7 @@ ion-toolbar ion-title {
 }
 
 .profile-number {
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   color: #8c8c8c;
   margin-top: 4px;
@@ -57,6 +64,8 @@ ion-toolbar ion-title {
   --inner-padding-end: 14px;
   --min-height: 52px;
   font-size: 15px;
+  --inner-border-width: 0px;
+  --border-width: 0px;
 }
 
 .profile-list ion-icon[slot="start"] {
@@ -69,14 +78,9 @@ ion-toolbar ion-title {
   color: #bdbdbd;
 }
 
-.profile-list .logout-item {
-  margin-top: 8px;
-}
-
-/* === Better Logout Modal === */
 .logout-modal-sheet {
   --width: 340px;
-  --max-width: 90vw;   
+  --max-width: 90vw;
   --height: auto;
   --border-radius: 20px;
   --backdrop-opacity: 0.35;
