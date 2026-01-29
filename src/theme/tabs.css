@@ -36,7 +36,7 @@
 
 .main-tabbar ion-tab-button {
   --color: #111;
-  --color-selected: #003f9e;
+  --color-selected: #008000;
   z-index: 2;
 }
 
@@ -54,7 +54,7 @@
   height: 64px;
   border-radius: 50%;
   border: none;
-  background: #003f9e;
+  background: #008000;
   box-shadow: 0 10px 22px rgba(0,0,0,0.28);
   display: flex;
   align-items: center;

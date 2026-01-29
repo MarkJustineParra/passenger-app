@@ -41,7 +41,7 @@ const LoginPage: React.FC = () => {
     <IonPage>
       <IonContent fullscreen className="login-content" scrollY={true}>
         <div className="login-header">
-          <img src="./logo4.png" alt="Logo" className="login-logo" />
+          <img src="./flogo1.png" alt="Logo" className="login-logo" />
           <div className="login-texts">
             <h2 className="login-title">Welcome!</h2>
             <p className="login-subtitle">Login to your Account</p>

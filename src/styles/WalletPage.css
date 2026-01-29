@@ -22,7 +22,7 @@ ion-toolbar {
   font-weight: 550;
   font-size: 20px;
   text-align: left;
-  margin-left: -80px;
+  padding-left: 0;
 }
 
 .wallet-content {
@@ -115,7 +115,7 @@ ion-toolbar {
 }
 
 .pill.active {
-  background: #0b3a8f;
+  background: #008000;
   color: #fff;
 }
 
@@ -225,7 +225,7 @@ ion-toolbar {
 
 .method-pill.active {
   background: #eaf2ff;
-  outline: 2px solid #0b3a8f;
+  outline: 2px solid #008000;
 }
 
 .method-text {
@@ -339,7 +339,7 @@ ion-toolbar {
 
 .recharge-confirm {
   margin-top: 14px;
-  --background: #0b3a8f;
+  --background: #008000;
   --border-radius: 8px;
 }
 
@@ -406,7 +406,7 @@ ion-toolbar {
 .success-done {
   width: 50%;
   margin-top: 20px;
-  --background: #0b3a8f;
+  --background: #008000;
   --border-radius: 8px;
 }
 
@@ -422,7 +422,7 @@ ion-toolbar {
   margin-top: 25px;
   border-radius: 10px;
   padding: 18px 18px 16px;
-  background: #0b3a8f;
+  background: #008000;
   margin-bottom: 22px;
 }
 

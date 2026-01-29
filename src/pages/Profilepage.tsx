@@ -87,7 +87,12 @@ const Profilepage: React.FC = () => {
             <IonIcon icon={chevronForwardOutline} slot="end" className="profile-chevron" />
           </IonItem>
 
-          <IonItem lines="full" button className="profile-item">
+          <IonItem
+            lines="full"
+            button
+            className="profile-item"
+            onClick={() => ionRouter.push("/notifications")}
+          >
             <IonIcon
               icon={notificationsOutline}
               slot="start"
@@ -131,12 +136,6 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={walletOutline} slot="start" className="profile-icon" />
             <IonLabel>Wallet</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="profile-chevron" />
-          </IonItem>
-
-          <IonItem lines="full" button className="profile-item">
-            <IonIcon icon={cardOutline} slot="start" className="profile-icon" />
-            <IonLabel>Transaction History</IonLabel>
             <IonIcon icon={chevronForwardOutline} slot="end" className="profile-chevron" />
           </IonItem>
 

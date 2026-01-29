@@ -35,7 +35,7 @@ const MobileSignupPage: React.FC = () => {
       <IonContent fullscreen scrollY={true} className="ms-content">
         <div className="ms-wrap">
           <div className="ms-logo">
-            <img src="/logo4.png" alt="Logo" />
+            <img src="/flogo1.png" alt="Logo" />
           </div>
 
           <h2 className="ms-title">Hello!</h2>

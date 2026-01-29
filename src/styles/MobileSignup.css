@@ -57,12 +57,12 @@
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: #003f9e;
+  color: #008000;
   margin-right: 4px;
 }
 
 .ms-btn {
-  --background: #003f9e;
+  --background: #008000;
   --border-radius: 14px;
   height: 52px;
   width: 100%;
@@ -78,7 +78,7 @@
 }
 
 .ms-link {
-  color: #003f9e;
+  color: #008000;
   font-weight: 800;
   cursor: pointer;
 }
@@ -117,16 +117,42 @@
 }
 
 .otp-box:focus {
-  border-color: #003f9e;
+  border-color: #008000;
 }
 
 .otp-btn {
-  --background: #003f9e;
+  --background: #008000;
   --border-radius: 14px;
   height: 52px;
   width: 100%;
   max-width: 360px;
   font-weight: 700;
+}
+
+.otp-btn:hover {
+  --background: #036e03;
+}
+
+.back-to-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  color: #008000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.back-to-signin:hover {
+  color: #036e03;
+}
+
+.back-icon {
+  font-size: 1.125rem;
 }
 
 .otp-resend {

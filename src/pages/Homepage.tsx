@@ -9,6 +9,7 @@ import {
 import { lockClosed, chevronUpOutline, notifications } from "ionicons/icons";
 import { useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { useIonRouter } from "@ionic/react";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "../styles/Homepage.css";
@@ -35,9 +36,14 @@ function MapResizer() {
 
 const Homepage: React.FC = () => {
   const center: [number, number] = [14.5995, 120.9842];
+  const ionRouter = useIonRouter();
 
   const openNearby = () => {
     window.dispatchEvent(new Event("open-nearby"));
+  };
+
+  const goToNotifications = () => {
+    ionRouter.push("/notifications");
   };
 
   return (
@@ -59,7 +65,7 @@ const Homepage: React.FC = () => {
         </div>
 
         <IonFab slot="fixed" vertical="top" horizontal="end" className="top-fab">
-          <IonFabButton className="top-fab-btn">
+          <IonFabButton className="top-fab-btn" onClick={goToNotifications}>
             <IonIcon icon={notifications} />
           </IonFabButton>
         </IonFab>

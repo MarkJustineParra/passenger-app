@@ -37,9 +37,15 @@ import WalletPage from "./pages/WalletPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import DiscountPage from "./pages/DiscountPage";
 import WelcomePage from "./pages/WelcomePage";
-
 import MobileSignupPage from "./pages/MobileSignupPage";
 import VerifyOtpPage from "./pages/VerifyOtpPage";
+import NotificationPage from "./pages/NotificationPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import CreatePasswordPage from "./pages/CreatePasswordPage";
+import VerifyResetOtpPage from "./pages/VerifyResetOtpPage";
+
+
+
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -219,6 +225,16 @@ const App: React.FC = () => {
                 isLoggedIn ? <ChangePasswordPage /> : <Redirect to="/" />
               }
             />
+            <Route
+              exact
+              path="/notifications"
+              render={() =>
+                isLoggedIn ? <NotificationPage /> : <Redirect to="/" />
+              }
+            />
+            <Route exact path="/forgot-password" component={ForgotPasswordPage} />
+            <Route exact path="/verify-reset-otp" component={VerifyResetOtpPage} />
+            <Route exact path="/create-password" component={CreatePasswordPage} />
 
             <Route
               path="/tabs"
@@ -309,7 +325,7 @@ const App: React.FC = () => {
 
                     <div className="nearby-info">
                       <div className="nearby-busname">Bus123</div>
-                      <div className="nearby-route">Earth - Venus</div>
+                      <div className="nearby-route">san rafael - sm sanmateo</div>
                     </div>
                   </div>
 
@@ -324,7 +340,7 @@ const App: React.FC = () => {
 
                     <div className="nearby-info">
                       <div className="nearby-busname">Bus789</div>
-                      <div className="nearby-route">Uranus - Mercury</div>
+                      <div className="nearby-route">montalban - kasiglahan</div>
                     </div>
                   </div>
 

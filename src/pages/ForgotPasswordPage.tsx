@@ -1,0 +1,64 @@
+import { IonPage, IonContent, IonButton, IonInput, IonIcon, IonItem } from "@ionic/react";
+import { useState } from "react";
+import { useIonRouter } from "@ionic/react";
+import { arrowBack, callOutline } from "ionicons/icons";
+import "../styles/ForgotPasswordPage.css";
+
+const ForgotPasswordPage: React.FC = () => {
+  const ionRouter = useIonRouter();
+  const [mobileNumber, setMobileNumber] = useState("");
+
+  const handleSend = () => {
+    if (!mobileNumber || mobileNumber.length < 11) {
+      alert("Please enter a valid 11-digit mobile number.");
+      return;
+    }
+    localStorage.setItem("resetMobile", mobileNumber);
+    localStorage.setItem("resetFlow", "true");
+    ionRouter.push("/verify-reset-otp", "forward");
+  };
+
+  return (
+    <IonPage>
+      <IonContent fullscreen className="forgot-password-content" scrollY={true}>
+        <div className="forgot-password-wrap">
+          <h2 className="forgot-password-title">Forgot Password</h2>
+          <p className="forgot-password-subtitle">
+            Enter your mobile number to receive a verification code
+          </p>
+
+          <IonItem lines="none" className="forgot-input-item">
+            <IonIcon icon={callOutline} slot="start" className="forgot-input-icon" />
+            <IonInput
+              type="tel"
+              placeholder="09XXXXXXXXX"
+              value={mobileNumber}
+              maxlength={11}
+              onIonChange={(e: any) => {
+                const value = (e.detail.value ?? "").replace(/[^0-9]/g, "");
+                setMobileNumber(value);
+              }}
+              onKeyPress={(e: any) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
+              className="forgot-input"
+            />
+          </IonItem>
+
+          <IonButton expand="block" className="send-btn" onClick={handleSend}>
+            Send
+          </IonButton>
+
+          <div className="back-to-signin" onClick={() => ionRouter.push("/login", "back")}>
+            <IonIcon icon={arrowBack} className="back-icon" />
+            <span>Back to Sign In</span>
+          </div>
+        </div>
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default ForgotPasswordPage;

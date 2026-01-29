@@ -19,6 +19,7 @@ import {
   lockClosed,
   eye,
   eyeOff,
+  arrowBack,
 } from "ionicons/icons";
 import { useEffect, useState, useContext } from "react";
 import { useIonRouter } from "@ionic/react";
@@ -104,7 +105,7 @@ const SignUpPage: React.FC = () => {
           <IonRow className="ion-justify-content-center">
             <IonCol sizeXs="12" sizeSm="8" sizeMd="6">
               <div className="signup-logo">
-                <img src="/logo4.png" alt="Logo" />
+                <img src="/flogo1.png" alt="Logo" />
               </div>
 
               <h2 className="signup-title">Create Account</h2>
@@ -203,11 +204,17 @@ const SignUpPage: React.FC = () => {
 
                 <IonButton
                    expand="block"
+                   className="signup-button"
                    disabled={showAlert}
                    onClick={handleSignUp}
                   >
                   Sign Up
                 </IonButton>
+
+                <div className="back-to-signin" onClick={() => ionRouter.push("/login", "back")}>
+                  <IonIcon icon={arrowBack} className="back-icon" />
+                  <span>Back to Sign In</span>
+                </div>
 
               </form>
 

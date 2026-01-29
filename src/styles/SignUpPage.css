@@ -67,8 +67,8 @@
 }
 
 .signup-item:focus-within {
-  border-color: #003f9e;
-  box-shadow: 0px 4px 8px rgba(0, 63, 158, 0.2);
+  border-color: #008000;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.2);
 }
 
 .signup-item ion-icon {
@@ -129,13 +129,15 @@
 }
 
 .username-suggestion span {
-  color: #003f9e;
+  color: #008000;
   font-weight: 600;
 }
 
 
 .signup-button {
-  --background: #003f9e;
+  --background: #008000 !important;
+  --background-activated: #006600 !important;
+  --background-hover: #009900 !important;
   --color: #fff;
   --border-radius: 15px;
   font-weight: 600;
@@ -147,8 +149,30 @@
 }
 
 .signup-button:hover {
-  --background: #002f7a;
-  box-shadow: 0px 4px 8px rgba(0, 63, 158, 0.2);
+  --background: #036e03 !important;
+  box-shadow: 0px 4px 8px rgba(0, 128, 0, 0.3);
+}
+
+.back-to-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  color: #008000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.back-to-signin:hover {
+  color: #036e03;
+}
+
+.back-icon {
+  font-size: 1.125rem;
 }
 
 
@@ -160,7 +184,7 @@
 }
 
 .signin-link {
-  color: #033790;
+  color: #008000;
   font-weight: 600;
   cursor: pointer;
 }

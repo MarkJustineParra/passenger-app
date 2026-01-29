@@ -4,16 +4,16 @@ import { useIonRouter } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import "../styles/MobileSignup.css";
 
-const VerifyOtpPage: React.FC = () => {
+const VerifyResetOtpPage: React.FC = () => {
   const ionRouter = useIonRouter();
-  const [mobile] = useState(() => localStorage.getItem("pendingMobile") ?? "");
+  const [mobile] = useState(() => localStorage.getItem("resetMobile") ?? "");
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [seconds, setSeconds] = useState(20);
   const otpValue = useMemo(() => code.join(""), [code]);
 
   useEffect(() => {
-    if (!mobile) {
-      ionRouter.push("/signup", "back");
+    if (!mobile || localStorage.getItem("resetFlow") !== "true") {
+      ionRouter.push("/forgot-password", "back");
     }
   }, [mobile, ionRouter]);
 
@@ -42,8 +42,7 @@ const VerifyOtpPage: React.FC = () => {
       alert("Please enter the 6-digit code.");
       return;
     }
-    localStorage.setItem("verifiedMobile", mobile);
-    ionRouter.push("/signup/details", "forward");
+    ionRouter.push("/create-password", "forward");
   };
 
   const handleResend = () => {
@@ -58,7 +57,7 @@ const VerifyOtpPage: React.FC = () => {
         <div className="otp-wrap">
           <h2 className="otp-title">Verify Your Mobile Number</h2>
           <p className="otp-subtitle">
-            Enter the 6-digit verification code we just sent to your mobile number to continue your signup.
+            Enter the 6-digit verification code we just sent to your mobile number.
           </p>
 
           <div className="otp-row">
@@ -83,15 +82,15 @@ const VerifyOtpPage: React.FC = () => {
             <div className="otp-resend muted">{seconds}s Resend Confirmation Code</div>
           ) : (
             <div className="otp-resend">
-              Didn’t you receive any code?{" "}
+              Didn't you receive any code?{" "}
               <span className="ms-link" onClick={handleResend}>
                 Resend Code
               </span>
             </div>
           )}
-           <div className="back-to-signin" onClick={() => ionRouter.push("/login", "back")}>
+           <div className="back-to-signin" onClick={() => ionRouter.push("/forgot-password", "back")}>
             <IonIcon icon={arrowBack} className="back-icon" />
-            <span>Back to Sign In</span>
+            <span>Back</span>
           </div>
         </div>
       </IonContent>
@@ -99,4 +98,4 @@ const VerifyOtpPage: React.FC = () => {
   );
 };
 
-export default VerifyOtpPage;
+export default VerifyResetOtpPage;
