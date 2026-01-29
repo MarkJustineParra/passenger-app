@@ -32,7 +32,7 @@ const MobileSignupPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen scrollY={false}className="ms-content">
+      <IonContent fullscreen scrollY={true} className="ms-content">
         <div className="ms-wrap">
           <div className="ms-logo">
             <img src="/logo4.png" alt="Logo" />
@@ -43,11 +43,20 @@ const MobileSignupPage: React.FC = () => {
 
           <div className="ms-input">
             <IonInput
-              placeholder="Mobile Number"
+              placeholder="09XXXXXXXXX"
               type="tel"
-              inputMode="tel"
+              inputMode="numeric"
+              maxlength={11}
               value={mobile}
-              onIonChange={(e) => setMobile(e.detail.value ?? "")}
+              onIonChange={(e) => {
+                const value = (e.detail.value ?? '').replace(/[^0-9]/g, '');
+                setMobile(value);
+              }}
+              onKeyPress={(e: any) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
             />
           </div>
 

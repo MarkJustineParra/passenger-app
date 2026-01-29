@@ -36,6 +36,7 @@ import SignUpPage from "./pages/SignUpPage";
 import WalletPage from "./pages/WalletPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import DiscountPage from "./pages/DiscountPage";
+import WelcomePage from "./pages/WelcomePage";
 
 import MobileSignupPage from "./pages/MobileSignupPage";
 import VerifyOtpPage from "./pages/VerifyOtpPage";
@@ -106,11 +107,6 @@ const App: React.FC = () => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
   }, []);
   useEffect(() => {
-  const savedDark = localStorage.getItem("darkMode") === "true";
-  document.body.classList.toggle("dark", savedDark);
-  document.documentElement.style.colorScheme = savedDark ? "dark" : "light";
-  }, []);
-  useEffect(() => {
     const handler = () => setOpenNearbySheet(true);
     window.addEventListener("open-nearby", handler);
     return () => window.removeEventListener("open-nearby", handler);
@@ -157,6 +153,14 @@ const App: React.FC = () => {
             <Route
               exact
               path="/"
+              render={() =>
+                isLoggedIn ? <Redirect to="/tabs/homepage" /> : <WelcomePage />
+              }
+            />
+
+            <Route
+              exact
+              path="/login"
               render={() =>
                 isLoggedIn ? <Redirect to="/tabs/homepage" /> : <LoginPage />
               }

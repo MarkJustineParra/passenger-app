@@ -63,7 +63,7 @@ const ChangePasswordPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollY={false} className="cp-content">
+      <IonContent fullscreen scrollY={true} className="cp-content">
         <div className="cp-form">
           <IonText className="cp-hint">
             Enter your current password and create a new one.

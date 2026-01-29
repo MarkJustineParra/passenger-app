@@ -61,7 +61,7 @@ const DiscountPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollY={false} className="discount-content">
+      <IonContent fullscreen scrollY={true} className="discount-content">
         <div className="discount-form">
           <IonItem lines="none" className="discount-input">
             <IonInput

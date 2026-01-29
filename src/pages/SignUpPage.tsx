@@ -40,14 +40,16 @@ const SignUpPage: React.FC = () => {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [suggestedUsername, setSuggestedUsername] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [error, setError] = useState("");
   const [showAlert, setShowAlert] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   useEffect(() => {
+    if (isNavigating) return;
+    
     const storedMobile = localStorage.getItem("verifiedMobile") ?? "";
 
     if (storedMobile) {
@@ -56,19 +58,7 @@ const SignUpPage: React.FC = () => {
     } else {
       ionRouter.push("/signup", "back");
     }
-  }, [ionRouter]);
-
-  const generateUsername = (name: string) => {
-    if (!name.trim()) {
-      setSuggestedUsername("");
-      return;
-    }
-    const parts = name.toLowerCase().trim().split(/\s+/);
-    const firstName = parts[0];
-    const lastInitial = parts.length > 1 ? parts[parts.length - 1][0] : "";
-    const random = Math.floor(10 + Math.random() * 90);
-    setSuggestedUsername(`${firstName}${lastInitial}${random}`);
-  };
+  }, [ionRouter, isNavigating]);
 
   const handleSignUp = () => {
     if (!fullName || !email || !mobileNumber || !address || !password || !confirmPassword) {
@@ -94,11 +84,15 @@ const SignUpPage: React.FC = () => {
 
   const handleAlertDismiss = () => {
   setShowAlert(false);
-  localStorage.removeItem("verifiedMobile");
-  localStorage.removeItem("pendingMobile");
-  localStorage.setItem("isLoggedIn", "false");
-  setIsLoggedIn(false);
-  history.push("/");
+  setIsNavigating(true);
+  
+  // Clean up localStorage and navigate
+  setTimeout(() => {
+    localStorage.removeItem("verifiedMobile");
+    localStorage.removeItem("pendingMobile");
+    localStorage.removeItem("isLoggedIn");
+    ionRouter.push("/", "root", "replace");
+  }, 0);
 };
 
   const openTerms = () => window.open("/terms", "_blank");
@@ -122,19 +116,9 @@ const SignUpPage: React.FC = () => {
                   <IonInput
                     placeholder="Full Name"
                     value={fullName}
-                    onIonChange={(e) => {
-                      const v = e.detail.value ?? "";
-                      setFullName(v);
-                      generateUsername(v);
-                    }}
+                    onIonChange={(e) => setFullName(e.detail.value ?? "")}
                   />
                 </IonItem>
-
-                {suggestedUsername && (
-                  <IonText color="medium" className="username-suggestion">
-                    Username suggestion: <strong>@{suggestedUsername}</strong>
-                  </IonText>
-                )}
 
                 <IonItem lines="none" className="signup-item">
                   <IonIcon icon={callOutline} slot="start" />

@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent fullscreen className="login-content" scrollY={false}>
+      <IonContent fullscreen className="login-content" scrollY={true}>
         <div className="login-header">
           <img src="./logo4.png" alt="Logo" className="login-logo" />
           <div className="login-texts">
@@ -52,9 +52,20 @@ const LoginPage: React.FC = () => {
           <IonItem className="signup-item">
             <IonIcon slot="start" icon={callOutline} />
             <IonInput
-              placeholder="Mobile Number"
+              placeholder="09XXXXXXXXX"
+              type="tel"
+              inputMode="numeric"
+              maxlength={11}
               value={mobileNumber}
-              onIonChange={(e) => setMobileNumber(e.detail.value!)}
+              onIonChange={(e) => {
+                const value = e.detail.value!.replace(/[^0-9]/g, '');
+                setMobileNumber(value);
+              }}
+              onKeyPress={(e: any) => {
+                if (!/[0-9]/.test(e.key)) {
+                  e.preventDefault();
+                }
+              }}
             />
           </IonItem>
 

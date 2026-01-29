@@ -71,3 +71,119 @@
 .qr-button:active {
   transform: translateX(-50%) scale(0.95);
 }
+
+@media (min-width: 1025px) {
+  .tabbar-wrapper { max-width: 1920px; margin: 0 auto; }
+  .qr-button { width: 68px; height: 68px; bottom: 30px; }
+  .qr-button ion-icon { font-size: 30px; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main-tabbar { height: 68px; }
+  .qr-button { width: 64px; height: 64px; bottom: 27px; }
+  .qr-button ion-icon { font-size: 28px; }
+}
+
+@media (max-width: 768px) {
+  .tabbar-wrapper { height: 85px; }
+  .main-tabbar { height: 65px; }
+  .qr-button { 
+    width: 60px; 
+    height: 60px; 
+    bottom: 25px; 
+  }
+  .qr-button ion-icon { font-size: 26px; }
+}
+
+@media (max-width: 480px) {
+  .tabbar-wrapper { height: 80px; }
+  .main-tabbar { height: 60px; }
+  .main-tabbar::before {
+    width: 80px;
+    height: 46px;
+    top: -22px;
+  }
+  .qr-button {
+    width: 56px;
+    height: 56px;
+    bottom: 22px;
+  }
+  .qr-button ion-icon { font-size: 24px; }
+}
+
+@media (max-width: 360px) {
+  .tabbar-wrapper { height: 75px; }
+  .main-tabbar { height: 56px; }
+  .main-tabbar::before {
+    width: 74px;
+    height: 42px;
+    top: -20px;
+  }
+  .qr-button {
+    width: 52px;
+    height: 52px;
+    bottom: 20px;
+  }
+  .qr-button ion-icon { font-size: 22px; }
+}
+
+@media (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) {
+  .main-tabbar { height: 75px; }
+  .qr-button { width: 70px; height: 70px; bottom: 32px; }
+  .qr-button ion-icon { font-size: 32px; }
+}
+
+@media (min-width: 820px) and (max-width: 834px) {
+  .main-tabbar { height: 72px; }
+  .qr-button { width: 66px; height: 66px; bottom: 29px; }
+  .qr-button ion-icon { font-size: 29px; }
+}
+
+@media (min-width: 912px) and (max-width: 912px) and (orientation: portrait) {
+  .main-tabbar { height: 73px; }
+  .qr-button { width: 67px; height: 67px; bottom: 30px; }
+}
+
+@media (min-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
+  .tabbar-wrapper { height: 75px; }
+  .main-tabbar { height: 60px; }
+  .qr-button { width: 58px; height: 58px; bottom: 24px; }
+}
+
+@media (max-width: 430px) and (min-height: 900px) {
+  .tabbar-wrapper { height: 82px; }
+  .main-tabbar { height: 62px; }
+  .qr-button { width: 57px; height: 57px; bottom: 23px; }
+  .qr-button ion-icon { font-size: 25px; }
+}
+
+@media (min-width: 390px) and (max-width: 393px) {
+  .tabbar-wrapper { height: 81px; }
+  .main-tabbar { height: 61px; }
+  .qr-button { width: 56px; height: 56px; }
+}
+
+@media (max-width: 375px) and (min-height: 650px) {
+  .tabbar-wrapper { height: 78px; }
+  .main-tabbar { height: 58px; }
+  .qr-button { width: 54px; height: 54px; bottom: 21px; }
+}
+
+@media (min-width: 360px) and (max-width: 412px) and (min-height: 800px) {
+  .main-tabbar { height: 60px; }
+  .qr-button { width: 55px; height: 55px; }
+}
+
+@media (min-width: 884px) and (max-width: 884px) and (orientation: portrait) {
+  .main-tabbar { height: 76px; }
+  .qr-button { width: 69px; height: 69px; bottom: 31px; }
+  .qr-button ion-icon { font-size: 31px; }
+}
+
+@media (max-height: 430px) and (orientation: landscape) and (max-width: 932px) {
+  .tabbar-wrapper { height: 70px; }
+  .main-tabbar { height: 54px; }
+  .main-tabbar::before { width: 70px; height: 38px; top: -18px; }
+  .qr-button { width: 50px; height: 50px; bottom: 18px; }
+  .qr-button ion-icon { font-size: 20px; }
+}

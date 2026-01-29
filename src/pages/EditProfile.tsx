@@ -38,7 +38,7 @@ const EditProfile: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollY={false} className="edit-profile-content">
+      <IonContent fullscreen scrollY={true} className="edit-profile-content">
         <div className="edit-avatar-wrapper">
           <IonAvatar className="edit-avatar">
             <img

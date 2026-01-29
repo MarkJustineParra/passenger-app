@@ -29,20 +29,8 @@ import {
 import { useIonRouter } from "@ionic/react";
 import "../styles/SettingsPage.css";
 
-const DARK_KEY = "darkMode";
-
 const SettingsPage: React.FC = () => {
   const ionRouter = useIonRouter();
-
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    return localStorage.getItem(DARK_KEY) === "true";
-  });
-
-  useEffect(() => {
-  document.body.classList.toggle("dark", darkMode);
-  document.documentElement.style.colorScheme = darkMode ? "dark" : "light";
-  localStorage.setItem("darkMode", String(darkMode));
-}, [darkMode]);
 
   return (
     <IonPage>
@@ -55,7 +43,7 @@ const SettingsPage: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen scrollY={false}className="settings-content">
+      <IonContent fullscreen scrollY={true} className="settings-content">
         <IonItem
           lines="none"
           button
@@ -88,9 +76,9 @@ const SettingsPage: React.FC = () => {
             <IonLabel className="settings-label">Dark Mode</IonLabel>
             <IonToggle
               slot="end"
-              checked={darkMode}
-              onIonChange={(e) => setDarkMode(e.detail.checked)}
+              checked={false}
               className="settings-toggle"
+              disabled
             />
           </IonItem>
 
