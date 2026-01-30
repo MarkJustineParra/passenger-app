@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   IonPage,
   IonHeader,
@@ -25,6 +25,40 @@ const EditProfile: React.FC = () => {
   const [username, setUsername] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
+  const [profileImage, setProfileImage] = useState(() => {
+    return localStorage.getItem("profileImage") || "man.png";
+  });
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const handleProfileImageUpdate = () => {
+      const updatedImage = localStorage.getItem("profileImage") || "man.png";
+      setProfileImage(updatedImage);
+    };
+
+    window.addEventListener("profileImageUpdated", handleProfileImageUpdate);
+    return () => {
+      window.removeEventListener("profileImageUpdated", handleProfileImageUpdate);
+    };
+  }, []);
+
+  const handleCameraClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const imageData = reader.result as string;
+        setProfileImage(imageData);
+        localStorage.setItem("profileImage", imageData);
+        window.dispatchEvent(new Event("profileImageUpdated"));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <IonPage>
@@ -39,10 +73,17 @@ const EditProfile: React.FC = () => {
       </IonHeader>
 
       <IonContent fullscreen scrollY={true} className="edit-profile-content">
-        <div className="edit-avatar-wrapper">
+        <input
+          type="file"
+          ref={fileInputRef}
+          accept="image/*"
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
+        <div className="edit-avatar-wrapper" onClick={handleCameraClick} style={{ cursor: 'pointer' }}>
           <IonAvatar className="edit-avatar">
             <img
-              src="flogo1.png"
+              src={profileImage}
               alt="Avatar"
             />
           </IonAvatar>

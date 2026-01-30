@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import {
   IonAvatar,
   IonContent,
@@ -36,8 +36,42 @@ import "../styles/Profilepage.css";
 
 const Profilepage: React.FC = () => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [profileImage, setProfileImage] = useState(() => {
+    return localStorage.getItem("profileImage") || "man.png";
+  });
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const ionRouter = useIonRouter();
   const { setIsLoggedIn } = useContext(AuthContext);
+
+  useEffect(() => {
+    const handleProfileImageUpdate = () => {
+      const updatedImage = localStorage.getItem("profileImage") || "man.png";
+      setProfileImage(updatedImage);
+    };
+
+    window.addEventListener("profileImageUpdated", handleProfileImageUpdate);
+    return () => {
+      window.removeEventListener("profileImageUpdated", handleProfileImageUpdate);
+    };
+  }, []);
+
+  const handleCameraClick = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const imageData = reader.result as string;
+        setProfileImage(imageData);
+        localStorage.setItem("profileImage", imageData);
+        window.dispatchEvent(new Event("profileImageUpdated"));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const confirmLogout = () => {
     setShowLogoutModal(false);
@@ -57,16 +91,23 @@ const Profilepage: React.FC = () => {
       </IonHeader>
 
 <IonContent fullscreen scrollY={true} className="profile-content">
+        <input
+          type="file"
+          ref={fileInputRef}
+          accept="image/*"
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
         <div className="profile-header">
           <div className="avatar-wrap">
             <IonAvatar className="profile-avatar">
               <img
-                src="man.png"
+                src={profileImage}
                 alt="Profile"
               />
             </IonAvatar>
 
-            <button className="avatar-camera" type="button" aria-label="Change photo">
+            <button className="avatar-camera" type="button" aria-label="Change photo" onClick={handleCameraClick}>
               <IonIcon icon={cameraOutline} />
             </button>
           </div>

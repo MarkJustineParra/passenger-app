@@ -20,7 +20,8 @@
 .wallet-toolbar::after {
   display: none;
 }
-  box-shadow: none !important;
+.box-shadow: none !important;{
+
 }
 
 ion-header,

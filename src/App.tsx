@@ -109,13 +109,11 @@ const App: React.FC = () => {
   const [openNearbySheet, setOpenNearbySheet] = useState(false);
   const [openQRSheet, setOpenQRSheet] = useState(false);
   const [showWelcome, setShowWelcome] = useState(() => {
-    // Show welcome page only on fresh browser load
     return !sessionStorage.getItem("appInitialized");
   });
 
   useEffect(() => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
-    // Mark app as initialized after first render
     sessionStorage.setItem("appInitialized", "true");
   }, []);
   useEffect(() => {
@@ -137,7 +135,6 @@ const App: React.FC = () => {
     }
 
     document.body.classList.add("scanner-active");
-
     const result = await BarcodeScanner.scan({
       formats: ["QR_CODE"],
     });

@@ -17,10 +17,12 @@ import {
   IonIcon,
 } from "@ionic/react";
 import { closeOutline, schoolOutline, accessibilityOutline, peopleOutline, chevronDownOutline } from "ionicons/icons";
+import { useIonRouter } from "@ionic/react";
 import "../styles/DiscountPage.css";
 
 const DiscountPage: React.FC = () => {
   const fileRef = useRef<HTMLInputElement | null>(null);
+  const ionRouter = useIonRouter();
 
   const [fullName, setFullName] = useState("");
   const [idNumber, setIdNumber] = useState("");
@@ -66,6 +68,7 @@ const DiscountPage: React.FC = () => {
     }
 
     alert("Discount request submitted!");
+    ionRouter.push("/tabs/profilepage", "back");
   };
 
   return (

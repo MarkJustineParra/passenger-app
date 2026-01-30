@@ -31,6 +31,21 @@ import "../styles/SettingsPage.css";
 
 const SettingsPage: React.FC = () => {
   const ionRouter = useIonRouter();
+  const [profileImage, setProfileImage] = useState(() => {
+    return localStorage.getItem("profileImage") || "flogo1.png";
+  });
+
+  useEffect(() => {
+    const handleProfileImageUpdate = () => {
+      const updatedImage = localStorage.getItem("profileImage") || "flogo1.png";
+      setProfileImage(updatedImage);
+    };
+
+    window.addEventListener("profileImageUpdated", handleProfileImageUpdate);
+    return () => {
+      window.removeEventListener("profileImageUpdated", handleProfileImageUpdate);
+    };
+  }, []);
 
   return (
     <IonPage>
@@ -53,7 +68,7 @@ const SettingsPage: React.FC = () => {
         >
           <IonAvatar slot="start" className="settings-profile-avatar">
             <img
-              src="flogo1.png"
+              src={profileImage}
               alt="Avatar"
             />
           </IonAvatar>
