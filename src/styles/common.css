@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ==================== COMMON VARIABLES ==================== */
+:root {
+  --app-primary-color: #008000;
+  --app-primary-hover: #006e00;
+  --app-primary-light: rgba(0, 128, 0, 0.1);
+  --app-text-dark: #000;
+  --app-text-medium: #555;
+  --app-text-light: #777;
+  --app-text-lighter: #999;
+  --app-border-color: #cfcfcf;
+  --app-border-color-dark: #555;
+  --app-background: #ffffff;
+  --app-background-light: #f8f8f8;
+  --app-border-radius: 12px;
+  --app-border-radius-large: 15px;
+  --app-shadow-sm: 0px 2px 5px rgba(0, 0, 0, 0.05);
+  --app-shadow-md: 0px 4px 8px rgba(0, 128, 0, 0.2);
+  --app-shadow-lg: 0 4px 12px rgba(0, 128, 0, 0.3);
+  --app-font-family: 'Poppins', sans-serif;
+}
+
+/* ==================== FLOATING LABEL INPUT ==================== */
+.floating-input-item {
+  position: relative;
+  border: 1.5px solid #000000;
+  border-radius: 15px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  font-family: var(--app-font-family);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  height: 56px;
+  width: 340px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-shadow: none;
+  background: var(--app-background);
+  opacity: 1;
+  overflow: visible;
+  --padding-start: 0;
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.floating-input-item:focus-within {
+  border-color: #000000;
+  box-shadow: none;
+}
+
+.floating-input-item .floating-input-icon {
+  font-size: 1.4rem;
+  color: #000000;
+  transition: opacity 0.3s ease;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.floating-input-item.has-value .floating-input-icon {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  margin: 0;
+}
+
+.floating-input-item ion-input {
+  flex: 1;
+  margin-left: 0;
+  font-size: 1rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  outline: none;
+  --padding-start: 0;
+  --padding-end: 0;
+  padding-left: 0;
+  left: 0px;
+}
+
+.floating-input-item ion-input::part(native) {
+  text-align: left !important;
+  padding-left: 0 !important;
+}
+
+.floating-input-item.has-value ion-input {
+  margin-left: 0;
+}
+
+.floating-label {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: #999999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  font-family: var(--app-font-family);
+  background: transparent;
+  z-index: 1000;
+}
+
+.floating-input-item.has-value .floating-label {
+  top: -1px;
+  left: 0px;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: #666666;
+  background: var(--app-background);
+  padding: 0 6px;
+  font-weight: 400;
+  z-index: 1000;
+  line-height: 1;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 16px;
+  top: 25%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #000000;
+  z-index: 10;
+}
+
+/* ==================== AUTH PAGES LAYOUT ==================== */
+.auth-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--app-background);
+  font-family: var(--app-font-family);
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.auth-page-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.auth-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.auth-logo {
+  width: 280px;
+  max-width: 90%;
+  margin-bottom: 20px;
+}
+
+.auth-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -20px;
+}
+
+.auth-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--app-text-dark);
+  margin: 0;
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: 0.9375rem;
+  color: var(--app-text-light);
+  margin: 2px 0 0 0;
+  text-align: center;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 50px auto 0 auto;
+  
+}
+
+/* ==================== PAGE HEADER ==================== */
+.page-header {
+  transform: translateY(30px);
+  box-shadow: none !important;
+  --background: var(--app-background);
+  background: var(--app-background);
+}
+
+.page-header::after {
+  display: none;
+}
+
+.page-header .page-toolbar {
+  --background: var(--app-background);
+  background: var(--app-background);
+  --box-shadow: none;
+  --border-width: 0 !important;
+}
+
+.page-header .page-toolbar::after {
+  display: none;
+}
+
+.page-title {
+  font-family: var(--app-font-family);
+  font-weight: 550;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 10px;
+  color: var(--app-text-dark);
+}
+
+/* ==================== PROFILE AVATAR ==================== */
+.profile-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-avatar-wrapper.avatar-small .profile-avatar {
+  width: 42px;
+  height: 42px;
+}
+
+.profile-avatar-wrapper.avatar-medium .profile-avatar {
+  width: 80px;
+  height: 80px;
+}
+
+.profile-avatar-wrapper.avatar-large .profile-avatar {
+  width: 120px;
+  height: 120px;
+  border: 4px solid var(--app-primary-color);
+}
+
+.avatar-camera-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--app-background);
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-camera-button ion-icon {
+  font-size: 16px;
+  color: var(--app-primary-color);
+}
+
+/* ==================== COMMON BUTTONS ==================== */
+.app-button-primary {
+  --background: var(--app-primary-color);
+  --background-activated: var(--app-primary-color);
+  --background-focused: var(--app-primary-color);
+  --background-hover: var(--app-primary-hover);
+  --color: #fff;
+  --border-radius: var(--app-border-radius);
+  font-weight: 600;
+  height: 55px;
+  font-size: 0.95rem;
+  font-family: var(--app-font-family);
+  text-transform: none;
+  box-shadow: var(--app-shadow-lg);
+}
+
+.app-button-secondary {
+  --background: #d9d9d9;
+  --background-activated: #d9d9d9;
+  --background-hover: #c9c9c9;
+  --color: var(--app-text-dark);
+  --border-radius: var(--app-border-radius-large);
+  font-weight: 600;
+  height: 55px;
+  font-size: 0.95rem;
+  font-family: var(--app-font-family);
+  text-transform: none;
+}
+
+/* ==================== COMMON FORM ELEMENTS ==================== */
+.form-link {
+  color: var(--app-primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.form-link:hover {
+  opacity: 0.8;
+}
+
+.form-error {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-family: var(--app-font-family);
+}
+
+.form-hint {
+  color: #666;
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--app-font-family);
+}
+
+/* ==================== PROFILE LIST ITEMS ==================== */
+.profile-list-item {
+  --background: var(--app-background);
+  --padding-start: 16px;
+  --inner-padding-end: 14px;
+  --min-height: 60px;
+  font-family: var(--app-font-family);
+}
+
+.profile-list-item ion-icon {
+  color: var(--app-text-medium);
+  font-size: 1.4rem;
+  margin-right: 12px;
+}
+
+.profile-list-item ion-icon.chevron {
+  color: var(--app-text-lighter);
+  font-size: 1.2rem;
+}
+
+.profile-list-item ion-label {
+  font-family: var(--app-font-family);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ==================== CONTENT PADDING ==================== */
+.page-content {
+  --padding-top: 30px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: var(--app-font-family);
+}
+
+.content-container {
+  padding: 0 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================== COMMON SPACING ==================== */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+/* ==================== DARK MODE SUPPORT ==================== */
+.ion-palette-dark {
+  --app-background: #121212;
+  --app-text-dark: #ffffff;
+}
+
+.ion-palette-dark ion-app {
+  background: #121212;
+}
+
+.ion-palette-dark ion-page {
+  background: #121212;
+}
+
+.ion-palette-dark ion-content {
+  --background: #121212;
+}
+
+.ion-palette-dark .page-header {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark .page-toolbar {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark .page-title {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark ion-back-button {
+  --color: #ffffff;
+  color: #ffffff;
+}
+
+.ion-palette-dark .auth-page-content {
+  background: #121212;
+}
+
+.ion-palette-dark .auth-title {
+  color: #ffffff;
+}
+
+.ion-palette-dark .auth-subtitle {
+  color: #b0b0b0;
+}
+
+.ion-palette-dark .floating-input-item {
+  background: #1e1e1e;
+  border-color: #444444;
+}
+
+.ion-palette-dark .floating-input-item .floating-input-icon {
+  color: #ffffff;
+}
+
+.ion-palette-dark .floating-label {
+  color: #b0b0b0;
+}
+
+.ion-palette-dark .floating-input-item.has-value .floating-label {
+  color: #ffffff;
+  background: #1e1e1e;
+}
+
+.ion-palette-dark .password-toggle-icon {
+  color: #ffffff;
+}
+
+.ion-palette-dark ion-input {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .form-link {
+  color: #4ade80;
+}
+
+.ion-palette-dark .form-error {
+  color: #ff6b6b;
+}
+
+.ion-palette-dark .app-button-primary {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .app-button-primary ion-label {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .app-button-secondary {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
