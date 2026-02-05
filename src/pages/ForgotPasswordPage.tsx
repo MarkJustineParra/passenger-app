@@ -8,7 +8,7 @@ import "../styles/ForgotPasswordPage.css";
 
 const ForgotPasswordPage: React.FC = () => {
   const ionRouter = useIonRouter();
-  const [step, setStep] = useState(1); // 1=mobile, 2=otp, 3=new password
+  const [step, setStep] = useState(1);
   const [mobileNumber, setMobileNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
@@ -93,7 +93,6 @@ const ForgotPasswordPage: React.FC = () => {
 
   return (
     <AuthPageLayout>
-      {/* Step 1: Enter Mobile Number */}
       {step === 1 && (
         <>
           <AuthHeader
@@ -121,7 +120,6 @@ const ForgotPasswordPage: React.FC = () => {
         </>
       )}
 
-      {/* Step 2: OTP Verification */}
       {step === 2 && (
         <>
           <div className="otp-logo">
@@ -164,7 +162,6 @@ const ForgotPasswordPage: React.FC = () => {
         </>
       )}
 
-      {/* Step 3: Create New Password */}
       {step === 3 && (
         <>
           <AuthHeader

@@ -65,10 +65,8 @@ const DiscountPage: React.FC = () => {
       return;
     }
 
-    // Show reviewing screen
     setIsReviewing(true);
     
-    // Simulate ID review process (3 seconds)
     setTimeout(() => {
       setIsReviewing(false);
       setIsApproved(true);
@@ -86,7 +84,6 @@ const DiscountPage: React.FC = () => {
 
       <IonContent fullscreen scrollY={true} className="discount-content">
         {isReviewing ? (
-          // Reviewing ID Screen
           <div className="discount-review-screen">
             <div className="discount-review-animation">
               <div className="discount-checkmark-circle">
@@ -100,7 +97,6 @@ const DiscountPage: React.FC = () => {
             <p className="discount-review-text">We are verifying your ID, please sit back as it will take up 24 hours for your request to be registered.</p>
           </div>
         ) : isApproved ? (
-          // Discount Approved Screen
           <div className="discount-approved-screen">
             <div className="discount-approved-card">
               <div className="discount-approved-header">
@@ -139,7 +135,6 @@ const DiscountPage: React.FC = () => {
             </IonButton>
           </div>
         ) : (
-          // Application Form
           <div className="discount-form">
           <IonItem lines="none" className="discount-input">
             <IonInput

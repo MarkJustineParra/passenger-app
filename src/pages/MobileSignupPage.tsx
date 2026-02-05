@@ -12,7 +12,7 @@ const MobileSignupPage: React.FC = () => {
   const history = useHistory();
   const { setIsLoggedIn } = useContext(AuthContext);
   
-  const [step, setStep] = useState(1); // 1=mobile, 2=otp, 3=details
+  const [step, setStep] = useState(1);
   const [mobile, setMobile] = useState("");
   const [code, setCode] = useState<string[]>(["", "", "", "", "", ""]);
   const [seconds, setSeconds] = useState(20);
@@ -131,7 +131,6 @@ const MobileSignupPage: React.FC = () => {
 
   return (
     <AuthPageLayout>
-      {/* Step 1: Mobile Number */}
       {step === 1 && (
         <>
           <AuthHeader
@@ -161,7 +160,6 @@ const MobileSignupPage: React.FC = () => {
         </>
       )}
 
-      {/* Step 2: OTP Verification */}
       {step === 2 && (
         <>
           <div className="otp-logo">
@@ -204,7 +202,6 @@ const MobileSignupPage: React.FC = () => {
         </>
       )}
 
-      {/* Step 3: Complete Registration */}
       {step === 3 && (
         <>
           <AuthHeader

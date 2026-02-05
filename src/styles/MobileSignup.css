@@ -118,7 +118,6 @@
   cursor: pointer;
 }
 
-/* SignUp Form Styles */
 .signup-form {
   width: 100%;
   max-width: 340px;
@@ -349,7 +348,7 @@
   color: #777;
 }
 
-/* ==================== DARK MODE ==================== */
+
 .ion-palette-dark .ms-footer,
 .ion-palette-dark .otp-subtitle,
 .ion-palette-dark .otp-resend {

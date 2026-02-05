@@ -114,15 +114,15 @@ const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [openNearbySheet, setOpenNearbySheet] = useState(false);
   const [openQRSheet, setOpenQRSheet] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(() => {
-    return !sessionStorage.getItem("appInitialized");
-  });
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
+    localStorage.removeItem("welcomeSeen");
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
-    sessionStorage.setItem("appInitialized", "true");
     
-    // Initialize dark mode from localStorage
+    const welcomeSeen = localStorage.getItem("welcomeSeen") === "true";
+    setShowWelcome(!welcomeSeen);
+    
     const darkMode = localStorage.getItem("darkMode") === "true";
     document.documentElement.classList.toggle("ion-palette-dark", darkMode);
   }, []);

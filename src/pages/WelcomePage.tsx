@@ -7,6 +7,8 @@ const WelcomePage: React.FC = () => {
   const history = useHistory();
 
   useEffect(() => {
+    localStorage.setItem("welcomeSeen", "true");
+    
     const timer = setTimeout(() => {
       history.push("/login");
     }, 5500);

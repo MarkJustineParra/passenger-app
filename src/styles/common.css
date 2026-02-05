@@ -196,7 +196,7 @@
 
 /* ==================== PAGE HEADER ==================== */
 .page-header {
-  transform: translateY(30px);
+  transform: translateY(-5px);
   box-shadow: none !important;
   --background: var(--app-background);
   background: var(--app-background);

@@ -209,7 +209,6 @@ const WalletPage: React.FC = () => {
     setWithdrawOpen(false);
     setTimeout(() => setWithdrawSuccessOpen(true), 200);
 
-    // after 3 seconds -> successful
     const t = window.setTimeout(() => {
       setTransactions((prev) =>
         prev.map((x) =>
