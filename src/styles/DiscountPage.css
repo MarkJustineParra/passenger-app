@@ -19,7 +19,7 @@
 
 .discount-title {
   text-align: left;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
   font-size: 20px;
   padding-left: 0;
@@ -37,7 +37,7 @@ ion-toolbar ion-title {
 }
 
 .discount-form {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -91,7 +91,7 @@ ion-toolbar ion-title {
 }
 
 .discount-upload-text {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #444;
   white-space: nowrap;
@@ -118,7 +118,7 @@ ion-toolbar ion-title {
   margin-top: 14px;
   height: 52px;
   border-radius: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
 }
 
@@ -198,7 +198,7 @@ ion-toolbar ion-title {
 }
 
 .discount-review-title {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-weight: 600;
   color: #000;
@@ -206,7 +206,7 @@ ion-toolbar ion-title {
 }
 
 .discount-review-text {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
   line-height: 1.5;
@@ -247,14 +247,14 @@ ion-toolbar ion-title {
 }
 
 .discount-approved-header h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 22px;
   font-weight: 600;
   margin: 0 0 8px 0;
 }
 
 .discount-approved-header p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 13px;
   margin: 0;
   opacity: 0.95;
@@ -282,7 +282,7 @@ ion-toolbar ion-title {
 }
 
 .discount-badge-label {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-weight: 600;
   color: #008000;
@@ -296,7 +296,8 @@ ion-toolbar ion-title {
   max-width: 360px;
   height: 52px;
   border-radius: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
   margin-top: 16px;
 }
+

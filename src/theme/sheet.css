@@ -1,13 +1,25 @@
 .nearby-sheet {
   --background: #ffffff;
   --border-radius: 20px;
+  --height: auto;
+  --max-height: 90%;
+}
+
+/* Add safe area padding for iOS */
+.platform-ios .nearby-sheet {
+  --border-radius: 20px 20px 0 0;
+}
+
+.platform-android .nearby-sheet {
+  --border-radius: 16px 16px 0 0;
 }
 
 .nearby-content {
   --padding-top: 12px;
-  --padding-bottom: 18px;
+  --padding-bottom: calc(18px + env(safe-area-inset-bottom));
   --padding-start: 16px;
   --padding-end: 16px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nearby-header {
@@ -15,6 +27,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 4px 6px;
+  position: sticky;
+  top: 0;
+  background: var(--background);
+  z-index: 10;
 }
 
 .nearby-title {
@@ -35,6 +51,12 @@
   justify-content: center;
   color: #008000;
   font-size: 22px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nearby-close:active {
+  opacity: 0.6;
 }
 
 .nearby-list {

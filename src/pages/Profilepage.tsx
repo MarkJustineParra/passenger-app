@@ -46,7 +46,7 @@ const Profilepage: React.FC = () => {
     <IonPage>
       <PageHeader title="My Profile" showBackButton={false} />
 
-      <IonContent fullscreen scrollY={true} className="page-content">
+      <IonContent fullscreen scrollY={true} className="page-content profile-page-content">
         <div className="profile-header">
           <ProfileAvatar
             imageSource={profileImage}

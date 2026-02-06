@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  height: calc(90px + env(safe-area-inset-bottom));
   pointer-events: none;
   z-index: 50;
 }
@@ -38,6 +38,8 @@
   --color: #111;
   --color-selected: #008000;
   z-index: 2;
+  /* Ensure minimum touch target */
+  min-height: 48px;
 }
 
 .tab-spacer {
@@ -48,7 +50,7 @@
 .qr-button {
   position: absolute;
   left: 50%;
-  bottom: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom));
   transform: translateX(-50%);
   width: 64px;
   height: 64px;
@@ -61,6 +63,9 @@
   justify-content: center;
   z-index: 60;
   pointer-events: auto;
+  /* Improve tap response */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .qr-button ion-icon {

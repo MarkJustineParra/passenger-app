@@ -27,6 +27,7 @@ import {
 import { BarcodeScanner } from "@capacitor-mlkit/barcode-scanning";
 import { Capacitor } from "@capacitor/core";
 import { LoadingProvider } from "./contexts/LoadingContext";
+import { getPlatformClasses } from "./utils/platform";
 
 import Homepage from "./pages/Homepage";
 import Profilepage from "./pages/Profilepage";
@@ -56,14 +57,18 @@ import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 import "@ionic/react/css/palettes/dark.class.css";
 import "./theme/variables.css";
+import "./styles/common.css";
+import "./styles/base.css";
+import "./styles/responsive.css";
+import "./styles/platform.css";
 import "./theme/tabs.css";
 import "./theme/sheet.css";
 import "./theme/qr-scanner.css";
-import "./styles/common.css";
-import "./styles/responsive.css";
-import "./styles/common.css";
 
-setupIonicReact();
+setupIonicReact({
+  mode: 'md', // Use Material Design mode for consistent cross-platform UI
+  swipeBackEnabled: true,
+});
 
 export const AuthContext = createContext({
   isLoggedIn: false,
@@ -125,6 +130,27 @@ const App: React.FC = () => {
     
     const darkMode = localStorage.getItem("darkMode") === "true";
     document.documentElement.classList.toggle("ion-palette-dark", darkMode);
+    
+    // Add platform-specific classes to body
+    const platformClasses = getPlatformClasses();
+    document.body.className = platformClasses;
+    
+    // Handle orientation changes
+    const handleOrientationChange = () => {
+      const newClasses = getPlatformClasses();
+      document.body.className = newClasses;
+      if (darkMode) {
+        document.documentElement.classList.add("ion-palette-dark");
+      }
+    };
+    
+    window.addEventListener("resize", handleOrientationChange);
+    window.addEventListener("orientationchange", handleOrientationChange);
+    
+    return () => {
+      window.removeEventListener("resize", handleOrientationChange);
+      window.removeEventListener("orientationchange", handleOrientationChange);
+    };
   }, []);
   useEffect(() => {
     const handler = () => setOpenNearbySheet(true);

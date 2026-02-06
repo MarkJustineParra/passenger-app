@@ -22,7 +22,7 @@
 
 .privacy-title {
   text-align: left;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 550;
   font-size: 20px;
   padding-left: 0;
@@ -42,7 +42,7 @@
 }
 
 .privacy-container h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-weight: 700;
   color: #000;
@@ -50,7 +50,7 @@
 }
 
 .privacy-update {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   color: #8c8c8c;
   margin: 0 0 24px 0;
@@ -61,7 +61,7 @@
 }
 
 .privacy-section h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-weight: 600;
   color: #000;
@@ -69,9 +69,10 @@
 }
 
 .privacy-section p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   line-height: 1.6;
   color: #333;
   margin: 0;
 }
+

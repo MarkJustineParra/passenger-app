@@ -1,0 +1,193 @@
+/* ===================================== */
+/* BASE PAGE STYLES - Common Patterns */
+/* ===================================== */
+
+/* Standard Page Header */
+.page-header-standard {
+  transform: translateY(30px);
+  box-shadow: none !important;
+}
+
+.page-header-standard::after,
+.page-header-standard ion-toolbar::after {
+  display: none;
+}
+
+.page-header-standard ion-toolbar {
+  --box-shadow: none;
+  --border-width: 0 !important;
+  --background: #ffffff;
+}
+
+/* Standard Page Title */
+.page-title-standard {
+  text-align: left;
+  font-family: var(--app-font-family);
+  font-weight: 550;
+  font-size: 20px;
+  padding-left: 0;
+}
+
+/* Standard Content Container */
+.page-content-standard {
+  --padding-top: 30px;
+  --background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Centered Content Wrapper */
+.content-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content-wrapper-narrow {
+  max-width: 600px;
+}
+
+.content-wrapper-wide {
+  max-width: 800px;
+}
+
+/* Form Containers */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 30px;
+  margin: 60px auto 0 auto;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  margin-top: 28px;
+  padding: 0 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* List Styles */
+.page-list-inset {
+  margin: 0 16px;
+  border-radius: 14px;
+  width: calc(100% - 32px);
+  --background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.page-list-item {
+  --padding-start: 16px;
+  --inner-padding-end: 14px;
+  --min-height: 60px;
+  font-family: var(--app-font-family);
+  --background: #ffffff;
+}
+
+.page-list-item ion-icon:not(.chevron) {
+  color: var(--app-text-medium);
+  font-size: 1.4rem;
+  margin-right: 12px;
+}
+
+.page-list-item ion-icon.chevron {
+  color: var(--app-text-lighter);
+  font-size: 1.2rem;
+}
+
+/* Section Headers */
+.page-section-header {
+  margin: 16px 16px 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--app-text-lighter);
+  font-family: var(--app-font-family);
+  font-weight: 600;
+}
+
+/* Card Styles */
+.page-card {
+  border-radius: 14px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin: 16px;
+}
+
+/* Input Containers */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Responsive Utilities */
+.show-mobile {
+  display: block;
+}
+
+.show-tablet {
+  display: none;
+}
+
+.show-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .show-mobile {
+    display: none;
+  }
+  .show-tablet {
+    display: block;
+  }
+  .content-wrapper {
+    padding: 0 24px;
+  }
+  .page-card {
+    margin: 20px auto;
+    max-width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .show-tablet {
+    display: none;
+  }
+  .show-desktop {
+    display: block;
+  }
+  .content-wrapper {
+    padding: 0 32px;
+  }
+}
+
+/* Dark Mode Overrides */
+.ion-palette-dark .page-header-standard ion-toolbar,
+.ion-palette-dark .page-content-standard {
+  --background: #121212;
+}
+
+.ion-palette-dark .page-list-inset,
+.ion-palette-dark .page-list-item,
+.ion-palette-dark .page-card {
+  --background: #1e1e1e;
+  background: #1e1e1e;
+}
+
+.ion-palette-dark .page-section-header {
+  color: #b0b0b0;
+}

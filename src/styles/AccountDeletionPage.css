@@ -22,7 +22,7 @@
 
 .deletion-title {
   text-align: left;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 550;
   font-size: 20px;
   padding-left: 0;
@@ -53,7 +53,7 @@
 }
 
 .deletion-container h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-weight: 700;
   color: #000;
@@ -62,7 +62,7 @@
 }
 
 .deletion-subtitle {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
   margin: 0 0 24px 0;
@@ -80,7 +80,7 @@
 
 .deletion-info h3,
 .deletion-alternative h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-weight: 600;
   color: #000;
@@ -93,7 +93,7 @@
 }
 
 .deletion-info li {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #333;
   line-height: 1.8;
@@ -101,7 +101,7 @@
 }
 
 .deletion-alternative p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   line-height: 1.6;
   color: #333;
@@ -111,7 +111,7 @@
 .deletion-button {
   --border-radius: 12px;
   height: 50px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-weight: 600;
   text-transform: none;
@@ -140,7 +140,7 @@
 }
 
 .deletion-modal-content h2 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 20px;
   font-weight: 700;
   color: #000;
@@ -148,7 +148,7 @@
 }
 
 .deletion-modal-content p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
   margin: 0 0 24px 0;
@@ -163,9 +163,10 @@
 .deletion-modal-buttons ion-button {
   --border-radius: 12px;
   height: 48px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 15px;
   font-weight: 600;
   text-transform: none;
   margin: 0;
 }
+

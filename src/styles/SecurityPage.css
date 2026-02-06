@@ -22,7 +22,7 @@
 
 .security-title {
   text-align: left;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 550;
   font-size: 20px;
   padding-left: 0;
@@ -37,7 +37,7 @@
 
 .security-section-label {
   margin: 16px 16px 12px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   font-weight: 600;
   color: #000;
@@ -72,21 +72,21 @@
 }
 
 .security-label {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 15px;
   font-weight: 600;
   color: #000;
 }
 
 .security-label-title {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 15px;
   font-weight: 600;
   color: #000;
 }
 
 .security-label-desc {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 12px;
   color: #666;
   margin-top: 2px;
@@ -107,7 +107,7 @@
 }
 
 .security-info h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 16px;
   font-weight: 600;
   color: #000;
@@ -120,8 +120,9 @@
 }
 
 .security-info li {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #333;
   line-height: 1.8;
 }
+

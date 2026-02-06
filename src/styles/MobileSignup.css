@@ -44,7 +44,7 @@
   color: #999;
   pointer-events: none;
   transition: all 0.3s ease;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   background: transparent;
   z-index: 1000;
 }
@@ -76,7 +76,7 @@
 }
 
 .ms-input .mobile-prefix {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 1rem;
   font-weight: 500;
   color: #008000;
@@ -92,7 +92,7 @@
   width: 100%;
   max-width: 400px;
   margin-top: 8px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
   text-transform: none;
   box-shadow: 0 4px 12px rgba(0, 128, 0, 0.3);
@@ -104,7 +104,7 @@
 
 .ms-footer {
   margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
   text-align: center;
@@ -134,7 +134,7 @@
   padding: 14px 16px;
   display: flex;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   transition: border-color 0.3s, box-shadow 0.3s;
   height: 56px;
   width: 340px;
@@ -219,7 +219,7 @@
   height: 54px;
   font-weight: 600;
   margin: 1rem auto 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 1rem;
   text-transform: uppercase;
   box-shadow: none;
@@ -239,7 +239,7 @@
 }
 
 .otp-title {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 24px;
   font-weight: 700;
   margin: 0 0 8px 0;
@@ -250,7 +250,7 @@
 }
 
 .otp-subtitle {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
   max-width: 400px;
@@ -295,7 +295,7 @@
   width: 340px;
   max-width: 100%;
   margin: 0 auto;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
   text-transform: none;
   box-shadow: none;
@@ -316,7 +316,7 @@
   justify-content: center;
   gap: 8px;
   margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 14px;
   color: #008000;
   font-weight: 600;
@@ -336,7 +336,7 @@
 
 .otp-resend {
   margin-top: 16px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--app-font-family);
   font-size: 13px;
   color: #666;
   text-align: center;
@@ -401,3 +401,4 @@
 .ion-palette-dark .ms-link {
   color: #4ade80;
 }
+

@@ -28,7 +28,7 @@ ion-toolbar {
 }
 
 .wallet-title {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 550;
   font-size: 20px;
   text-align: left;
@@ -156,7 +156,7 @@ ion-toolbar {
 }
 
 .tx-title {
-  font-family: "Poppins", sans-serif !important;
+  font-family: var(--app-font-family) !important;
   font-weight: 550 !important;
   font-size: 12px;
   color: #000;
@@ -449,7 +449,7 @@ ion-toolbar {
 }
 
 .success-main {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 700;
   font-size: 20px;
   color: #000;
@@ -457,7 +457,7 @@ ion-toolbar {
 }
 
 .success-sub {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-size: 13px;
   color: #666;
   line-height: 1.4;
@@ -471,7 +471,7 @@ ion-toolbar {
   --background-activated: #006600;
   --border-radius: 12px;
   height: 52px;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--app-font-family);
   font-weight: 600;
 }
 
@@ -657,3 +657,4 @@ ion-toolbar {
 .ion-palette-dark .balance-amount {
   color: #ffffff;
 }
+

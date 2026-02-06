@@ -1,683 +1,497 @@
-@media (min-width: 1025px) {
-  .leaflet-map { max-width: 1920px; margin: 0 auto; }
-  .top-logo { width: 70px; height: 70px; }
-  .top-fab-btn { width: 52px; height: 52px; }
-  .nearby-wrap { max-width: 500px; left: 50%; transform: translateX(-50%); right: auto; }
-  .nearby-btn { height: 56px; font-size: 17px; }
+/* ============================================ */
+/* RESPONSIVE BREAKPOINTS - Consolidated */
+/* ============================================ */
+/* Mobile-first responsive design */
+/* Breakpoints: 480px, 768px, 1024px, 1280px */
+/* ============================================ */
 
-  .welcome-logo img { width: 280px; }
+/* ==================== CROSS-PLATFORM BASE ==================== */
 
-  .ms-wrap, .otp-wrap { max-width: 500px; margin: 0 auto; padding: 50px 30px; }
-  .ms-logo img { width: 100px; }
-  .ms-title, .otp-title { font-size: 32px; }
+/* Platform-specific overrides */
+.platform-ios ion-modal {
+  --border-radius: 10px;
+}
 
-  .edit-form {
-    max-width: 600px;
-    margin: 60px auto 0;
-    padding: 0;
-  }
-  .edit-input {
-    height: 62px;
-    font-size: 17px;
-  }
-  .edit-actions {
-    max-width: 600px;
-    margin: 28px auto 0;
-    padding: 0;
-  }
+.platform-android ion-modal {
+  --border-radius: 4px;
+}
 
-  .settings-content { max-width: 700px; margin: 0 auto; }
-  .settings-profile-item { margin: 18px auto 8px; max-width: 700px; }
-  .settings-list { max-width: 700px; margin: 0 auto; }
-
-  .notification-content { max-width: 800px; margin: 0 auto; }
-  .notification-list { max-width: 800px; }
-  .notification-item { margin: 10px auto; max-width: 780px; }
-
-  .wallet-shell { max-width: 600px; margin: 0 auto; padding: 0 20px; }
-  .balance-card { padding: 24px 20px; min-height: 130px; }
-  .balance-card-v2 { padding: 20px 20px 18px; }
-  .th-title { font-size: 15px; }
-  .tx-title { font-size: 13px; }
-
-  .discount-content { max-width: 700px; margin: 0 auto; }
-  .discount-form { max-width: 600px; margin: 40px auto 0; padding: 0; }
-  .discount-input { height: 58px; font-size: 17px; }
-  .discount-upload { height: 58px; }
-  .discount-apply-btn { height: 56px; font-size: 17px; }
-
-  .cp-form {
-    max-width: 600px;
-    margin: 60px auto 0;
-    padding: 0;
-  }
-  .cp-actions {
-    max-width: 600px;
-    margin: 28px auto 0;
-    padding: 0;
+/* Better touch targets for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  button, 
+  ion-button, 
+  ion-fab-button, 
+  ion-tab-button,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .top-logo { width: 65px; height: 65px; }
-  .top-fab-btn { width: 50px; height: 50px; }
-  .nearby-wrap { left: 20px; right: 20px; }
-  .nearby-btn { height: 54px; font-size: 16px; }
-
-  .welcome-logo img { width: 240px; }
-
-  .ms-wrap, .otp-wrap { max-width: 480px; margin: 0 auto; padding: 45px 25px; }
-  .ms-logo img { width: 90px; }
-  .ms-title, .otp-title { font-size: 30px; }
-  .ms-input, .ms-btn, .otp-btn { max-width: 450px; }
-  .otp-box { width: 50px; height: 58px; }
-
-  .edit-form {
-    padding: 0 40px;
-    margin-top: 55px;
+/* iOS specific - handle notch devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .has-notch .status-bar-overlay {
+    height: calc(80px + env(safe-area-inset-top));
   }
-  .edit-input {
-    height: 58px;
-    font-size: 16px;
-  }
-  .edit-actions {
-    padding: 0 40px;
-  }
-
-  .settings-content { max-width: 650px; margin: 0 auto; }
-  .settings-profile-item { margin: 18px 20px 8px; }
-  .settings-list { margin: 0 20px; }
-
-  .notification-content { max-width: 700px; margin: 0 auto; }
-  .notification-item { margin: 9px 20px; }
-
-  .wallet-shell { max-width: 550px; margin: 0 auto; padding: 0 18px; }
-  .balance-card { padding: 22px 18px; min-height: 125px; }
-  .balance-card-v2 { padding: 19px 18px 17px; }
-
-  .discount-content { max-width: 650px; margin: 0 auto; }
-  .discount-form { padding: 0 30px; margin-top: 38px; }
-  .discount-input { height: 56px; font-size: 16px; }
-  .discount-upload { height: 56px; }
-  .discount-apply-btn { height: 54px; font-size: 16px; }
-
-  .cp-form {
-    padding: 0 40px;
-    margin-top: 55px;
-  }
-  .cp-actions {
-    padding: 0 40px;
+  
+  .has-notch .page-header {
+    padding-top: env(safe-area-inset-top);
   }
 }
 
+/* High DPI screens (Retina, etc.) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Prevent text inflation on Android browsers */
 @media (max-width: 768px) {
-  .top-logo { width: 58px; height: 58px; }
-  .top-fab-btn { width: 44px; height: 44px; }
-  .nearby-wrap { bottom: calc(90px + env(safe-area-inset-bottom)); }
-  .nearby-btn { height: 48px; }
-
-  .welcome-logo img { width: 220px; }
-
-  .ms-wrap, .otp-wrap { padding: 35px 20px; }
-  .ms-logo img { width: 80px; }
-  .ms-title, .otp-title { font-size: 24px; }
-  .ms-input, .ms-btn, .otp-btn { max-width: 400px; }
-
-  .edit-form {
-    padding: 0 24px;
-    margin-top: 50px;
+  body {
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
   }
-  .edit-actions {
-    padding: 0 24px;
-  }
-
-  .settings-profile-item { margin: 16px 14px 8px; }
-  .settings-list { margin: 0 14px; }
-
-  .notification-item { margin: 8px 14px; }
-
-  .wallet-shell { max-width: 100%; padding: 0 14px; }
-  .balance-card, .balance-card-v2 { padding: 20px 16px; }
-
-  .discount-form { padding: 0 20px; margin-top: 35px; }
-
-  .cp-form {
-    padding: 0 24px;
-    margin-top: 50px;
-  }
-  .cp-actions {
-    padding: 0 24px;
-  }
-
-  .auth-logo { width: 250px; }
-  .auth-title { font-size: 1.8rem; }
-  .page-title { font-size: 18px; }
 }
 
-@media (max-width: 480px) {
-  .logo-fab { margin-top: 10px; margin-left: 10px; }
-  .top-logo { width: 110px; height: 110px; }
-  .top-fab { margin-top: 10px; margin-right: 10px; }
-  .top-fab-btn { width: 40px; height: 40px; }
+/* ==================== EXTRA LARGE SCREENS (1280px+) ==================== */
+@media (min-width: 1280px) {
+  .content-wrapper {
+    max-width: 900px;
+  }
+  
+  .form-container,
+  .form-actions {
+    max-width: 700px;
+  }
+}
+
+/* ==================== DESKTOP (1024px - 1279px) ==================== */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .content-wrapper {
+    max-width: 800px;
+  }
+  
+  .floating-input-item {
+    max-width: 500px;
+  }
+}
+
+/* ==================== LARGE TABLETS & DESKTOP (1025px+) ==================== */
+@media (min-width: 1025px) {
+  /* Map & Homepage */
+  .leaflet-map {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
   .nearby-wrap {
-    left: 12px;
-    right: 12px;
-    bottom: calc(90px + env(safe-area-inset-bottom));
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
   }
   .nearby-btn {
-    height: 46px;
-    font-size: 14px;
-    --border-radius: 12px;
+    height: 56px;
+    font-size: 17px;
   }
 
-  .welcome-logo img { width: 160px; }
+  /* Welcome/Auth Pages */
+  .welcome-logo img {
+    width: 280px;
+  }
+  .auth-logo {
+    width: 280px;
+  }
+  .auth-title {
+    font-size: 2rem;
+  }
 
-  .ms-wrap, .otp-wrap { padding: 30px 16px; min-height: 100vh; }
-  .ms-logo img { width: 70px; margin-bottom: 12px; }
-  .ms-title { font-size: 22px; }
-  .ms-subtitle { font-size: 13px; margin-bottom: 18px; }
-  .ms-input {
-    max-width: 100%;
-    padding: 8px 12px;
-    border-radius: 10px;
+  /* Forms */
+  .form-container,
+  .form-actions {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
-  .ms-btn {
-    max-width: 100%;
-    height: 48px;
-    --border-radius: 12px;
-    font-size: 15px;
+
+  /* Content Containers */
+  .content-wrapper {
+    max-width: 800px;
   }
-  .ms-footer { font-size: 12px; margin-top: 14px; }
-  
-  .otp-title { font-size: 18px; margin-top: 16px; }
-  .otp-subtitle { font-size: 12px; max-width: 100%; }
-  .otp-row { gap: 8px; }
-  .otp-box {
-    width: 38px;
-    height: 46px;
+
+  /* Buttons */
+  .app-button-primary,
+  .app-button-secondary {
+    height: 56px;
+    font-size: 1rem;
+  }
+}
+
+/* ==================== TABLETS (768px - 1024px) ==================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* General Layout */
+  .content-wrapper {
+    max-width: 700px;
+    padding: 0 24px;
+  }
+
+  /* Forms */
+  .form-container {
+    padding: 0 40px;
+    margin-top: 55px;
+  }
+  .form-actions {
+    padding: 0 40px;
+  }
+
+  /* Welcome/Auth */
+  .welcome-logo img {
+    width: 240px;
+  }
+  .auth-logo {
+    width: 250px;
+  }
+  .auth-title {
+    font-size: 1.8rem;
+  }
+
+  /* Inputs */
+  .floating-input-item {
+    height: 58px;
+    font-size: 16px;
+    max-width: 480px;
+  }
+
+  /* Buttons */
+  .app-button-primary,
+  .app-button-secondary {
+    height: 52px;
+    font-size: 0.95rem;
+  }
+
+  /* Lists */
+  .page-list-inset {
+    margin: 0 20px;
+  }
+}
+
+/* ==================== STANDARD TABLETS (768px+) ==================== */
+@media (min-width: 768px) {
+  /* Map */
+  .nearby-wrap {
+    left: 20px;
+    right: 20px;
+  }
+  .nearby-btn {
+    height: 54px;
     font-size: 16px;
   }
-  .otp-btn {
-    max-width: 100%;
-    height: 48px;
-    --border-radius: 12px;
-  }
-  .otp-resend { font-size: 11px; }
 
-  .forgot-password { font-size: 0.7rem; }
-  .signup-text { font-size: 0.8125rem; }
+  /* Navigation */
+  .tabbar-wrapper {
+    height: 85px;
+  }
+  .main-tabbar {
+    height: 68px;
+  }
+  .qr-button {
+    width: 64px;
+    height: 64px;
+  }
 
-  .page-header {
-    transform: translateY(-10px);
+  /* General spacing */
+  .page-card {
+    margin: 20px;
   }
-  .profile-header {
-    padding: 12px 0 18px;
-  }
-  .page-header {
-    transform: translateY(-8px);
-  }
-  .profile-header {
-    padding: 16px 0 20px;
-  }
-  .profile-name { font-size: 16px; }
-  .profile-list { width: calc(100% - 24px); }
+}
 
-  .edit-form {
+/* ==================== MOBILE & SMALL TABLETS (max-width: 768px) ==================== */
+@media (max-width: 768px) {
+  /* General Layout */
+  .content-wrapper {
     padding: 0 16px;
-    margin-top: 40px;
+  }
+
+  /* Forms */
+  .form-container {
+    padding: 0 24px;
+    margin-top: 50px;
     gap: 10px;
   }
-  .edit-input {
-    height: 52px;
-    font-size: 14px;
-  }
-  .edit-actions {
-    padding: 0 16px;
+  .form-actions {
+    padding: 0 24px;
     margin-top: 22px;
   }
 
-  .settings-title { font-size: 18px; }
-  .settings-profile-item { 
-    margin: 14px 12px 6px;
-    --min-height: 58px;
-    border-radius: 12px;
+  /* Welcome/Auth */
+  .welcome-logo img {
+    width: 220px;
   }
-  .settings-profile-avatar { width: 38px; height: 38px; }
-  .settings-profile-name { font-size: 15px; }
-  .settings-profile-phone { font-size: 10px; }
-  .settings-section { 
-    margin: 6px 12px 4px; 
-    font-size: 10px; 
+  .auth-logo {
+    width: 240px;
   }
-  .settings-list { 
-    margin: 0 12px; 
-    border-radius: 12px; 
+  .auth-title {
+    font-size: 1.75rem;
   }
-  .settings-item { 
-    --min-height: 48px;
-    --padding-start: 14px;
-    --inner-padding-end: 12px;
-    font-size: 15px;
-  }
-  .settings-icon { font-size: 18px; }
-  .settings-chevron { font-size: 16px; }
-  .settings-toggle { transform: scale(0.85); }
-
-  .notification-title { font-size: 18px; }
-  .notification-item {
-    --min-height: 85px;
-    margin: 7px 10px;
-    border-radius: 10px;
-  }
-  .notification-icon-wrapper { width: 40px; height: 40px; }
-  .notification-icon { font-size: 22px; }
-  .notification-item-title { font-size: 14px; }
-  .notification-message { font-size: 12px; }
-  .notification-badge { font-size: 9px; }
-  .notification-time { font-size: 10px; }
-
-  .wallet-title { font-size: 18px; }
-  .wallet-shell { padding: 0 12px; }
-  .balance-card {
-    margin-top: 20px;
-    padding: 18px 14px;
-    min-height: 100px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-  }
-  .balance-label { font-size: 11px; }
-  .balance-amount { font-size: 18px; margin-top: 6px; }
-  .recharge-btn { height: 30px; font-size: 11px; }
-  .th-title { font-size: 13px; margin-top: 12px; margin-bottom: 16px; }
-  .pill-row { gap: 10px; }
-  .pill { padding: 8px 14px; font-size: 13px; }
-  .tx-row { padding: 12px 0; }
-  .tx-title { font-size: 11px; }
-  .tx-date { font-size: 11px; }
-  .tx-amount { font-size: 16px; }
-  .tx-status { font-size: 9px; }
-  
-  .balance-card-v2 {
-    padding: 16px 14px 14px;
-    margin-bottom: 18px;
-    border-radius: 8px;
-  }
-  .balance-label-v2 { font-size: 11px; }
-  .balance-amount-v2 { font-size: 16px; margin-top: 8px; }
-  .balance-dots { margin-top: 10px; gap: 5px; }
-  .balance-dots .dot { width: 7px; height: 7px; }
-  .balance-eye { width: 30px; height: 30px; font-size: 16px; }
-  .balance-actions { margin-top: 14px; gap: 10px; }
-  .action-btn { padding: 10px 8px; gap: 5px; border-radius: 8px; }
-  .action-btn ion-icon { font-size: 18px; }
-  .action-btn span { font-size: 11px; }
-  
-  .recharge-sheet { padding: 12px 14px 16px; }
-  .recharge-topbar { margin-bottom: 10px; }
-  .recharge-back { font-size: 20px; }
-  .recharge-title { font-size: 13px; }
-  .recharge-methods, .recharge-methods.v2 { gap: 8px; }
-  .method-pill { padding: 8px 10px; border-radius: 8px; }
-  .method-text { font-size: 11px; }
-  .method-check { width: 16px; height: 16px; font-size: 11px; }
-  .method-pill-v2 { padding: 10px 12px; border-radius: 10px; gap: 8px; }
-  .method-logo-v2 { width: 20px; height: 20px; }
-  .method-text-v2 { font-size: 12px; }
-  .method-check-v2 { width: 18px; height: 18px; font-size: 11px; }
-  .recharge-label { font-size: 11px; }
-  .recharge-input { font-size: 11px; }
-  .recharge-confirm { margin-top: 12px; }
-  
-  .success-title { font-size: 11px; }
-  .success-badge { margin-top: 120px; }
-  .success-ring { width: 110px; height: 110px; }
-  .success-dot { width: 74px; height: 74px; font-size: 36px; }
-  .success-main { font-size: 13px; }
-  .success-sub { font-size: 10px; }
-  .success-done { width: 60%; margin-top: 16px; }
-
-  .discount-title { font-size: 18px; }
-  .discount-form { 
-    padding: 0 16px; 
-    margin-top: 30px;
-    gap: 8px;
-  }
-  .discount-input { 
-    height: 50px; 
-    font-size: 14px;
-    --border-radius: 12px;
-    border-radius: 12px;
-  }
-  .discount-upload { 
-    height: 50px; 
-    border-radius: 12px; 
-  }
-  .discount-upload-text { font-size: 13px; }
-  .discount-terms { font-size: 12px; gap: 8px; }
-  .discount-terms input[type="checkbox"] { width: 14px; height: 14px; }
-  .discount-apply-btn { 
-    margin-top: 12px;
-    height: 48px; 
-    font-size: 15px;
-    border-radius: 12px;
+  .auth-subtitle {
+    font-size: 0.875rem;
   }
 
-  .cp-form {
-    padding: 0 16px;
-    margin-top: 40px;
-    gap: 10px;
-  }
-  .cp-actions {
-    padding: 0 16px;
-    margin-top: 22px;
-  }
-
-  .address-title,
-  .map-title,
-  .edit-title { font-size: 17px; }
-  .current-address-text { font-size: 13px; }
-  .saved-place-title { font-size: 14px; }
-  .saved-place-address { font-size: 12px; }
-  .saved-place-notes { font-size: 11px; }
-
-  .auth-logo { width: 220px; }
-  .auth-title { font-size: 1.6rem; }
-  .auth-subtitle { font-size: 0.875rem; }
+  /* Inputs */
   .floating-input-item {
-    height: 52px;
+    height: 54px;
     font-size: 14px;
   }
+
+  /* Buttons */
   .app-button-primary,
   .app-button-secondary {
     height: 50px;
     font-size: 0.9rem;
   }
+
+  /* Navigation */
+  .nearby-wrap {
+    bottom: calc(90px + env(safe-area-inset-bottom));
+  }
+  .nearby-btn {
+    height: 48px;
+  }
+
+  /* Lists */
+  .page-list-inset {
+    margin: 0 14px;
+  }
+
+  /* Cards */
+  .page-card {
+    margin: 14px;
+    padding: 18px;
+  }
+
+  /* Page titles */
+  .page-title-standard {
+    font-size: 18px;
+  }
 }
 
-@media (max-width: 360px) {
-  .top-logo { width: 48px; height: 48px; }
-  .top-fab-btn { width: 36px; height: 36px; }
-  .nearby-btn { height: 44px; font-size: 13px; }
-
-  .welcome-logo img { width: 140px; }
-
-  .ms-logo img { width: 60px; }
-  .ms-title { font-size: 20px; }
-  .ms-btn, .otp-btn { height: 45px; }
-  .otp-box {
-    width: 34px;
-    height: 42px;
-    font-size: 15px;
+/* ==================== LARGE PHONES (480px - 767px) ==================== */
+@media (min-width: 480px) and (max-width: 767px) {
+  .floating-input-item {
+    height: 54px;
+    max-width: 400px;
   }
 
-  .edit-form {
+  .welcome-logo img {
+    width: 200px;
+  }
+
+  .content-wrapper-narrow {
+    max-width: 500px;
+  }
+}
+
+/* ==================== SMALL PHONES (max-width: 480px) ==================== */
+@media (max-width: 480px) {
+  /* Layout */
+  .content-wrapper {
     padding: 0 12px;
-    margin-top: 35px;
   }
-  .edit-input {
+
+  /* Forms */
+  .form-container {
+    padding: 0 16px;
+    margin-top: 40px;
+    gap: 8px;
+  }
+  .form-actions {
+    padding: 0 16px;
+    margin-top: 20px;
+  }
+
+  /* Welcome/Auth */
+  .welcome-logo img {
+    width: 180px;
+  }
+  .auth-logo {
+    width: 200px;
+  }
+  .auth-title {
+    font-size: 1.5rem;
+  }
+  .auth-subtitle {
+    font-size: 0.8125rem;
+  }
+
+  /* Inputs */
+  .floating-input-item {
+    height: 52px;
+    font-size: 14px;
+    padding: 12px 14px;
+    max-width: 100%;
+  }
+
+  /* Buttons */
+  .app-button-primary,
+  .app-button-secondary {
     height: 48px;
-    font-size: 13px;
-  }
-  .edit-actions {
-    padding: 0 12px;
+    font-size: 0.875rem;
   }
 
-  .settings-profile-item { --min-height: 54px; }
-  .settings-profile-avatar { width: 36px; height: 36px; }
-  .settings-profile-name { font-size: 14px; }
-  .settings-item { 
-    --min-height: 44px;
+  /* Navigation */
+  .nearby-wrap {
+    left: 12px;
+    right: 12px;
+  }
+  .nearby-btn {
+    height: 46px;
     font-size: 14px;
   }
-  .settings-icon { font-size: 17px; }
-
-  .notification-item { --min-height: 80px; margin: 6px 8px; }
-  .notification-icon-wrapper { width: 38px; height: 38px; }
-  .notification-icon { font-size: 20px; }
-  .notification-item-title { font-size: 13px; }
-  .notification-message { font-size: 11px; }
-
-  .wallet-shell { padding: 0 10px; }
-  .balance-card { padding: 16px 12px; min-height: 90px; }
-  .balance-amount { font-size: 16px; }
-  .recharge-btn { height: 28px; font-size: 10px; }
-  .pill { padding: 7px 12px; font-size: 12px; }
-  .tx-title, .tx-date { font-size: 10px; }
-  .tx-amount { font-size: 15px; }
-  .balance-card-v2 { padding: 14px 12px; }
-  .action-btn { padding: 9px 7px; }
-  .success-ring { width: 100px; height: 100px; }
-  .success-dot { width: 68px; height: 68px; font-size: 32px; }
-
-  .discount-form { padding: 0 12px; margin-top: 25px; }
-  .discount-input { height: 46px; font-size: 13px; }
-  .discount-upload { height: 46px; }
-  .discount-upload-text { font-size: 12px; }
-  .discount-terms { font-size: 11px; }
-  .discount-apply-btn { height: 46px; font-size: 14px; }
-
-  .cp-form {
-    padding: 0 12px;
-    margin-top: 35px;
-  }
-  .cp-actions {
-    padding: 0 12px;
+  .qr-button {
+    width: 60px;
+    height: 60px;
   }
 
-  .auth-logo { width: 200px; }
-  .auth-title { font-size: 1.4rem; }
+  /* Lists */
+  .page-list-inset {
+    margin: 0 10px;
+    border-radius: 12px;
+  }
+  .page-list-item {
+    --min-height: 54px;
+    --padding-start: 14px;
+    font-size: 14px;
+  }
+
+  /* Cards */
+  .page-card {
+    margin: 10px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  /* Section headers */
+  .page-section-header {
+    margin: 12px 12px 6px;
+    font-size: 10px;
+  }
+
+  /* Page header */
+  .page-header {
+    transform: translateY(-8px);
+  }
+  .page-title-standard {
+    font-size: 17px;
+  }
+}
+
+/* ==================== EXTRA SMALL PHONES (max-width: 360px) ==================== */
+@media (max-width: 360px) {
+  /* Ultra compact layout */
+  .content-wrapper {
+    padding: 0 10px;
+  }
+
+  .form-container,
+  .form-actions {
+    padding: 0 12px;
+    gap: 6px;
+  }
+
   .floating-input-item {
     height: 48px;
     font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .app-button-primary,
+  .app-button-secondary {
+    height: 46px;
+    font-size: 0.8125rem;
+  }
+
+  .welcome-logo img {
+    width: 160px;
+  }
+
+  .auth-logo {
+    width: 180px;
+  }
+
+  .auth-title {
+    font-size: 1.35rem;
+  }
+
+  .nearby-btn {
+    height: 44px;
+    font-size: 13px;
+  }
+
+  .page-list-item {
+    --min-height: 50px;
+    font-size: 13px;
+  }
+
+  .page-card {
+    padding: 14px;
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1024px) and (orientation: portrait) {
-  .nearby-wrap { max-width: 600px; left: 50%; transform: translateX(-50%); }
-  .nearby-btn { height: 58px; font-size: 17px; }
+/* ==================== LANDSCAPE MODE ==================== */
+@media (max-height: 600px) and (orientation: landscape) {
+  .welcome-logo img {
+    width: 200px;
+  }
 
-  .welcome-logo img { width: 360px; }
+  .form-container {
+    margin-top: 30px;
+    gap: 8px;
+  }
 
-  .settings-content { max-width: 750px; }
-  .settings-profile-item { max-width: 750px; margin: 20px auto 10px; }
-  .settings-list { max-width: 750px; margin: 0 auto; }
+  .floating-input-item {
+    height: 48px;
+  }
 
-  .notification-content { max-width: 750px; }
-  .notification-item { margin: 10px 25px; }
+  .app-button-primary,
+  .app-button-secondary {
+    height: 46px;
+  }
 
-  .wallet-shell { max-width: 700px; padding: 0 25px; }
-  .balance-card { padding: 26px 22px; min-height: 140px; }
-  .balance-amount { font-size: 22px; }
-
-  .discount-content { max-width: 750px; }
-  .discount-form { max-width: 650px; margin: 45px auto 0; }
+  .nearby-wrap {
+    bottom: calc(90px + env(safe-area-inset-bottom));
+  }
 }
 
-@media (min-width: 820px) and (max-width: 834px) {
-  .nearby-wrap { left: 25px; right: 25px; }
-  .nearby-btn { height: 56px; font-size: 16px; }
-
-  .welcome-logo img { width: 330px; }
-  .ms-wrap, .otp-wrap { max-width: 500px; padding: 48px 30px; }
-  .ms-logo img { width: 95px; }
-  .ms-title, .otp-title { font-size: 31px; }
-  .otp-box { width: 52px; height: 60px; }
-
-  .settings-content { max-width: 680px; }
-  .settings-profile-item { margin: 18px 25px 8px; }
-  .settings-list { margin: 0 25px; }
-
-  .notification-content { max-width: 680px; }
-  .notification-item { margin: 9px 22px; }
-
-  .wallet-shell { max-width: 620px; padding: 0 22px; }
-  .balance-card { padding: 24px 20px; min-height: 130px; }
-
-  .discount-content { max-width: 680px; }
-  .discount-form { padding: 0 35px; margin-top: 40px; }
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-@media (min-width: 800px) and (max-width: 800px) and (orientation: portrait) {
-  .ms-wrap, .otp-wrap { max-width: 480px; padding: 45px 28px; }
-  .otp-box { width: 50px; height: 58px; }
-}
+/* ==================== HIGH CONTRAST ==================== */
+@media (prefers-contrast: high) {
+  .floating-input-item {
+    border-width: 2px;
+  }
+  
+  .app-button-primary,
+  .app-button-secondary {
+    border: 2px solid currentColor;
+  }
 
-@media (min-width: 912px) and (max-width: 912px) and (orientation: portrait) {
-  .nearby-wrap { left: 30px; right: 30px; }
-  .top-fab-btn { width: 51px; height: 51px; }
-
-  .ms-wrap, .otp-wrap { max-width: 550px; padding: 55px 35px; }
-  .ms-logo img { width: 110px; }
-  .ms-title, .otp-title { font-size: 34px; }
-  .otp-box { width: 56px; height: 64px; font-size: 20px; }
-
-  .settings-content { max-width: 720px; }
-  .settings-profile-item { margin: 19px 30px 9px; }
-  .settings-list { margin: 0 30px; }
-
-  .wallet-shell { max-width: 650px; padding: 0 28px; }
-
-  .discount-content { max-width: 700px; }
-  .discount-form { padding: 0 40px; }
-}
-
-@media (min-width: 884px) and (max-width: 884px) and (orientation: portrait) {
-  .top-fab-btn { width: 52px; height: 52px; }
-  .nearby-wrap { left: 35px; right: 35px; }
-  .nearby-btn { height: 57px; }
-
-  .welcome-logo img { width: 340px; }
-
-  .ms-wrap, .otp-wrap { max-width: 600px; padding: 58px 40px; }
-  .ms-logo img { width: 115px; }
-  .otp-box { width: 58px; height: 66px; }
-
-  .discount-content { max-width: 730px; }
-  .discount-form { padding: 0 45px; }
-}
-
-@media (min-width: 1024px) and (max-height: 600px) and (orientation: landscape) {
-  .nearby-wrap { max-width: 400px; left: 50%; transform: translateX(-50%); bottom: calc(90px + env(safe-area-inset-bottom)); }
-  .nearby-btn { height: 50px; font-size: 15px; }
-  .top-fab { margin-top: 10px; }
-
-  .welcome-logo img { width: 280px; }
-
-  .ms-wrap, .otp-wrap { padding: 25px 30px; max-width: 450px; }
-  .ms-logo img { width: 75px; }
-  .ms-title, .otp-title { font-size: 24px; }
-  .otp-box { width: 42px; height: 50px; }
-
-  .settings-content { max-width: 850px; }
-  .settings-profile-item { margin: 12px 20px 6px; --min-height: 56px; }
-
-  .discount-form { margin-top: 25px; max-width: 500px; }
-  .discount-input { height: 50px; }
-  .discount-upload { height: 50px; }
-
-  .wallet-shell { max-width: 850px; padding: 0 30px; }
-  .balance-card { padding: 18px 16px; min-height: 100px; }
-  .th-title { font-size: 13px; margin-top: 10px; }
-}
-
-@media (min-width: 1280px) and (max-height: 800px) and (orientation: landscape) {
-  .nearby-wrap { max-width: 500px; }
-  .nearby-btn { height: 54px; font-size: 16px; }
-}
-
-@media (max-width: 430px) and (min-height: 900px) {
-  .logo-fab { margin-top: 12px; margin-left: 12px; }
-  .top-logo { width: 54px; height: 54px; }
-  .top-fab { margin-top: 12px; margin-right: 12px; }
-  .top-fab-btn { width: 41px; height: 41px; }
-  .nearby-wrap { left: 14px; right: 14px; }
-  .nearby-btn { height: 47px; }
-
-  .welcome-logo img { width: 250px; }
-
-  .ms-wrap, .otp-wrap { padding: 35px 20px; }
-  .ms-logo img { width: 75px; }
-  .ms-input, .ms-btn, .otp-btn { max-width: 100%; }
-  .otp-box { width: 40px; height: 48px; }
-
-  .settings-profile-item { width: calc(100% - 28px); }
-  .settings-list { width: calc(100% - 28px); }
-
-  .notification-item { margin: 8px 12px; }
-
-  .discount-form { padding: 0 18px; }
-  .discount-input { height: 51px; }
-  .discount-upload { height: 51px; }
-}
-
-@media (min-width: 390px) and (max-width: 393px) {
-  .top-logo { width: 52px; height: 52px; }
-  .top-fab-btn { width: 40px; height: 40px; }
-  .nearby-btn { height: 46px; }
-
-  .welcome-logo img { width: 245px; }
-
-  .ms-logo img { width: 72px; }
-  .ms-title, .otp-title { font-size: 23px; }
-  .otp-box { width: 39px; height: 47px; }
-
-  .settings-item { --min-height: 49px; }
-
-  .discount-form { padding: 0 17px; }
-  .discount-apply-btn { height: 49px; }
-}
-
-@media (max-width: 375px) and (min-height: 650px) {
-  .logo-fab { margin-top: 9px; margin-left: 9px; }
-  .top-logo { width: 50px; height: 50px; }
-  .top-fab { margin-top: 9px; margin-right: 9px; }
-  .top-fab-btn { width: 38px; height: 38px; }
-  .nearby-wrap { left: 10px; right: 10px; }
-
-  .welcome-logo img { width: 230px; }
-
-  .ms-wrap, .otp-wrap { padding: 28px 15px; }
-  .ms-logo img { width: 68px; }
-  .otp-box { width: 37px; height: 45px; }
-
-  .discount-form { padding: 0 14px; margin-top: 28px; }
-  .discount-input { height: 47px; }
-}
-
-@media (min-width: 360px) and (max-width: 412px) and (min-height: 800px) {
-  .nearby-btn { height: 46px; font-size: 14px; }
-
-  .otp-box { width: 38px; height: 46px; }
-  .ms-btn, .otp-btn { height: 47px; }
-
-  .discount-terms { font-size: 11px; }
-}
-
-@media (max-height: 430px) and (orientation: landscape) and (max-width: 932px) {
-  .logo-fab { margin-top: 8px; margin-left: 8px; }
-  .top-logo { width: 46px; height: 46px; }
-  .top-fab { margin-top: 8px; margin-right: 8px; }
-  .top-fab-btn { width: 34px; height: 34px; }
-  .nearby-wrap { bottom: calc(90px + env(safe-area-inset-bottom)); left: 10px; right: 10px; }
-  .nearby-btn { height: 42px; font-size: 13px; }
-
-  .welcome-logo img { width: 200px; }
-
-  .ms-wrap, .otp-wrap { padding: 15px 20px; }
-  .ms-logo img { width: 55px; }
-  .ms-title, .otp-title { font-size: 18px; }
-  .ms-subtitle, .otp-subtitle { font-size: 11px; margin-bottom: 12px; }
-  .otp-row { gap: 6px; }
-  .otp-box { width: 32px; height: 40px; font-size: 14px; }
-  .ms-btn, .otp-btn { height: 40px; }
-
-  .settings-profile-item { margin: 8px auto 4px; --min-height: 52px; }
-  .settings-item { --min-height: 44px; }
-
-  .notification-item { --min-height: 75px; margin: 6px 10px; }
-
-  .discount-form { margin-top: 15px; padding: 0 20px; gap: 6px; }
-  .discount-input { height: 44px; }
-  .discount-upload { height: 44px; }
-  .discount-apply-btn { height: 42px; margin-top: 8px; }
+  .page-list-inset,
+  .page-card {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
 }

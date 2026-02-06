@@ -1,22 +1,30 @@
 .home-content {
   --background: #ffffff;
   position: relative;
+  overflow: hidden;
 }
 
 .map-wrap {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 .leaflet-map {
   width: 100%;
-  height: 100vh; 
-
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile browsers */
 }
 
 .leaflet-control-container {
   display: none;
+}
+
+/* Prevent map interaction issues on mobile */
+.leaflet-container {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 
 .status-bar-overlay {

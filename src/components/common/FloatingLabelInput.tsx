@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { IonItem, IonInput, IonIcon } from "@ionic/react";
 import { eye, eyeOff } from "ionicons/icons";
 
@@ -27,6 +27,7 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const inputRef = useRef<HTMLIonInputElement>(null);
   const isPassword = type === "password";
   const hasValue = isFocused || value;
 
@@ -49,6 +50,14 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
     }
   };
 
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(!value);
+  };
+
   return (
     <IonItem 
       className={`floating-input-item ${hasValue ? 'has-value' : ''} ${isPassword ? 'password-item' : ''} ${className}`}
@@ -59,15 +68,20 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
       )}
       <span className="floating-label">{label}</span>
       <IonInput
+        ref={inputRef}
         type={isPassword && !showPassword ? "password" : "text"}
         inputMode={inputMode}
         value={value}
-        onIonFocus={() => setIsFocused(true)}
-        onIonBlur={() => setIsFocused(false)}
+        onIonFocus={handleFocus}
+        onIonBlur={handleBlur}
         onIonChange={handleChange}
         onKeyPress={handleKeyPress}
         maxlength={maxlength}
         readonly={readonly}
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck={false}
       />
       {isPassword && (
         <IonIcon
