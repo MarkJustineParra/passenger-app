@@ -1,20 +1,24 @@
 import { IonPage, IonContent } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { AuthContext } from "../App";
 import "../styles/WelcomePage.css";
 
 const WelcomePage: React.FC = () => {
   const history = useHistory();
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    localStorage.setItem("welcomeSeen", "true");
-    
+    // Ensure the user is not treated as logged in during the welcome flow
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+
     const timer = setTimeout(() => {
       history.push("/login");
     }, 5500);
 
     return () => clearTimeout(timer);
-  }, [history]);
+  }, [history, setIsLoggedIn]);
 
   return (
     <IonPage>

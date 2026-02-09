@@ -1,7 +1,7 @@
 import { IonButton, IonIcon } from "@ionic/react";
 import { useState, useEffect, useMemo } from "react";
 import { useIonRouter } from "@ionic/react";
-import { arrowBack, callOutline } from "ionicons/icons";
+import { arrowBack, callOutline, lockClosed } from "ionicons/icons";
 import { AuthPageLayout, AuthHeader, FloatingLabelInput, LoadingSpinner } from "../components/common";
 import "../styles/MobileSignup.css";
 import "../styles/ForgotPasswordPage.css";
@@ -174,12 +174,14 @@ const ForgotPasswordPage: React.FC = () => {
               value={newPassword}
               onValueChange={setNewPassword}
               type="password"
+              icon={lockClosed}
             />
             <FloatingLabelInput
               label="Confirm Password"
               value={confirmPassword}
               onValueChange={setConfirmPassword}
               type="password"
+              icon={lockClosed}
             />
             <IonButton expand="block" className="reset-password-btn" onClick={handleResetPassword}>
               Reset Password

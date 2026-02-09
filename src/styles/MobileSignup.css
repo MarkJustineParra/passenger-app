@@ -238,6 +238,12 @@
   color: #ffffff;
 }
 
+.otp-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
 .otp-title {
   font-family: var(--app-font-family);
   font-size: 24px;
@@ -245,7 +251,7 @@
   margin: 0 0 8px 0;
   color: #000;
   text-align: center;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
 }
 
@@ -253,11 +259,13 @@
   font-family: var(--app-font-family);
   font-size: 14px;
   color: #666;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   margin: 0 0 24px 0;
   text-align: center;
   line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .otp-row {
@@ -267,6 +275,7 @@
   margin: 0 0 20px 0;
   max-width: 400px;
   width: 100%;
+  margin-left: 15px;
 }
 
 .otp-box {

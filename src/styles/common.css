@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-/* ==================== COMMON VARIABLES ==================== */
+
 :root {
   --app-primary-color: #008000;
   --app-primary-hover: #006e00;
@@ -21,177 +21,7 @@
   --app-font-family: 'Poppins', sans-serif;
 }
 
-/* ==================== CROSS-PLATFORM BASE STYLES ==================== */
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-}
 
-html {
-  /* Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  
-  /* Disable text size adjust on orientation change */
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-body {
-  /* Smooth scrolling for iOS */
-  -webkit-overflow-scrolling: touch;
-  
-  /* Prevent overscroll bounce */
-  overscroll-behavior-y: none;
-}
-
-/* Better touch response */
-button, a, ion-button, ion-item, ion-tab-button {
-  cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Ensure minimum touch target size (44px for iOS, 48px for Android) */
-button, ion-button, ion-fab-button, ion-tab-button {
-  min-height: 44px;
-  min-width: 44px;
-}
-
-/* Smooth scrolling */
-ion-content {
-  --overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* ==================== HIDE SCROLLBARS (ALL PLATFORMS) ==================== */
-/* Global scrollbar hiding for all elements */
-*::-webkit-scrollbar {
-  display: none;
-  width: 0 !important;
-  height: 0 !important;
-  background: transparent;
-}
-
-* {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* iOS Safari - Native scrollbar hiding */
-@supports (-webkit-touch-callout: none) {
-  * {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  *::-webkit-scrollbar {
-    display: none !important;
-    -webkit-appearance: none;
-    width: 0 !important;
-    height: 0 !important;
-  }
-  
-  body, html, ion-app, ion-content {
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-  }
-}
-
-/* Android Chrome/WebView - Hide scrollbars */
-@supports not (-webkit-touch-callout: none) {
-  *::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-}
-
-/* Ionic specific scrollbar hiding */
-ion-content,
-ion-content::part(scroll),
-.ion-content-scroll-host,
-.page-content,
-ion-list,
-ion-modal,
-ion-popover {
-  scrollbar-width: none !important; /* Firefox */
-  -ms-overflow-style: none !important; /* IE/Edge */
-  overflow: auto;
-}
-
-ion-content::-webkit-scrollbar,
-ion-content::part(scroll)::-webkit-scrollbar,
-.ion-content-scroll-host::-webkit-scrollbar,
-.page-content::-webkit-scrollbar,
-ion-list::-webkit-scrollbar,
-ion-modal::-webkit-scrollbar,
-ion-popover::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-}
-
-/* Additional mobile-specific rules */
-.ios *::-webkit-scrollbar,
-.md *::-webkit-scrollbar {
-  display: none !important;
-}
-
-/* Ensure smooth scrolling remains functional on mobile */
-.platform-ios ion-content,
-.platform-android ion-content {
-  --overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Fix input zoom on iOS */
-input, textarea, select {
-  font-size: 16px !important;
-}
-
-/* Prevent text selection on double tap */
-.no-select {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Safe area padding helper classes */
-.safe-area-top {
-  padding-top: env(safe-area-inset-top);
-}
-
-.safe-area-bottom {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.safe-area-left {
-  padding-left: env(safe-area-inset-left);
-}
-
-.safe-area-right {
-  padding-right: env(safe-area-inset-right);
-}
-
-.safe-area-all {
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-/* ==================== FLOATING LABEL INPUT ==================== */
 .floating-input-item {
   position: relative;
   border: 1.5px solid #000000;
@@ -212,13 +42,6 @@ input, textarea, select {
   --padding-start: 0;
   --inner-padding-start: 0;
   --inner-padding-end: 0;
-  /* Ensure consistent rendering across platforms */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 .floating-input-item:focus-within {
@@ -253,16 +76,13 @@ input, textarea, select {
   --padding-end: 0;
   padding-left: 0;
   left: 0px;
-  /* Ensure consistent font rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .floating-input-item ion-input::part(native) {
   text-align: left !important;
   padding-left: 0 !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  padding-top: 0px !important;
 }
 
 .floating-input-item.has-value ion-input {
@@ -296,24 +116,32 @@ input, textarea, select {
   line-height: 1;
 }
 
+
+.floating-input-item:focus-within .floating-label {
+  top: -1px;
+  left: 0px;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: #666666;
+  background: var(--app-background);
+  padding: 0 6px;
+  font-weight: 400;
+  z-index: 1000;
+  line-height: 1;
+}
+
 .password-toggle-icon {
   position: absolute;
   right: 16px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   font-size: 1.3rem;
   cursor: pointer;
   color: #000000;
   z-index: 10;
-  /* Ensure consistent touch target */
-  padding: 8px;
-  margin: -8px;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  -webkit-user-select: none;
 }
 
-/* ==================== AUTH PAGES LAYOUT ==================== */
+
 .auth-page-content {
   display: flex;
   flex-direction: column;
@@ -382,9 +210,9 @@ input, textarea, select {
   
 }
 
-/* ==================== PAGE HEADER ==================== */
+
 .page-header {
-  transform: translateY(-5px);
+  transform: translateY(30px);
   box-shadow: none !important;
   --background: var(--app-background);
   background: var(--app-background);
@@ -414,7 +242,7 @@ input, textarea, select {
   color: var(--app-text-dark);
 }
 
-/* ==================== PROFILE AVATAR ==================== */
+
 .profile-avatar-wrapper {
   position: relative;
   display: inline-block;
@@ -456,25 +284,20 @@ input, textarea, select {
   color: var(--app-primary-color);
 }
 
-/* ==================== COMMON BUTTONS ==================== */
+
 .app-button-primary {
   --background: var(--app-primary-color);
   --background-activated: var(--app-primary-color);
   --background-focused: var(--app-primary-color);
   --background-hover: var(--app-primary-hover);
   --color: #fff;
-  --border-radius: 15px;
+  --border-radius: var(--app-border-radius);
   font-weight: 600;
   height: 55px;
   font-size: 0.95rem;
   font-family: var(--app-font-family);
   text-transform: none;
   box-shadow: var(--app-shadow-lg);
-  border-radius: 15px;
-  /* Ensure consistent rendering */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
 .app-button-secondary {
@@ -482,20 +305,15 @@ input, textarea, select {
   --background-activated: #d9d9d9;
   --background-hover: #c9c9c9;
   --color: var(--app-text-dark);
-  --border-radius: 15px;
+  --border-radius: var(--app-border-radius-large);
   font-weight: 600;
   height: 55px;
   font-size: 0.95rem;
   font-family: var(--app-font-family);
   text-transform: none;
-  border-radius: 15px;
-  /* Ensure consistent rendering */
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
 
-/* ==================== COMMON FORM ELEMENTS ==================== */
+
 .form-link {
   color: var(--app-primary-color);
   cursor: pointer;
@@ -523,7 +341,7 @@ input, textarea, select {
   font-family: var(--app-font-family);
 }
 
-/* ==================== PROFILE LIST ITEMS ==================== */
+
 .profile-list-item {
   --background: var(--app-background);
   --padding-start: 16px;
@@ -549,7 +367,7 @@ input, textarea, select {
   font-weight: 500;
 }
 
-/* ==================== CONTENT PADDING ==================== */
+
 .page-content {
   --padding-top: 30px;
   overflow-y: auto;
@@ -563,14 +381,14 @@ input, textarea, select {
   margin: 0 auto;
 }
 
-/* ==================== COMMON SPACING ==================== */
+
 .mt-10 { margin-top: 10px; }
 .mt-20 { margin-top: 20px; }
 .mt-30 { margin-top: 30px; }
 .mb-10 { margin-bottom: 10px; }
 .mb-20 { margin-bottom: 20px; }
 .mb-30 { margin-bottom: 30px; }
-/* ==================== DARK MODE SUPPORT ==================== */
+
 .ion-palette-dark {
   --app-background: #121212;
   --app-text-dark: #ffffff;

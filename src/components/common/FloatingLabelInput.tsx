@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { IonItem, IonInput, IonIcon } from "@ionic/react";
 import { eye, eyeOff } from "ionicons/icons";
 
@@ -27,18 +27,26 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const inputRef = useRef<HTMLIonInputElement>(null);
   const isPassword = type === "password";
-  const hasValue = isFocused || value;
 
-  const handleChange = (e: CustomEvent) => {
-    let newValue = e.detail.value || "";
+  // Local input state to make the UI respond immediately on typing
+  const [inputVal, setInputVal] = useState<string>(value || "");
+
+  // Sync local state when parent value changes
+  if (value !== inputVal) setInputVal(value || "");
+
+  // Show icon only when input is NOT focused and input is empty
+  const showIcon = !isFocused && !inputVal;
+
+  const handleChange = (e: any) => {
+    let newValue = (e?.detail?.value as string) || "";
     
     // Handle numeric input for tel type
     if (type === "tel" && inputMode === "numeric") {
       newValue = newValue.replace(/[^0-9]/g, "");
     }
     
+    setInputVal(newValue);
     onValueChange(newValue);
   };
 
@@ -50,38 +58,25 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
     }
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(!value);
-  };
-
   return (
     <IonItem 
-      className={`floating-input-item ${hasValue ? 'has-value' : ''} ${isPassword ? 'password-item' : ''} ${className}`}
+      className={`floating-input-item ${(!showIcon) ? 'has-value' : ''} ${isPassword ? 'password-item' : ''} ${className}`}
       lines="none"
     >
-      {icon && (
+      {icon && showIcon && (
         <IonIcon slot="start" icon={icon} className="floating-input-icon" />
       )}
       <span className="floating-label">{label}</span>
       <IonInput
-        ref={inputRef}
         type={isPassword && !showPassword ? "password" : "text"}
         inputMode={inputMode}
-        value={value}
-        onIonFocus={handleFocus}
-        onIonBlur={handleBlur}
-        onIonChange={handleChange}
+        value={inputVal}
+        onIonFocus={() => setIsFocused(true)}
+        onIonBlur={() => setIsFocused(false)}
+        onIonInput={handleChange}
         onKeyPress={handleKeyPress}
         maxlength={maxlength}
         readonly={readonly}
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck={false}
       />
       {isPassword && (
         <IonIcon

@@ -2,7 +2,7 @@ import { IonButton, IonIcon, IonInput, IonItem, IonText, IonAlert } from "@ionic
 import { useState, useMemo, useEffect, useContext } from "react";
 import { useIonRouter } from "@ionic/react";
 import { useHistory } from "react-router-dom";
-import { callOutline, arrowBack, person, mail, home } from "ionicons/icons";
+import { callOutline, arrowBack, person, mail, home, lockClosed } from "ionicons/icons";
 import { AuthContext } from "../App";
 import { AuthPageLayout, AuthHeader, FloatingLabelInput, LoadingSpinner } from "../components/common";
 import "../styles/MobileSignup.css";
@@ -242,12 +242,14 @@ const MobileSignupPage: React.FC = () => {
               value={password}
               onValueChange={setPassword}
               type="password"
+              icon={lockClosed}
             />
             <FloatingLabelInput
               label="Confirm Password"
               value={confirmPassword}
               onValueChange={setConfirmPassword}
               type="password"
+              icon={lockClosed}
             />
             <div className="terms-checkbox">
               <input

@@ -66,7 +66,7 @@ import "./theme/sheet.css";
 import "./theme/qr-scanner.css";
 
 setupIonicReact({
-  mode: 'md', // Use Material Design mode for consistent cross-platform UI
+  mode: 'ios',
   swipeBackEnabled: true,
 });
 
@@ -122,20 +122,17 @@ const App: React.FC = () => {
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
-    localStorage.removeItem("welcomeSeen");
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
-    
-    const welcomeSeen = localStorage.getItem("welcomeSeen") === "true";
-    setShowWelcome(!welcomeSeen);
-    
+    setShowWelcome(true);
+
     const darkMode = localStorage.getItem("darkMode") === "true";
     document.documentElement.classList.toggle("ion-palette-dark", darkMode);
+
     
-    // Add platform-specific classes to body
     const platformClasses = getPlatformClasses();
     document.body.className = platformClasses;
+
     
-    // Handle orientation changes
     const handleOrientationChange = () => {
       const newClasses = getPlatformClasses();
       document.body.className = newClasses;
@@ -143,10 +140,10 @@ const App: React.FC = () => {
         document.documentElement.classList.add("ion-palette-dark");
       }
     };
-    
+
     window.addEventListener("resize", handleOrientationChange);
     window.addEventListener("orientationchange", handleOrientationChange);
-    
+
     return () => {
       window.removeEventListener("resize", handleOrientationChange);
       window.removeEventListener("orientationchange", handleOrientationChange);
@@ -198,8 +195,9 @@ const App: React.FC = () => {
               exact
               path="/"
               render={() => {
-                if (isLoggedIn) return <Redirect to="/tabs/homepage" />;
+                
                 if (showWelcome) return <WelcomePage />;
+                if (isLoggedIn) return <Redirect to="/tabs/homepage" />;
                 return <Redirect to="/login" />;
               }}
             />

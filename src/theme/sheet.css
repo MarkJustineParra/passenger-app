@@ -5,7 +5,7 @@
   --max-height: 90%;
 }
 
-/* Add safe area padding for iOS */
+
 .platform-ios .nearby-sheet {
   --border-radius: 20px 20px 0 0;
 }
@@ -115,7 +115,7 @@
   color: #000;
 }
 
-/* Dark Mode Styles */
+
 .ion-palette-dark .nearby-sheet {
   --background: #1e1e1e;
 }

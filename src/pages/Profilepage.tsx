@@ -59,16 +59,16 @@ const Profilepage: React.FC = () => {
           <p className="profile-number">PASSENGER</p>
         </div>
 
-        <IonList inset className="profile-list">
+        <IonList inset className="profile-list" >
           <IonItem
             lines="full"
             button
             className="profile-list-item"
-            onClick={() => ionRouter.push("/edit-profile")}
+            onClick={() => ionRouter.push("/edit-profile") }
+            
           >
             <IonIcon icon={personOutline} slot="start" />
             <IonLabel>Edit Profile</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" default={false}/>
             
           </IonItem>
 
@@ -80,7 +80,6 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={locationOutline} slot="start" />
             <IonLabel>Address</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" />
           </IonItem>
 
           <IonItem
@@ -94,7 +93,6 @@ const Profilepage: React.FC = () => {
               slot="start"
             />
             <IonLabel>Notifications</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" />
           </IonItem>
 
           <IonItem
@@ -105,7 +103,6 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={pricetagOutline} slot="start" />
             <IonLabel>Discount</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" />
           </IonItem>
 
           <IonItem
@@ -116,9 +113,7 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={walletOutline} slot="start" />
             <IonLabel>Wallet</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" />
           </IonItem>
-
 
           <IonItem
             lines="full"
@@ -128,7 +123,6 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={settingsOutline} slot="start" />
             <IonLabel>Settings</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron" />
           </IonItem>
 
           <IonItem
@@ -139,7 +133,6 @@ const Profilepage: React.FC = () => {
           >
             <IonIcon icon={logOutOutline} slot="start" className="danger" />
             <IonLabel className="danger">Logout</IonLabel>
-            <IonIcon icon={chevronForwardOutline} slot="end" className="chevron danger" />
           </IonItem>
         </IonList>
 

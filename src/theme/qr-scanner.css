@@ -3,7 +3,15 @@
 }
 
 .qr-scanner-modal ion-title {
-  margin-left: 115px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  font-weight: 600;
+  font-size: 18px;
+  z-index: 1;
 }
 
 .qr-scanner-content {
