@@ -48,6 +48,7 @@ const Homepage: React.FC = () => {
   const [isZooming, setIsZooming] = useState(false);
 
   const openNearby = () => {
+    console.log('Dispatching open-nearby event');
     window.dispatchEvent(new Event("open-nearby"));
   };
 

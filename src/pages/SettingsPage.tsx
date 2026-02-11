@@ -25,23 +25,16 @@ import {
 import { useIonRouter } from "@ionic/react";
 import { PageHeader } from "../components/common";
 import { useProfileImage } from "../hooks";
+import { useDarkMode } from "../contexts/DarkModeContext";
 import "../styles/SettingsPage.css";
 
 const SettingsPage: React.FC = () => {
   const ionRouter = useIonRouter();
   const { profileImage } = useProfileImage("flogo1.png");
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("darkMode") === "true";
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("ion-palette-dark", darkMode);
-  }, [darkMode]);
+  const { darkMode, setDarkMode } = useDarkMode();
 
   const handleDarkModeToggle = (checked: boolean) => {
     setDarkMode(checked);
-    localStorage.setItem("darkMode", checked.toString());
-    document.documentElement.classList.toggle("ion-palette-dark", checked);
   };
 
   return (

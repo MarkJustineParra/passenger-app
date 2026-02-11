@@ -56,6 +56,7 @@ const LoginPage: React.FC = () => {
           inputMode="numeric"
           icon={callOutline}
           maxlength={11}
+          placeholder="09xxxxxxxxx"
         />
 
         <FloatingLabelInput

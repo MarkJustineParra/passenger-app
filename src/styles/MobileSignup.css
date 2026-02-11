@@ -233,11 +233,6 @@
   --background: #036e03;
 }
 
-.ion-palette-dark .signup-button {
-  --color: #ffffff;
-  color: #ffffff;
-}
-
 .otp-logo {
   display: flex;
   justify-content: center;
@@ -314,11 +309,6 @@
   --background: #036e03;
 }
 
-.ion-palette-dark .otp-btn {
-  --color: #ffffff;
-  color: #ffffff;
-}
-
 .back-to-signin {
   display: flex;
   align-items: center;
@@ -356,58 +346,3 @@
 .otp-resend.muted {
   color: #777;
 }
-
-
-.ion-palette-dark .ms-footer,
-.ion-palette-dark .otp-subtitle,
-.ion-palette-dark .otp-resend {
-  color: #b0b0b0;
-}
-
-.ion-palette-dark .otp-title {
-  color: #ffffff;
-}
-
-.ion-palette-dark .otp-box {
-  background: #1e1e1e;
-  border-color: #444444;
-  color: #ffffff;
-}
-
-.ion-palette-dark .otp-box:focus {
-  border-color: #008000;
-}
-
-.ion-palette-dark .signup-item {
-  background: #1e1e1e;
-  border-color: #444444;
-}
-
-.ion-palette-dark .signup-item ion-icon {
-  color: #ffffff;
-}
-
-.ion-palette-dark .signup-item ion-input {
-  color: #ffffff;
-}
-
-.ion-palette-dark .terms-checkbox label {
-  color: #b0b0b0;
-}
-
-.ion-palette-dark .link-text {
-  color: #b0b0b0;
-}
-
-.ion-palette-dark .signup-error {
-  color: #ff6b6b;
-}
-
-.ion-palette-dark .back-to-signin {
-  color: #4ade80;
-}
-
-.ion-palette-dark .ms-link {
-  color: #4ade80;
-}
-

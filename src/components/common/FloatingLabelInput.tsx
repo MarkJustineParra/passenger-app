@@ -12,6 +12,7 @@ interface FloatingLabelInputProps {
   readonly?: boolean;
   inputMode?: "text" | "numeric" | "email" | "tel";
   className?: string;
+  placeholder?: string;
 }
 
 const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
@@ -24,6 +25,7 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
   readonly = false,
   inputMode = "text",
   className = "",
+  placeholder,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -37,6 +39,10 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
 
   // Show icon only when input is NOT focused and input is empty
   const showIcon = !isFocused && !inputVal;
+
+  // Show placeholder (e.g., 09xxxxxxxxx) only when the label
+  // has floated up – that is, while focused and still empty.
+  const showPlaceholder = isFocused && !inputVal;
 
   const handleChange = (e: any) => {
     let newValue = (e?.detail?.value as string) || "";
@@ -77,6 +83,7 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
         onKeyPress={handleKeyPress}
         maxlength={maxlength}
         readonly={readonly}
+        placeholder={showPlaceholder ? placeholder : ""}
       />
       {isPassword && (
         <IonIcon

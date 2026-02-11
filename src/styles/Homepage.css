@@ -111,7 +111,7 @@
 }
 
 .ion-palette-dark .status-bar-overlay {
-  background: #121212;
+  background: transparent;
 }
 
 .ion-palette-dark .top-fab-btn {

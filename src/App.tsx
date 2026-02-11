@@ -27,6 +27,7 @@ import {
 import { BarcodeScanner } from "@capacitor-mlkit/barcode-scanning";
 import { Capacitor } from "@capacitor/core";
 import { LoadingProvider } from "./contexts/LoadingContext";
+import { DarkModeProvider } from "./contexts/DarkModeContext";
 import { getPlatformClasses } from "./utils/platform";
 
 import Homepage from "./pages/Homepage";
@@ -125,9 +126,6 @@ const App: React.FC = () => {
     setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
     setShowWelcome(true);
 
-    const darkMode = localStorage.getItem("darkMode") === "true";
-    document.documentElement.classList.toggle("ion-palette-dark", darkMode);
-
     
     const platformClasses = getPlatformClasses();
     document.body.className = platformClasses;
@@ -136,9 +134,6 @@ const App: React.FC = () => {
     const handleOrientationChange = () => {
       const newClasses = getPlatformClasses();
       document.body.className = newClasses;
-      if (darkMode) {
-        document.documentElement.classList.add("ion-palette-dark");
-      }
     };
 
     window.addEventListener("resize", handleOrientationChange);
@@ -150,7 +145,10 @@ const App: React.FC = () => {
     };
   }, []);
   useEffect(() => {
-    const handler = () => setOpenNearbySheet(true);
+    const handler = () => {
+      console.log('Received open-nearby event, opening sheet');
+      setOpenNearbySheet(true);
+    };
     window.addEventListener("open-nearby", handler);
     return () => window.removeEventListener("open-nearby", handler);
   }, []);
@@ -225,77 +223,77 @@ const App: React.FC = () => {
             <Route
               exact
               path="/edit-profile"
-              render={() => (isLoggedIn ? <EditProfile /> : <Redirect to="/" />)}
+              render={() => (isLoggedIn ? <DarkModeProvider><EditProfile /></DarkModeProvider> : <Redirect to="/" />)}
             />
             <Route
               exact
               path="/settings"
-              render={() => (isLoggedIn ? <SettingsPage /> : <Redirect to="/" />)}
+              render={() => (isLoggedIn ? <DarkModeProvider><SettingsPage /></DarkModeProvider> : <Redirect to="/" />)}
             />
             <Route
               exact
               path="/wallet"
-              render={() => (isLoggedIn ? <WalletPage /> : <Redirect to="/" />)}
+              render={() => (isLoggedIn ? <DarkModeProvider><WalletPage /></DarkModeProvider> : <Redirect to="/" />)}
             />
             <Route
               exact
               path="/discount"
-              render={() => (isLoggedIn ? <DiscountPage /> : <Redirect to="/" />)}
+              render={() => (isLoggedIn ? <DarkModeProvider><DiscountPage /></DarkModeProvider> : <Redirect to="/" />)}
             />
             <Route
               exact
               path="/change-password"
               render={() =>
-                isLoggedIn ? <ChangePasswordPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><ChangePasswordPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/notifications"
               render={() =>
-                isLoggedIn ? <NotificationPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><NotificationPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/address"
               render={() =>
-                isLoggedIn ? <Addresspage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><Addresspage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/privacy-policy"
               render={() =>
-                isLoggedIn ? <PrivacyPolicyPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><PrivacyPolicyPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/security"
               render={() =>
-                isLoggedIn ? <SecurityPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><SecurityPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/help"
               render={() =>
-                isLoggedIn ? <HelpPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><HelpPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/account-deletion"
               render={() =>
-                isLoggedIn ? <AccountDeletionPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><AccountDeletionPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route
               exact
               path="/about"
               render={() =>
-                isLoggedIn ? <AboutPage /> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><AboutPage /></DarkModeProvider> : <Redirect to="/" />
               }
             />
             <Route exact path="/forgot-password" component={ForgotPasswordPage} />
@@ -303,10 +301,12 @@ const App: React.FC = () => {
             <Route
               path="/tabs"
               render={() => (
-                <TabsLayout
-                  isLoggedIn={isLoggedIn}
-                  setOpenQRSheet={setOpenQRSheet}
-                />
+                <DarkModeProvider>
+                  <TabsLayout
+                    isLoggedIn={isLoggedIn}
+                    setOpenQRSheet={setOpenQRSheet}
+                  />
+                </DarkModeProvider>
               )}
             />
           </IonRouterOutlet>
@@ -361,12 +361,11 @@ const App: React.FC = () => {
           <IonModal
             isOpen={openNearbySheet}
             onDidDismiss={() => setOpenNearbySheet(false)}
-            initialBreakpoint={0.35}
-            breakpoints={[0, 0.35, 0.6, 0.9]}
-            handleBehavior="cycle"
+            initialBreakpoint={0.45}
+            breakpoints={[0, 0.45, 0.75, 1]}
             className="nearby-sheet"
           >
-            <IonContent className="nearby-content">
+            <IonContent className="nearby-content" scrollY={false}>
               <div className="nearby-header">
                 <div className="nearby-title">Nearby Buses</div>
 
@@ -389,7 +388,7 @@ const App: React.FC = () => {
 
                     <div className="nearby-info">
                       <div className="nearby-busname">Bus123</div>
-                      <div className="nearby-route">san rafael - sm sanmateo</div>
+                      <div className="nearby-route">Earth - Venus</div>
                     </div>
                   </div>
 
@@ -404,7 +403,7 @@ const App: React.FC = () => {
 
                     <div className="nearby-info">
                       <div className="nearby-busname">Bus789</div>
-                      <div className="nearby-route">montalban - kasiglahan</div>
+                      <div className="nearby-route">Uranus - Mercury</div>
                     </div>
                   </div>
 

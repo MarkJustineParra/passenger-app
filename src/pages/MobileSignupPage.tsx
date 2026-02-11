@@ -146,6 +146,7 @@ const MobileSignupPage: React.FC = () => {
               inputMode="numeric"
               icon={callOutline}
               maxlength={11}
+              placeholder="09xxxxxxxxx"
             />
             <IonButton type="button" expand="block" className="app-button-primary mt-20" onClick={handleMobileSubmit}>
               Submit
@@ -218,7 +219,7 @@ const MobileSignupPage: React.FC = () => {
             <IonItem lines="none" className="signup-item">
               <IonIcon icon={callOutline} slot="start" />
               <IonInput
-                placeholder="Mobile Number"
+                placeholder="09xxxxxxxxx"
                 type="tel"
                 value={mobile}
                 readonly
