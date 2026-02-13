@@ -31,23 +31,17 @@ const FloatingLabelInput: React.FC<FloatingLabelInputProps> = ({
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === "password";
 
-  // Local input state to make the UI respond immediately on typing
   const [inputVal, setInputVal] = useState<string>(value || "");
 
-  // Sync local state when parent value changes
   if (value !== inputVal) setInputVal(value || "");
 
-  // Show icon only when input is NOT focused and input is empty
   const showIcon = !isFocused && !inputVal;
 
-  // Show placeholder (e.g., 09xxxxxxxxx) only when the label
-  // has floated up – that is, while focused and still empty.
   const showPlaceholder = isFocused && !inputVal;
 
   const handleChange = (e: any) => {
     let newValue = (e?.detail?.value as string) || "";
     
-    // Handle numeric input for tel type
     if (type === "tel" && inputMode === "numeric") {
       newValue = newValue.replace(/[^0-9]/g, "");
     }

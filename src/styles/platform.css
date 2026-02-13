@@ -1,28 +1,21 @@
-/* ==================== PLATFORM-SPECIFIC STYLES ==================== */
 
-/* iOS Specific Styles */
 .platform-ios {
-  /* iOS uses bounce scrolling */
   -webkit-overflow-scrolling: touch;
 }
 
 .platform-ios ion-toolbar {
-  /* iOS toolbar style */
   --min-height: 44px;
 }
 
 .platform-ios ion-button {
-  /* iOS button style */
   --border-radius: 10px;
 }
 
 .platform-ios ion-modal {
-  /* iOS modal style */
   --border-radius: 10px 10px 0 0;
 }
 
 .platform-ios .floating-input-item {
-  /* iOS input style - consistent rounded corners */
   border-radius: 15px;
   border-width: 1.5px;
   border-style: solid;
@@ -31,7 +24,6 @@
   appearance: none;
 }
 
-/* Specific handling for iPhone notch devices */
 .platform-ios.has-notch ion-header {
   padding-top: env(safe-area-inset-top);
 }
@@ -40,24 +32,29 @@
   padding-top: calc(env(safe-area-inset-top) + 10px);
 }
 
+/* Keep custom headers aligned with `.page-header` on notched iOS devices */
+.platform-ios.has-notch .privacy-header,
+.platform-ios.has-notch .security-header,
+.platform-ios.has-notch .help-header,
+.platform-ios.has-notch .about-header,
+.platform-ios.has-notch .deletion-header {
+  padding-top: calc(env(safe-area-inset-top) + 10px);
+}
+
 .platform-ios.has-notch .home-content {
   padding-top: env(safe-area-inset-top);
 }
 
-/* Android Specific Styles */
 .platform-android {
-  /* Android uses standard scrolling */
   overflow-scrolling: auto;
 }
 
 .platform-android ion-toolbar {
-  /* Android toolbar style */
   --min-height: 56px;
 }
 
 .platform-android .app-button-primary,
 .platform-android .app-button-secondary {
-  /* Match iOS button style for consistency */
   text-transform: none;
   letter-spacing: normal;
   border-radius: 15px;
@@ -65,19 +62,16 @@
 }
 
 .platform-android ion-button {
-  /* Android button style - Material Design (for other buttons) */
   --border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .platform-android ion-modal {
-  /* Android modal style */
   --border-radius: 4px;
 }
 
 .platform-android .floating-input-item {
-  /* Match iOS input style for consistency */
   border-radius: 15px;
   border-width: 1.5px;
   border-style: solid;
@@ -87,19 +81,15 @@
   appearance: none;
 }
 
-/* Android navigation bar */
 .platform-android .tabbar-wrapper {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 .platform-android ion-content {
-  /* Handle Android keyboard resize */
   --keyboard-offset: 0px;
 }
 
-/* Web Platform Specific */
 .platform-web .floating-input-item {
-  /* Match mobile input style for consistency */
   border-radius: 15px;
   border-width: 1.5px;
   border-style: solid;
@@ -115,7 +105,6 @@
   cursor: pointer;
 }
 
-/* Landscape Mode Optimizations */
 .landscape .welcome-container {
   flex-direction: row;
   padding: 1rem 2rem;
@@ -126,7 +115,6 @@
 }
 
 .landscape .map-wrap {
-  /* Adjust map for landscape */
   height: 100vh;
 }
 
@@ -136,12 +124,10 @@
   transform: translateX(-50%);
 }
 
-/* Portrait Mode Optimizations */
 .portrait .welcome-container {
   flex-direction: column;
 }
 
-/* Retina Display Optimizations */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .platform-ios .profile-avatar,
   .platform-android .profile-avatar {
@@ -154,7 +140,6 @@
   }
 }
 
-/* Dark Mode Platform Adjustments */
 .ion-palette-dark.platform-ios .main-tabbar {
   background: #1c1c1e;
   border-top-color: rgba(255, 255, 255, 0.1);
@@ -165,7 +150,6 @@
   border-top-color: rgba(255, 255, 255, 0.12);
 }
 
-/* Accessibility - Larger text support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -176,7 +160,6 @@
   }
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
   .floating-input-item {
     border-width: 2px;
@@ -187,14 +170,12 @@
   }
 }
 
-/* Foldable device support */
 @media (horizontal-viewport-segments: 2) {
   .auth-page-container {
     max-width: 50vw;
   }
 }
 
-/* Tablet specific adjustments */
 @media (min-width: 768px) and (max-width: 1024px) {
   .platform-ios ion-modal,
   .platform-android ion-modal {
@@ -207,7 +188,6 @@
   }
 }
 
-/* Small phone adjustments */
 @media (max-width: 360px) {
   .platform-ios .floating-input-item,
   .platform-android .floating-input-item {
@@ -222,7 +202,6 @@
   }
 }
 
-/* Prevent zoom on input focus (while maintaining accessibility) */
 @media (max-width: 1024px) {
   .platform-ios input,
   .platform-ios textarea,

@@ -1,0 +1,206 @@
+.ion-page[data-page="privacy"] .page-header,
+.privacy-header {
+  padding-top: 20px;
+  transform: none;
+  box-shadow: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+}
+
+.ion-page[data-page="privacy"] ion-header {
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ion-page[data-page="privacy"] .page-header::after,
+.ion-page[data-page="privacy"] .page-header::before,
+.ion-page[data-page="privacy"] ion-header::after,
+.ion-page[data-page="privacy"] ion-header::before,
+.privacy-header::after,
+.privacy-header::before {
+  display: none !important;
+}
+
+.ion-page[data-page="privacy"] .page-toolbar,
+.privacy-header ion-toolbar {
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  --border-width: 0 !important;
+  border: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="privacy"] .page-toolbar::after,
+.ion-page[data-page="privacy"] .page-toolbar::before,
+.privacy-header ion-toolbar::after,
+.privacy-header ion-toolbar::before {
+  display: none !important;
+}
+
+.privacy-toolbar {
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="privacy"] .page-title,
+.privacy-title {
+  text-align: left;
+  font-family: var(--app-font-family);
+  font-weight: 550;
+  font-size: 20px;
+  padding-left: 0;
+  color: #000000;
+}
+
+.privacy-content {
+  --padding-top: 30px;
+  --background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.privacy-container {
+  padding: 20px 16px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.privacy-container h2 {
+  font-family: var(--app-font-family);
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.privacy-update {
+  font-family: var(--app-font-family);
+  font-size: 12px;
+  color: #8c8c8c;
+  margin: 0 0 24px 0;
+}
+
+.privacy-section {
+  margin-bottom: 24px;
+}
+
+.privacy-section h3 {
+  font-family: var(--app-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.privacy-section p {
+  font-family: var(--app-font-family);
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+.ion-palette-dark .privacy-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .privacy-header ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .privacy-header {
+  background: #000000 !important;
+}
+
+.ion-palette-dark .privacy-header ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .privacy-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .privacy-title {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .privacy-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark .privacy-container {
+  background: #121212 !important;
+}
+
+.ion-palette-dark .privacy-container h2 {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .privacy-update {
+  color: #b0b0b0 !important;
+}
+
+.ion-palette-dark .privacy-section h3 {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .privacy-section p {
+  color: #e0e0e0 !important;
+}
+
+.ion-palette-dark ion-back-button {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+html.ion-palette-dark .ion-page[data-page="privacy"] ion-header,
+body.ion-palette-dark .ion-page[data-page="privacy"] ion-header,
+.ion-palette-dark .ion-page[data-page="privacy"] ion-header,
+.ion-palette-dark .privacy-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="privacy"] ion-toolbar,
+.ion-palette-dark .privacy-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="privacy"] ion-header::before,
+.ion-palette-dark .ion-page[data-page="privacy"] ion-header::after,
+.ion-palette-dark .ion-page[data-page="privacy"] ion-toolbar::before,
+.ion-palette-dark .ion-page[data-page="privacy"] ion-toolbar::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+.ion-palette-dark .ion-page[data-page="privacy"] ion-header::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="privacy"] ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}

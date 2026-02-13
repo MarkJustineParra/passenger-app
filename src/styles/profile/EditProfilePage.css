@@ -1,0 +1,175 @@
+.ion-page[data-page="editprofile"] .page-header {
+  --background: #ffffff !important;
+  background: #ffffff !important;
+  font-family: Poppins, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 550 !important;
+  transform: none !important;
+  border: none !important;
+  --border-width: 0 !important;
+  box-shadow: none !important;
+  --box-shadow: none !important;
+}
+
+.ion-page[data-page="editprofile"] .page-header ion-toolbar {
+  --background: #ffffff !important;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+}
+
+.ion-page[data-page="editprofile"] .page-header::before,
+.ion-page[data-page="editprofile"] .page-header::after,
+.ion-page[data-page="editprofile"] .page-header ion-toolbar::before,
+.ion-page[data-page="editprofile"] .page-header ion-toolbar::after {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  visibility: hidden !important;
+}
+
+.edit-avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 32px auto;
+  width: 100%;
+}
+
+.edit-form {
+  font-family: var(--app-font-family);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 30px;
+  margin: 60px auto 0 auto;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.edit-input {
+  --border-radius: var(--app-border-radius-large);
+  --padding-start: 16px;
+  border: 1px solid var(--app-border-color);
+  border-radius: var(--app-border-radius-large);
+  height: 60px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.edit-input ion-input {
+  margin-top: -25px;
+  padding: 12px 0;
+}
+
+.edit-label {
+  font-family: var(--app-font-family);
+  font-size: 12px;
+  color: #666;
+  margin-bottom: -16px;
+  margin-left: 16px;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.edit-actions {
+  margin-top: 28px;
+  padding: 0 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.ion-palette-dark .page-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark .edit-avatar-container {
+  background: #121212 !important;
+}
+
+.ion-palette-dark .edit-input {
+  background: #1e1e1e !important;
+  border-color: #444444 !important;
+  color: #ffffff !important;
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+}
+
+.ion-palette-dark .edit-input ion-input {
+  color: #ffffff !important;
+  --color: #ffffff !important;
+}
+
+.ion-palette-dark .edit-input ion-input::placeholder {
+  color: #999999 !important;
+  opacity: 1 !important;
+}
+
+.ion-palette-dark .edit-label {
+  color: #b0b0b0 !important;
+}
+
+.ion-palette-dark .app-button-secondary {
+  --background: #2c2c2c !important;
+  --color: #ffffff !important;
+  --border-color: #444444 !important;
+  border: 1px solid #444444 !important;
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .app-button-primary {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+html.ion-palette-dark .ion-page[data-page="editprofile"] ion-header,
+body.ion-palette-dark .ion-page[data-page="editprofile"] ion-header,
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-header,
+.ion-palette-dark .ion-page[data-page="editprofile"] .page-header,
+.ion-palette-dark .edit-profile-header {
+  --background: #121212 !important;
+  background: #121212 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-toolbar,
+.ion-palette-dark .edit-profile-toolbar {
+  --background: #121212 !important;
+  background: #121212 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-header::before,
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-header::after,
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-toolbar::before,
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-toolbar::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-header::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -5px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 10px !important;
+  background: #121212 !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="editprofile"] ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}

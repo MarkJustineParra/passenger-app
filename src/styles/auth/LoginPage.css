@@ -1,0 +1,28 @@
+.forgot-password {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--app-primary-color);
+  margin-top: -5px;
+  cursor: pointer;
+  font-family: var(--app-font-family);
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 20px;
+  color: var(--app-text-medium);
+  font-family: var(--app-font-family);
+}
+
+.auth-force-light .forgot-password {
+  color: #008000 !important;
+}
+
+.auth-force-light .signup-text {
+  color: #555555 !important;
+}
+
+.auth-force-light .form-link {
+  color: #008000 !important;
+}

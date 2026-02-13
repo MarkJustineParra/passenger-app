@@ -212,25 +212,58 @@
 
 
 .page-header {
-  transform: translateY(30px);
+  padding-top: 20px;
+  transform: none;
   box-shadow: none !important;
-  --background: var(--app-background);
-  background: var(--app-background);
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: 0 !important;
 }
 
-.page-header::after {
-  display: none;
+/* Remove Ionic default header bottom borders/lines for custom page headers */
+.page-header::before,
+.page-header::after,
+html .page-header::before,
+html .page-header::after,
+body .page-header::before,
+body .page-header::after {
+  display: none !important;
+  visibility: hidden !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
-.page-header .page-toolbar {
-  --background: var(--app-background);
-  background: var(--app-background);
+.page-header .page-toolbar,
+html .page-header .page-toolbar,
+body .page-header .page-toolbar {
+  --background: #ffffff;
+  background: #ffffff !important;
   --box-shadow: none;
   --border-width: 0 !important;
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
 }
 
-.page-header .page-toolbar::after {
-  display: none;
+.page-header .page-toolbar::before,
+.page-header .page-toolbar::after,
+html .page-header .page-toolbar::before,
+html .page-header .page-toolbar::after,
+body .page-header .page-toolbar::before,
+body .page-header .page-toolbar::after {
+  display: none !important;
+  visibility: hidden !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 .page-title {
@@ -406,9 +439,197 @@
   --background: #121212;
 }
 
+.ion-palette-dark ion-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark ion-header::before,
+.ion-palette-dark ion-header::after {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.ion-palette-dark ion-header ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* In dark mode, remove any remaining Ionic toolbar separators/lines */
+.ion-palette-dark ion-header ion-toolbar::before,
+.ion-palette-dark ion-header ion-toolbar::after {
+  display: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Comprehensive dark mode header cleanup - disable all possible borders/shadows */
+.ion-palette-dark ion-header,
+.ion-palette-dark .page-header,
+.ion-palette-dark .settings-header {
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --border-width: 0 !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html.ion-palette-dark ion-header,
+html.ion-palette-dark .page-header,
+html.ion-palette-dark .settings-header,
+body.ion-palette-dark ion-header,
+body.ion-palette-dark .page-header,
+body.ion-palette-dark .settings-header {
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --border-width: 0 !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-bottom: 0 !important;
+}
+
+.ion-palette-dark ion-header *,
+.ion-palette-dark .page-header *,
+.ion-palette-dark .settings-header * {
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --border-width: 0 !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html.ion-palette-dark ion-header *,
+html.ion-palette-dark .page-header *,
+html.ion-palette-dark .settings-header *,
+body.ion-palette-dark ion-header *,
+body.ion-palette-dark .page-header *,
+body.ion-palette-dark .settings-header * {
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --border-width: 0 !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-bottom: 0 !important;
+}
+
+/* Force remove all pseudo-elements on headers in dark mode */
+.ion-palette-dark ion-header *::before,
+.ion-palette-dark ion-header *::after,
+.ion-palette-dark .page-header *::before,
+.ion-palette-dark .page-header *::after,
+.ion-palette-dark .settings-header *::before,
+.ion-palette-dark .settings-header *::after {
+  display: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html.ion-palette-dark ion-header *::before,
+html.ion-palette-dark ion-header *::after,
+html.ion-palette-dark .page-header *::before,
+html.ion-palette-dark .page-header *::after,
+html.ion-palette-dark .settings-header *::before,
+html.ion-palette-dark .settings-header *::after,
+body.ion-palette-dark ion-header *::before,
+body.ion-palette-dark ion-header *::after,
+body.ion-palette-dark .page-header *::before,
+body.ion-palette-dark .page-header *::after,
+body.ion-palette-dark .settings-header *::before,
+body.ion-palette-dark .settings-header *::after {
+  display: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+}
+
 .ion-palette-dark .page-header {
-  --background: #121212 !important;
-  background: #121212 !important;
+  --background: #000000 !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Apply to ion-header globally in dark mode */
+html.ion-palette-dark ion-header,
+body.ion-palette-dark ion-header,
+.ion-palette-dark ion-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  --border-color: transparent !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.ion-palette-dark .page-header::before,
+.ion-palette-dark .page-header::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* Avoid the extra dark band below headers in dark mode */
+html.ion-palette-dark ion-header::after,
+body.ion-palette-dark ion-header::after,
+.ion-palette-dark ion-header::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+}
+
+.ion-palette-dark .page-header ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  border-width: 0 !important;
+}
+
+.ion-palette-dark .page-header ion-toolbar::before,
+.ion-palette-dark .page-header ion-toolbar::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 .ion-palette-dark .page-toolbar {
@@ -420,9 +641,19 @@
   color: #ffffff !important;
 }
 
+/* Global ion-content dark mode styling */
+html.ion-palette-dark ion-content,
+body.ion-palette-dark ion-content,
+.ion-palette-dark ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+}
+
 .ion-palette-dark ion-back-button {
-  --color: #ffffff;
-  color: #ffffff;
+  --color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 .ion-palette-dark .auth-page-content {
@@ -463,6 +694,16 @@
   color: #ffffff !important;
 }
 
+/* Ensure auth/login inputs stay light even when dark mode is on */
+.ion-palette-dark .auth-force-light .floating-input-item {
+  background: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.ion-palette-dark .auth-force-light ion-input {
+  color: #000000 !important;
+}
+
 .ion-palette-dark .form-link {
   color: #4ade80;
 }
@@ -483,4 +724,414 @@
 .ion-palette-dark .app-button-secondary {
   --color: #ffffff !important;
   color: #ffffff !important;
+}
+
+/* Force light mode overrides for auth pages */
+html:has(.auth-force-light-page) {
+  background: #ffffff !important;
+}
+
+html:has(.auth-force-light-page) body {
+  background: #ffffff !important;
+}
+
+.ion-palette-dark:has(.auth-force-light-page) body {
+  background: #ffffff !important;
+}
+
+html.ion-palette-dark body {
+  background: var(--ion-background-color, #121212);
+}
+
+html.ion-palette-dark:has(.auth-force-light-page) body,
+html.ion-palette-dark body:has(.auth-force-light-page) {
+  background: #ffffff !important;
+}
+
+.auth-force-light-page {
+  background: #ffffff !important;
+}
+
+.auth-force-light-page::part(background) {
+  background: #ffffff !important;
+}
+
+ion-page.auth-force-light-page {
+  background: #ffffff !important;
+}
+
+.ion-palette-dark .auth-force-light-page {
+  background: #ffffff !important;
+}
+
+.ion-palette-dark ion-page.auth-force-light-page {
+  background: #ffffff !important;
+}
+
+.auth-force-light-page ion-page {
+  background: #ffffff !important;
+}
+
+.ion-palette-dark .auth-force-light-page,
+.ion-palette-dark .auth-force-light-page ion-page,
+.ion-palette-dark .auth-force-light-page ion-content,
+.ion-palette-dark .auth-force-light {
+  background: #ffffff !important;
+  --background: #ffffff !important;
+}
+
+.ion-palette-dark .auth-force-light.welcome-content {
+  background: #008000 !important;
+  --background: #008000 !important;
+}
+
+.auth-force-light {
+  --ion-background-color: #ffffff !important;
+  --ion-text-color: #000000 !important;
+  --ion-card-background: #ffffff !important;
+  --ion-item-background: #ffffff !important;
+  --ion-toolbar-background: #ffffff !important;
+  --ion-border-color: #e8e8e8 !important;
+  --ion-label-color: #000000 !important;
+  --ion-secondary-text-color: #8c8c8c !important;
+  --app-background: #ffffff !important;
+  --app-text-dark: #000000 !important;
+  --app-text-medium: #555555 !important;
+  --app-text-light: #777777 !important;
+  --app-text-lighter: #999999 !important;
+  --app-border-color: #cfcfcf !important;
+  --app-border-color-dark: #555555 !important;
+  --background: #ffffff !important;
+  background: #ffffff !important;
+}
+
+.auth-force-light.auth-page-content {
+  background: #ffffff !important;
+}
+
+.auth-force-light::part(scroll) {
+  background: #ffffff !important;
+}
+
+.auth-force-light .auth-page-container {
+  background: #ffffff !important;
+}
+
+.auth-force-light .auth-header {
+  background: #ffffff !important;
+}
+
+.auth-force-light .auth-form {
+  background: #ffffff !important;
+}
+
+.auth-force-light .auth-title {
+  color: #000000 !important;
+}
+
+.auth-force-light .auth-subtitle {
+  color: #777777 !important;
+}
+
+.auth-force-light .floating-input-item {
+  background: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.auth-force-light .floating-input-item .floating-input-icon {
+  color: #000000 !important;
+}
+
+.auth-force-light .floating-label {
+  color: #999999 !important;
+  background: #ffffff !important;
+}
+
+.auth-force-light .floating-input-item.has-value .floating-label {
+  color: #666666 !important;
+  background: #ffffff !important;
+}
+
+.auth-force-light .floating-input-item:focus-within .floating-label {
+  color: #666666 !important;
+  background: #ffffff !important;
+}
+
+.auth-force-light .password-toggle-icon {
+  color: #000000 !important;
+}
+
+.auth-force-light ion-input {
+  color: #000000 !important;
+}
+
+.auth-force-light .form-link {
+  color: #008000 !important;
+}
+
+.auth-force-light .forgot-password {
+  color: #008000 !important;
+}
+
+.auth-force-light .signup-text {
+  color: #555555 !important;
+}
+
+.auth-force-light .back-to-signin {
+  color: #000000 !important;
+}
+
+.auth-force-light .ms-footer {
+  color: #666666 !important;
+}
+
+.auth-force-light .otp-title {
+  color: #000000 !important;
+}
+
+.auth-force-light .otp-subtitle {
+  color: #666666 !important;
+}
+
+.auth-force-light .otp-box {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.auth-force-light .signup-item {
+  background: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.auth-force-light .signup-item ion-icon {
+  color: #000000 !important;
+}
+
+.auth-force-light .signup-item ion-input {
+  color: #000000 !important;
+}
+
+.auth-force-light .terms-checkbox label {
+  color: #666666 !important;
+}
+
+/* Override ion-app and router background when auth page is present */
+.ion-palette-dark ion-app:has(.auth-force-light-page) {
+  background: #ffffff !important;
+}
+
+.ion-palette-dark ion-router-outlet:has(.auth-force-light-page) {
+  background: #ffffff !important;
+}
+
+ion-app:has(.auth-force-light-page),
+ion-router-outlet:has(.auth-force-light-page) {
+  background: #ffffff !important;
+}
+
+/* Dark mode general overrides for text and inputs */
+.ion-palette-dark .page-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark ion-item {
+  --background: #1e1e1e !important;
+  --color: #ffffff !important;
+  background: #1e1e1e !important;
+}
+
+.ion-palette-dark ion-label {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark ion-icon {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark ion-input {
+  color: #ffffff !important;
+  --color: #ffffff !important;
+}
+
+.ion-palette-dark ion-input::placeholder {
+  color: #999999 !important;
+  opacity: 1 !important;
+}
+
+/* Light mode enforcement for auth pages */
+body.auth-page ion-page,
+body.auth-page ion-content,
+body.auth-page ion-toolbar {
+  background: #ffffff !important;
+  --background: #ffffff !important;
+}
+
+body.auth-page ion-item,
+body.auth-page ion-input,
+body.auth-page ion-text {
+  background: #ffffff !important;
+  color: #000000 !important;
+  --background: #ffffff !important;
+  --color: #000000 !important;
+}
+
+/* ULTIMATE HEADER BORDER REMOVAL - MAXIMUM SPECIFICITY */
+html.ion-palette-dark ion-app ion-page ion-header,
+html.ion-palette-dark ion-app ion-page .page-header,
+html.ion-palette-dark ion-app ion-header,
+html.ion-palette-dark ion-header,
+html.ion-palette-dark .page-header,
+.ion-palette-dark ion-header,
+.ion-palette-dark .page-header {
+  --border-width: 0 !important;
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+html.ion-palette-dark ion-app ion-page ion-header ion-toolbar,
+html.ion-palette-dark ion-app ion-page .page-header ion-toolbar,
+html.ion-palette-dark ion-app ion-header ion-toolbar,
+html.ion-palette-dark ion-header ion-toolbar,
+html.ion-palette-dark .page-header ion-toolbar,
+.ion-palette-dark ion-header ion-toolbar,
+.ion-palette-dark .page-header ion-toolbar,
+.ion-palette-dark .page-toolbar {
+  --border-width: 0 !important;
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --box-shadow: none !important;
+  border: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove ALL pseudo-elements that could create lines */
+html.ion-palette-dark ion-app ion-page ion-header::before,
+html.ion-palette-dark ion-app ion-page ion-header::after,
+html.ion-palette-dark ion-app ion-page .page-header::before,
+html.ion-palette-dark ion-app ion-page .page-header::after,
+html.ion-palette-dark ion-header::before,
+html.ion-palette-dark ion-header::after,
+html.ion-palette-dark .page-header::before,
+html.ion-palette-dark .page-header::after,
+.ion-palette-dark ion-header::before,
+.ion-palette-dark ion-header::after,
+.ion-palette-dark .page-header::before,
+.ion-palette-dark .page-header::after,
+html.ion-palette-dark ion-app ion-page ion-header ion-toolbar::before,
+html.ion-palette-dark ion-app ion-page ion-header ion-toolbar::after,
+html.ion-palette-dark ion-app ion-page .page-header ion-toolbar::before,
+html.ion-palette-dark ion-app ion-page .page-header ion-toolbar::after,
+html.ion-palette-dark ion-header ion-toolbar::before,
+html.ion-palette-dark ion-header ion-toolbar::after,
+html.ion-palette-dark .page-header ion-toolbar::before,
+html.ion-palette-dark .page-header ion-toolbar::after,
+.ion-palette-dark ion-header ion-toolbar::before,
+.ion-palette-dark ion-header ion-toolbar::after,
+.ion-palette-dark .page-header ion-toolbar::before,
+.ion-palette-dark .page-header ion-toolbar::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ========== ULTIMATE DARK MODE WHITE LINE ELIMINATION ========== */
+/* This section uses maximum CSS specificity to override any possible white lines */
+
+/* Force dark background on ALL possible header elements */
+html.ion-palette-dark * ion-header,
+html.ion-palette-dark * ion-toolbar,
+body.ion-palette-dark * ion-header,
+body.ion-palette-dark * ion-toolbar,
+.ion-palette-dark * ion-header,
+.ion-palette-dark * ion-toolbar,
+html.ion-palette-dark ion-page * ion-header,
+html.ion-palette-dark ion-page * ion-toolbar,
+body.ion-palette-dark ion-page * ion-header,
+body.ion-palette-dark ion-page * ion-toolbar,
+.ion-palette-dark ion-page * ion-header,
+.ion-palette-dark ion-page * ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  --border-style: none !important;
+  --border-color: transparent !important;
+  --box-shadow: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove ALL possible pseudo-elements that could create white lines */
+html.ion-palette-dark *::before,
+html.ion-palette-dark *::after,
+body.ion-palette-dark *::before,
+body.ion-palette-dark *::after,
+.ion-palette-dark *::before,
+.ion-palette-dark *::after {
+  border: none !important;
+  border-bottom: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* Target specific problematic pseudo-elements */
+html.ion-palette-dark ion-header *::before,
+html.ion-palette-dark ion-header *::after,
+html.ion-palette-dark ion-toolbar *::before,
+html.ion-palette-dark ion-toolbar *::after,
+body.ion-palette-dark ion-header *::before,
+body.ion-palette-dark ion-header *::after,
+body.ion-palette-dark ion-toolbar *::before,
+body.ion-palette-dark ion-toolbar *::after,
+.ion-palette-dark ion-header *::before,
+.ion-palette-dark ion-header *::after,
+.ion-palette-dark ion-toolbar *::before,
+.ion-palette-dark ion-toolbar *::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  content: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+/* Force removal of Ionic's internal border/divider elements */
+html.ion-palette-dark .header-border,
+html.ion-palette-dark .toolbar-border,
+html.ion-palette-dark .header-separator,
+html.ion-palette-dark .toolbar-separator,
+body.ion-palette-dark .header-border,
+body.ion-palette-dark .toolbar-border,
+body.ion-palette-dark .header-separator,
+body.ion-palette-dark .toolbar-separator,
+.ion-palette-dark .header-border,
+.ion-palette-dark .toolbar-border,
+.ion-palette-dark .header-separator,
+.ion-palette-dark .toolbar-separator {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  border: none !important;
+  background: transparent !important;
 }

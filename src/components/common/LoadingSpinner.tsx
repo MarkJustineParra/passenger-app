@@ -11,7 +11,7 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   message = "Please wait...",
 }) => {
   return (
-    <IonModal isOpen={isOpen} cssClass="loading-modal" backdropDismiss={false}>
+    <IonModal isOpen={isOpen} className="loading-modal" backdropDismiss={false}>
       <div className="loading-content">
         <div className="loading-circle">
           <svg className="progress-ring" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden>

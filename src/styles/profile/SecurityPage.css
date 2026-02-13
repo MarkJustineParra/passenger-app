@@ -1,0 +1,328 @@
+/* Security page header styling */
+.ion-page[data-page="security"] .page-header,
+.security-header {
+  padding-top: 20px;
+  transform: none;
+  box-shadow: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+}
+
+.ion-page[data-page="security"] ion-header {
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ion-page[data-page="security"] .page-header::after,
+.ion-page[data-page="security"] .page-header::before,
+.ion-page[data-page="security"] ion-header::after,
+.ion-page[data-page="security"] ion-header::before,
+.security-header::after,
+.security-header::before {
+  display: none !important;
+}
+
+.ion-page[data-page="security"] .page-toolbar,
+.security-header ion-toolbar {
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  --border-width: 0 !important;
+  border: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="security"] .page-toolbar::after,
+.ion-page[data-page="security"] .page-toolbar::before,
+.security-header ion-toolbar::after,
+.security-header ion-toolbar::before {
+  display: none !important;
+}
+
+.security-toolbar {
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="security"] .page-title,
+.security-title {
+  text-align: left;
+  font-family: var(--app-font-family);
+  font-weight: 550;
+  font-size: 20px;
+  padding-left: 0;
+  color: #000000;
+}
+
+.security-content {
+  --padding-top: 30px;
+  --background: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.security-section-label {
+  margin: 16px 16px 12px;
+  font-family: var(--app-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.security-list {
+  margin: 0 auto;
+  max-width: 700px;
+  width: calc(100% - 32px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0;
+}
+
+.security-item {
+  --background: #ffffff;
+  background: #ffffff;
+  --padding-start: 16px;
+  --inner-padding-end: 14px;
+  --min-height: 56px;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-width: 0 0 1px 0;
+}
+
+.security-icon {
+  font-size: 22px;
+  color: #000;
+  font-weight: bold;
+  stroke-width: 50px;
+  --ionicon-stroke-width: 50px;
+}
+
+.security-label {
+  font-family: var(--app-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.security-label-title {
+  font-family: var(--app-font-family);
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+}
+
+.security-label-desc {
+  font-family: var(--app-font-family);
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.security-toggle {
+  transform: scale(0.9);
+}
+
+.security-info {
+  margin: 24px 16px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  max-width: 668px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.security-info h3 {
+  font-family: var(--app-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 12px 0;
+}
+
+.security-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.security-info li {
+  font-family: var(--app-font-family);
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ==================== DARK MODE ==================== */
+.ion-palette-dark .security-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .security-header ion-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .security-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+}
+
+.ion-palette-dark .security-title {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+.ion-palette-dark .security-section-label {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-list {
+  background: transparent !important;
+}
+
+.ion-palette-dark .security-item {
+  --background: #1e1e1e !important;
+  background: #1e1e1e !important;
+  --border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.ion-palette-dark .security-icon {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-label {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-label-title {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-label-desc {
+  color: #b0b0b0 !important;
+}
+
+.ion-palette-dark .security-info {
+  background: #1e1e1e !important;
+}
+
+.ion-palette-dark .security-info h3 {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .security-info li {
+  color: #e0e0e0 !important;
+}
+
+.ion-palette-dark ion-back-button {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Comprehensive dark mode header fix for security page */
+html.ion-palette-dark .ion-page[data-page="security"] ion-header,
+body.ion-palette-dark .ion-page[data-page="security"] ion-header,
+.ion-palette-dark .ion-page[data-page="security"] ion-header,
+.ion-palette-dark .security-header {
+  --background: #121212 !important;
+  background: #121212 !important;
+  background-color: #121212 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar,
+.ion-palette-dark .security-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-header::before,
+.ion-palette-dark .ion-page[data-page="security"] ion-header::after,
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar::before,
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar::after,
+.ion-palette-dark .security-header::before,
+.ion-palette-dark .security-header::after,
+.ion-palette-dark .security-toolbar::before,
+.ion-palette-dark .security-toolbar::after {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-header::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+/* Comprehensive dark mode header fix for security page */
+html.ion-palette-dark .ion-page[data-page="security"] ion-header,
+body.ion-palette-dark .ion-page[data-page="security"] ion-header,
+.ion-palette-dark .ion-page[data-page="security"] ion-header,
+.ion-palette-dark .security-header {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar,
+.ion-palette-dark .security-toolbar {
+  --background: #000000 !important;
+  background: #000000 !important;
+  --border-width: 0 !important;
+  border: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-header::before,
+.ion-palette-dark .ion-page[data-page="security"] ion-header::after,
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar::before,
+.ion-palette-dark .ion-page[data-page="security"] ion-toolbar::after {
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-header::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="security"] ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}

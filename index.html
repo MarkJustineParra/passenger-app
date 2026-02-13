@@ -29,6 +29,23 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Apply dark mode immediately before React loads to prevent flash
+      // Only apply to non-auth pages
+      (function () {
+        const path = window.location.pathname;
+        const isAuthPage =
+          path === "/" ||
+          path.startsWith("/login") ||
+          path.startsWith("/signup") ||
+          path.startsWith("/forgot-password") ||
+          path.startsWith("/welcome");
+
+        if (!isAuthPage && localStorage.getItem("darkMode") === "true") {
+          document.documentElement.classList.add("ion-palette-dark");
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

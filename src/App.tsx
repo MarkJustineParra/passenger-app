@@ -28,29 +28,30 @@ import { BarcodeScanner } from "@capacitor-mlkit/barcode-scanning";
 import { Capacitor } from "@capacitor/core";
 import { LoadingProvider } from "./contexts/LoadingContext";
 import { DarkModeProvider } from "./contexts/DarkModeContext";
+import { AuthContext } from "./contexts/AuthContext";
 import { getPlatformClasses } from "./utils/platform";
+import { ROUTES } from "./constants";
 
-import Homepage from "./pages/Homepage";
-import Profilepage from "./pages/Profilepage";
-import EditProfile from "./pages/EditProfile";
-import SettingsPage from "./pages/SettingsPage";
-import LoginPage from "./pages/LoginPage";
-import WalletPage from "./pages/WalletPage";
-import ChangePasswordPage from "./pages/ChangePasswordPage";
-import DiscountPage from "./pages/DiscountPage";
-import WelcomePage from "./pages/WelcomePage";
-import MobileSignupPage from "./pages/MobileSignupPage";
-import NotificationPage from "./pages/NotificationPage";
-import ForgotPasswordPage from "./pages/ForgotPasswordPage";
-import Addresspage from "./pages/Addresspage";
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import SecurityPage from "./pages/SecurityPage";
-import HelpPage from "./pages/HelpPage";
-import AccountDeletionPage from "./pages/AccountDeletionPage";
-import AboutPage from "./pages/AboutPage";
-
-
-
+import {
+  HomePage,
+  ProfilePage,
+  EditProfilePage,
+  SettingsPage,
+  LoginPage,
+  WalletPage,
+  ChangePasswordPage,
+  DiscountPage,
+  WelcomePage,
+  SignupPage,
+  NotificationPage,
+  ForgotPasswordPage,
+  AddressPage,
+  PrivacyPolicyPage,
+  SecurityPage,
+  HelpPage,
+  AccountDeletionPage,
+  AboutPage,
+} from "./pages";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -71,11 +72,6 @@ setupIonicReact({
   swipeBackEnabled: true,
 });
 
-export const AuthContext = createContext({
-  isLoggedIn: false,
-  setIsLoggedIn: (_: boolean) => {},
-});
-
 const openNearbyEvent = () => window.dispatchEvent(new Event("open-nearby"));
 const TabsLayout: React.FC<{
   isLoggedIn: boolean;
@@ -83,26 +79,26 @@ const TabsLayout: React.FC<{
 }> = ({ isLoggedIn, setOpenQRSheet }) => {
   const location = useLocation();
   const hideBottomBar = false;
-  if (!isLoggedIn) return <Redirect to="/" />;
+  if (!isLoggedIn) return <Redirect to={ROUTES.ROOT} />;
 
   return (
     <IonTabs>
       <IonRouterOutlet>
-        <Route exact path="/tabs/homepage" component={Homepage} />
-        <Route exact path="/tabs/profilepage" component={Profilepage} />
-        <Redirect exact from="/tabs" to="/tabs/homepage" />
+        <Route exact path={ROUTES.TABS_HOME} component={HomePage} />
+        <Route exact path={ROUTES.TABS_PROFILE} component={ProfilePage} />
+        <Redirect exact from={ROUTES.TABS} to={ROUTES.TABS_HOME} />
       </IonRouterOutlet>
 
       {!hideBottomBar && (
         <div className="tabbar-wrapper">
           <IonTabBar slot="bottom" className="main-tabbar">
-            <IonTabButton tab="home" href="/tabs/homepage">
+            <IonTabButton tab="home" href={ROUTES.TABS_HOME}>
               <IonIcon icon={homeSharp} />
             </IonTabButton>
 
             <IonTabButton className="tab-spacer" />
 
-            <IonTabButton tab="profile" href="/tabs/profilepage">
+            <IonTabButton tab="profile" href={ROUTES.TABS_PROFILE}>
               <IonIcon icon={personSharp} />
             </IonTabButton>
           </IonTabBar>
@@ -191,115 +187,115 @@ const App: React.FC = () => {
             <IonRouterOutlet>
             <Route
               exact
-              path="/"
+              path={ROUTES.ROOT}
               render={() => {
                 
                 if (showWelcome) return <WelcomePage />;
-                if (isLoggedIn) return <Redirect to="/tabs/homepage" />;
-                return <Redirect to="/login" />;
+                if (isLoggedIn) return <Redirect to={ROUTES.TABS_HOME} />;
+                return <Redirect to={ROUTES.LOGIN} />;
               }}
             />
 
-            <Route exact path="/welcome" component={WelcomePage} />
+            <Route exact path={ROUTES.WELCOME} component={WelcomePage} />
 
             <Route
               exact
-              path="/login"
+              path={ROUTES.LOGIN}
               component={LoginPage}
             />
 
             <Route
               exact
-              path="/signup"
+              path={ROUTES.SIGNUP}
               render={() =>
                 isLoggedIn ? (
-                  <Redirect to="/tabs/homepage" />
+                  <Redirect to={ROUTES.TABS_HOME} />
                 ) : (
-                  <MobileSignupPage />
+                  <SignupPage />
                 )
               }
             />
 
             <Route
               exact
-              path="/edit-profile"
-              render={() => (isLoggedIn ? <DarkModeProvider><EditProfile /></DarkModeProvider> : <Redirect to="/" />)}
+              path={ROUTES.EDIT_PROFILE}
+              render={() => (isLoggedIn ? <DarkModeProvider><EditProfilePage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />)}
             />
             <Route
               exact
-              path="/settings"
-              render={() => (isLoggedIn ? <DarkModeProvider><SettingsPage /></DarkModeProvider> : <Redirect to="/" />)}
+              path={ROUTES.SETTINGS}
+              render={() => (isLoggedIn ? <DarkModeProvider><SettingsPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />)}
             />
             <Route
               exact
-              path="/wallet"
-              render={() => (isLoggedIn ? <DarkModeProvider><WalletPage /></DarkModeProvider> : <Redirect to="/" />)}
+              path={ROUTES.WALLET}
+              render={() => (isLoggedIn ? <DarkModeProvider><WalletPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />)}
             />
             <Route
               exact
-              path="/discount"
-              render={() => (isLoggedIn ? <DarkModeProvider><DiscountPage /></DarkModeProvider> : <Redirect to="/" />)}
+              path={ROUTES.DISCOUNT}
+              render={() => (isLoggedIn ? <DarkModeProvider><DiscountPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />)}
             />
             <Route
               exact
-              path="/change-password"
+              path={ROUTES.CHANGE_PASSWORD}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><ChangePasswordPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><ChangePasswordPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/notifications"
+              path={ROUTES.NOTIFICATIONS}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><NotificationPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><NotificationPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/address"
+              path={ROUTES.ADDRESS}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><Addresspage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><AddressPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/privacy-policy"
+              path={ROUTES.PRIVACY_POLICY}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><PrivacyPolicyPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><PrivacyPolicyPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/security"
+              path={ROUTES.SECURITY}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><SecurityPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><SecurityPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/help"
+              path={ROUTES.HELP}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><HelpPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><HelpPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/account-deletion"
+              path={ROUTES.ACCOUNT_DELETION}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><AccountDeletionPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><AccountDeletionPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
             <Route
               exact
-              path="/about"
+              path={ROUTES.ABOUT}
               render={() =>
-                isLoggedIn ? <DarkModeProvider><AboutPage /></DarkModeProvider> : <Redirect to="/" />
+                isLoggedIn ? <DarkModeProvider><AboutPage /></DarkModeProvider> : <Redirect to={ROUTES.ROOT} />
               }
             />
-            <Route exact path="/forgot-password" component={ForgotPasswordPage} />
+            <Route exact path={ROUTES.FORGOT_PASSWORD} component={ForgotPasswordPage} />
 
             <Route
-              path="/tabs"
+              path={ROUTES.TABS}
               render={() => (
                 <DarkModeProvider>
                   <TabsLayout

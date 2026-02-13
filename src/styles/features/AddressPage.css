@@ -1,0 +1,669 @@
+/* Address page header styling */
+.ion-page[data-page="address"] .page-header,
+.address-header {
+  transform: none;
+  box-shadow: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+  --ion-safe-area-top: 0px;
+}
+
+.ion-page[data-page="address"] ion-header {
+  --background: #ffffff;
+  background: #ffffff !important;
+  --border-width: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ion-page[data-page="address"] .page-header::after,
+.ion-page[data-page="address"] .page-header::before,
+.ion-page[data-page="address"] ion-header::after,
+.ion-page[data-page="address"] ion-header::before,
+.address-header::after,
+.address-header::before {
+  display: none !important;
+}
+
+.ion-page[data-page="address"] .page-toolbar,
+.address-header ion-toolbar {
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  --border-width: 0 !important;
+  border: none !important;
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="address"] .page-toolbar::after,
+.ion-page[data-page="address"] .page-toolbar::before,
+.address-header ion-toolbar::after,
+.address-header ion-toolbar::before {
+  display: none !important;
+}
+
+.address-toolbar {
+  --background: #ffffff;
+  background: #ffffff !important;
+}
+
+.ion-page[data-page="address"] .page-title,
+.address-title {
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-weight: 550;
+  font-size: 20px;
+  padding-left: 0;
+  color: #000000;
+}
+
+.address-page-content {
+  --background: #f8f8f8;
+  --padding-top: 40px;
+}
+
+.address-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-icon {
+  font-size: 20px;
+  color: #008000;
+}
+
+.section-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+}
+
+.current-address-section {
+  margin-bottom: 32px;
+}
+
+.current-address-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.current-address-card:active {
+  transform: scale(0.98);
+}
+
+.current-address-content {
+  flex: 1;
+}
+
+.current-address-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.card-chevron {
+  font-size: 20px;
+  color: #cccccc;
+  flex-shrink: 0;
+}
+
+.saved-places-section {
+  margin-bottom: 20px;
+}
+
+.add-place-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-place-btn ion-icon {
+  font-size: 32px;
+  color: #008000;
+}
+
+.saved-places-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.empty-icon {
+  font-size: 64px;
+  color: #d0d0d0;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666666;
+  margin: 0 0 8px 0;
+}
+
+.empty-subtext {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #999999;
+  margin: 0;
+}
+
+.saved-place-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s;
+}
+
+.saved-place-card:active {
+  transform: scale(0.98);
+}
+
+.saved-place-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.saved-place-icon ion-icon {
+  font-size: 22px;
+  color: #008000;
+}
+
+.saved-place-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.saved-place-title {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.saved-place-address {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #666666;
+  margin-bottom: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-place-notes {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.map-modal {
+  --width: 100%;
+  --height: 100%;
+}
+
+.map-toolbar {
+  --background: #ffffff;
+  --border-width: 0;
+}
+
+.map-toolbar ion-button {
+  --color: #000000;
+}
+
+.map-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+.map-content {
+  --background: #f0f0f0;
+  position: relative;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: calc(100% - 140px);
+  background: #e0e0e0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.map-marker ion-icon {
+  font-size: 48px;
+  color: #008000;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.map-address-display {
+  position: absolute;
+  bottom: 80px;
+  left: 16px;
+  right: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.map-address-icon {
+  font-size: 20px;
+  color: #008000;
+  flex-shrink: 0;
+}
+
+.map-address-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #000000;
+  flex: 1;
+}
+
+.map-save-btn {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  --background: #008000;
+  --background-activated: #006600;
+  --border-radius: 12px;
+  height: 50px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+  margin: 0;
+}
+
+.edit-modal {
+  --width: 100%;
+  --height: 100%;
+}
+
+.edit-toolbar {
+  --background: #ffffff;
+  --border-width: 0;
+}
+
+.edit-toolbar ion-button {
+  --color: #000000;
+}
+
+.edit-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: #000000;
+}
+
+.edit-content {
+  --background: #ffffff;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-input-item {
+  --background: transparent;
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-end: 0;
+  --border-radius: 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.edit-input {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 14px;
+  --padding-bottom: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.update-place-btn {
+  --background: #008000;
+  --background-activated: #006600;
+  --border-radius: 12px;
+  height: 50px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+  margin-top: 8px;
+}
+
+
+/* Dark mode for address page header - ULTRA AGGRESSIVE FIX */
+html.ion-palette-dark .ion-page[data-page="address"],
+body.ion-palette-dark .ion-page[data-page="address"],
+.ion-palette-dark .ion-page[data-page="address"] {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+html.ion-palette-dark .ion-page[data-page="address"] ion-header,
+body.ion-palette-dark .ion-page[data-page="address"] ion-header,
+.ion-palette-dark .ion-page[data-page="address"] ion-header,
+html.ion-palette-dark .ion-page[data-page="address"] .page-header,
+body.ion-palette-dark .ion-page[data-page="address"] .page-header,
+.ion-palette-dark .ion-page[data-page="address"] .page-header,
+.ion-palette-dark .address-header {
+  --background: #121212 !important;
+  background: #121212 !important;
+  background-color: #121212 !important;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  --border-style: none !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  border-style: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  --min-height: auto !important;
+  outline: none !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+html.ion-palette-dark .ion-page[data-page="address"] ion-toolbar,
+body.ion-palette-dark .ion-page[data-page="address"] ion-toolbar,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar,
+html.ion-palette-dark .ion-page[data-page="address"] .page-toolbar,
+body.ion-palette-dark .ion-page[data-page="address"] .page-toolbar,
+.ion-palette-dark .ion-page[data-page="address"] .page-toolbar,
+.ion-palette-dark .address-toolbar,
+.ion-palette-dark .address-header ion-toolbar {
+  --background: #121212 !important;
+  background: #121212 !important;
+  background-color: #121212 !important;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  --border-style: none !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  border-style: none !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  --box-shadow: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+}
+
+/* Remove ALL pseudo-elements that could create white lines */
+html.ion-palette-dark .ion-page[data-page="address"] ion-header::before,
+html.ion-palette-dark .ion-page[data-page="address"] ion-header::after,
+body.ion-palette-dark .ion-page[data-page="address"] ion-header::before,
+body.ion-palette-dark .ion-page[data-page="address"] ion-header::after,
+.ion-palette-dark .ion-page[data-page="address"] ion-header::before,
+.ion-palette-dark .ion-page[data-page="address"] ion-header::after,
+html.ion-palette-dark .ion-page[data-page="address"] .page-header::before,
+html.ion-palette-dark .ion-page[data-page="address"] .page-header::after,
+body.ion-palette-dark .ion-page[data-page="address"] .page-header::before,
+body.ion-palette-dark .ion-page[data-page="address"] .page-header::after,
+.ion-palette-dark .ion-page[data-page="address"] .page-header::before,
+.ion-palette-dark .ion-page[data-page="address"] .page-header::after,
+html.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::before,
+html.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::after,
+body.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::before,
+body.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::after,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::before,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::after,
+html.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::before,
+html.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::after,
+body.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::before,
+body.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::after,
+.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::before,
+.ion-palette-dark .ion-page[data-page="address"] .page-toolbar::after,
+.ion-palette-dark .address-header::after,
+.ion-palette-dark .address-header::before,
+.ion-palette-dark .address-header ion-toolbar::after,
+.ion-palette-dark .address-header ion-toolbar::before {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  content: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  box-shadow: none !important;
+  position: absolute !important;
+}
+
+/* Target shadow DOM parts */
+.ion-palette-dark .ion-page[data-page="address"] ion-header::part(native),
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar::part(native) {
+  background: #121212 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Completely override any hairline borders */
+.ion-palette-dark .ion-page[data-page="address"] ion-header .header-md::after,
+.ion-palette-dark .ion-page[data-page="address"] ion-header .header-ios::after,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar .toolbar-md::after,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar .toolbar-ios::after {\n  display: none !important;\n  opacity: 0 !important;\n  height: 0 !important;\n  background: transparent !important;\n}
+
+/* Remove Ionic's built-in hairline border */
+.ion-palette-dark .ion-page[data-page="address"] .header-md::after,
+.ion-palette-dark .ion-page[data-page="address"] .header-ios::after,
+.ion-palette-dark .ion-page[data-page="address"] .toolbar-md::after,
+.ion-palette-dark .ion-page[data-page="address"] .toolbar-ios::after,
+.ion-palette-dark .ion-page[data-page="address"] .ion-ios ion-header::after,
+.ion-palette-dark .ion-page[data-page="address"] .ion-md ion-header::after {
+  display: none !important;
+  content: none !important;
+  height: 0 !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ion-palette-dark .ion-page[data-page="address"] .page-title,
+.ion-palette-dark .ion-page[data-page="address"] ion-title,
+.ion-palette-dark .address-title {
+  color: #ffffff !important;
+}
+
+.ion-palette-dark .ion-page[data-page="address"] ion-back-button {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* Ensure no white lines anywhere in dark mode */
+.ion-palette-dark .ion-page[data-page="address"] ion-header,
+.ion-palette-dark .ion-page[data-page="address"] ion-toolbar,
+.ion-palette-dark .ion-page[data-page="address"] ion-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+  background-color: #121212 !important;
+  --border-width: 0 !important;
+  --border-color: transparent !important;
+  border: 0 !important;
+  border-width: 0 !important;
+  border-color: transparent !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Cover the safe area with dark background */
+.ion-palette-dark .ion-page[data-page="address"]::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: env(safe-area-inset-top, 0) !important;
+  background: #121212 !important;
+  z-index: 9999 !important;
+}
+
+.ion-palette-dark .ion-page[data-page="address"] .address-content,
+.ion-palette-dark .ion-page[data-page="address"] .page-content,
+.ion-palette-dark .ion-page[data-page="address"] .address-page-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+  background-color: #121212 !important;
+}
+
+.ion-palette-dark .address-content {
+  --background: #121212;
+}
+
+.ion-palette-dark .address-page-content {
+  --background: #121212 !important;
+  background: #121212 !important;
+}
+
+/* Nuclear option: Add a dark overlay to cover any potential white line */
+.ion-palette-dark .ion-page[data-page="address"] ion-header::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -5px !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 10px !important;
+  background: #121212 !important;
+  z-index: 10 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+.ion-palette-dark .section-label {
+  color: #b0b0b0;
+}
+
+.ion-palette-dark .current-address-card {
+  background: #1e1e1e;
+  border-color: #008000;
+}
+
+.ion-palette-dark .current-address-title,
+.ion-palette-dark .current-address-text {
+  color: #ffffff;
+}
+
+.ion-palette-dark .saved-place-card {
+  background: #1e1e1e;
+}
+
+.ion-palette-dark .saved-place-title,
+.ion-palette-dark .saved-place-address {
+  color: #ffffff;
+}
+
+.ion-palette-dark .saved-place-notes {
+  color: #b0b0b0;
+}
+
+.ion-palette-dark .edit-toolbar {
+  --background: #1e1e1e;
+}
+
+.ion-palette-dark .edit-title {
+  color: #ffffff;
+}
+
+.ion-palette-dark .edit-content {
+  --background: #121212;
+}
+
+.ion-palette-dark .edit-input-item {
+  border-color: #444444;
+  background: #1e1e1e;
+}
+
+.ion-palette-dark .edit-input {
+  color: #ffffff;
+}
+
+.ion-palette-dark ion-back-button {
+  --color: #ffffff !important;
+  color: #ffffff !important;
+}

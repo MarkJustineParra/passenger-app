@@ -107,3 +107,11 @@
 .ion-palette-dark .loading-modal::part(backdrop) {
   background: rgba(0, 0, 0, 0.7);
 }
+
+.auth-force-light-page .loading-modal::part(backdrop) {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.auth-force-light-page .loading-message {
+  color: #ffffff !important;
+}

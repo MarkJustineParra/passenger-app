@@ -1,0 +1,2 @@
+// Home Page
+export { default as HomePage } from './HomePage';

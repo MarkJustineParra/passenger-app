@@ -1,10 +1,6 @@
-/* ===================================== */
-/* BASE PAGE STYLES - Common Patterns */
-/* ===================================== */
 
-/* Standard Page Header */
 .page-header-standard {
-  transform: translateY(30px);
+  transform: translateY(20px);
   box-shadow: none !important;
 }
 
@@ -19,7 +15,6 @@
   --background: #ffffff;
 }
 
-/* Standard Page Title */
 .page-title-standard {
   text-align: left;
   font-family: var(--app-font-family);
@@ -28,7 +23,6 @@
   padding-left: 0;
 }
 
-/* Standard Content Container */
 .page-content-standard {
   --padding-top: 30px;
   --background: #ffffff;
@@ -36,7 +30,6 @@
   overflow-x: hidden;
 }
 
-/* Centered Content Wrapper */
 .content-wrapper {
   max-width: 700px;
   margin: 0 auto;
@@ -53,7 +46,6 @@
   max-width: 800px;
 }
 
-/* Form Containers */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -73,7 +65,6 @@
   box-sizing: border-box;
 }
 
-/* List Styles */
 .page-list-inset {
   margin: 0 16px;
   border-radius: 14px;
@@ -101,7 +92,6 @@
   font-size: 1.2rem;
 }
 
-/* Section Headers */
 .page-section-header {
   margin: 16px 16px 8px;
   font-size: 11px;
@@ -112,7 +102,6 @@
   font-weight: 600;
 }
 
-/* Card Styles */
 .page-card {
   border-radius: 14px;
   padding: 20px;
@@ -121,7 +110,6 @@
   margin: 16px;
 }
 
-/* Input Containers */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -175,7 +163,6 @@
   }
 }
 
-/* Dark Mode Overrides */
 .ion-palette-dark .page-header-standard ion-toolbar,
 .ion-palette-dark .page-content-standard {
   --background: #121212;
